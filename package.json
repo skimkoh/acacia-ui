@@ -1,0 +1,58 @@
+{
+    "name": "acacia-design",
+    "version": "1.0.1",
+    "description": "Acacia Design UI Library",
+    "main": "dist/main.js",
+    "typings": "dist/index.d.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "package:test": "cross-env NODE_ENV=production webpack-cli --progress --color && npm pack && tar -xvzf *.tgz",
+        "prepublishOnly": "npm run build",
+        "build": "cross-env NODE_ENV=production webpack-cli --progress --color",
+        "semantic-release": "semantic-release"
+    },
+    "peerDependencies": {
+        "@ant-design/colors": "^7.0.2",
+        "@fontsource-variable/inter": "^5.0.17",
+        "@fontsource-variable/outfit": "^5.0.12",
+        "antd": "^5.10.0",
+        "antd-style": "^3.5.2",
+        "prop-types": "^15.8.1",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "styled-components": "^6.1.6"
+    },
+    "devDependencies": {
+        "@ant-design/icons": "^5.2.6",
+        "@babel/core": "^7.23.2",
+        "@babel/preset-env": "^7.23.2",
+        "@babel/preset-react": "^7.22.15",
+        "@semantic-release/changelog": "^6.0.3",
+        "@semantic-release/git": "^10.0.1",
+        "@semantic-release/npm": "^12.0.1",
+        "antd": "^5.10.0",
+        "babel-loader": "^9.1.3",
+        "core-js": "^3.33.0",
+        "cross-env": "^7.0.3",
+        "css-loader": "^6.8.1",
+        "mini-css-extract-plugin": "^2.9.0",
+        "react-docgen-typescript": "^2.2.2",
+        "react-styleguidist": "^13.1.1",
+        "semantic-release": "^24.1.2",
+        "style-loader": "^3.3.3",
+        "ts-loader": "^9.5.0",
+        "typescript": "^5.2.2",
+        "typescript-plugin-css-modules": "^5.0.1",
+        "webpack": "^5.89.0",
+        "webpack-cli": "^5.1.4",
+        "webpack-merge": "^5.9.0"
+    },
+    "browserslist": [
+        ">0.25%",
+        "not ie 11",
+        "not op_mini all"
+    ],
+    "files": [
+        "/dist"
+    ]
+}

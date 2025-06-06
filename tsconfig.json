@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+      "declaration": true,
+      "declarationDir": "dist",
+      "module": "esnext",
+      "target": "es5",
+      "lib": ["ES2020", "dom"],
+      "sourceMap": true,
+      "jsx": "react-jsx",
+      "moduleResolution": "node",
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "allowJs": true,
+      "declarationMap": true,
+      "noEmit": false,
+
+    },
+    "include": ["src"],
+    "exclude": [
+      "node_modules",
+      "dist"
+    ]
+  }

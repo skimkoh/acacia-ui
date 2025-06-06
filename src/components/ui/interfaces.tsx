@@ -33,14 +33,8 @@ import type { RibbonProps } from "antd/es/badge/Ribbon";
 /**
  * Props for Palette Breadcrumb component
  * @see https://ant.design/components/breadcrumb
- *
- * Custom Palette props:
- * @property {"header" | "page"} [type=page] - determines the breadcrumb type. 'header' is for breadcrumb within the header while 'page' is for breadcrumb on the page itself
  */
-export interface PaletteBreadcrumbProps extends BreadcrumbProps {
-	/** decides the breadcrumb type */
-	type?: "header" | "page";
-}
+export interface AcaciaBreadcrumbProps extends BreadcrumbProps {}
 
 /**
  * Props for Palette Avatar component
@@ -61,7 +55,7 @@ export interface PaletteAvatarProps extends AvatarProps {
  * Props for Palette Button component
  * @see https://ant.design/components/button
  */
-export interface PaletteButtonProps extends ButtonProps {}
+export interface AcaciaButtonProps extends ButtonProps {}
 
 /**
  * Props for Palette Card component
@@ -213,15 +207,13 @@ export interface PaletteSwitchProps extends SwitchProps {}
  * Props for Palette Badge component
  * @see https://ant.design/components/badge
  */
-export interface PaletteBadgeProps extends BadgeProps {
-	children?: React.ReactNode;
-}
+export interface AcaciaBadgeProps extends BadgeProps {}
 
 /**
  * Props for Palette Badge.Ribbon component
  * @see https://ant.design/components/badge#badgeribbon
  */
-export interface PaletteRibbonProps extends RibbonProps {}
+export interface AcaciaRibbonProps extends RibbonProps {}
 
 /**
  * Props for Palette Checkbox component
@@ -374,10 +366,4 @@ export interface PaletteCustomToken {
 		contentbg: string;
 		headerbg: string;
 	};
-}
-
-// By extending the CustomToken object type definition for antd-style, you can add corresponding token objects to useTheme
-declare module "antd-style" {
-	// eslint-disable-next-line @typescript-eslint/no-empty-interface
-	export interface CustomToken extends PaletteCustomToken {}
 }

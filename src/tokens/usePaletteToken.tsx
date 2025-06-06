@@ -1,11 +1,11 @@
-import { theme } from 'antd'
-import { PaletteToken } from './interfaces'
+import { theme } from "antd";
+import type { PaletteToken } from "./interfaces";
 
-const { useToken } = theme
+const { useToken } = theme;
 
 export const usePaletteToken = () => {
-    const { token: antdToken } = useToken()
-    const token = antdToken as PaletteToken
+	const { token: antdToken } = useToken();
+	const token = antdToken as PaletteToken;
 
-    return { token }
-}
+	return { token };
+};

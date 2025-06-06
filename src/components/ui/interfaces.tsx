@@ -156,7 +156,7 @@ export interface PaletteParagraphProps extends ParagraphProps {
  * @see https://ant.design/components/pagination
  *
  */
-export interface PalettePaginationProps extends PaginationProps {}
+export interface AcaciaPaginationProps extends PaginationProps {}
 
 /**
  * Props for Palette Input component

@@ -10,6 +10,7 @@ export { default as Segmented } from "./components/ui/Segmented/Segmented";
 export { default as Select } from "./components/ui/Select/Select";
 export { default as Switch } from "./components/ui/Switch/Switch";
 export { default as Input } from "./components/ui/Input/Input";
+export { default as Dropdown } from "./components/ui/Dropdown/Dropdown";
 
 // hooks
 export { usePaletteColors } from "./hooks/usePaletteColors";

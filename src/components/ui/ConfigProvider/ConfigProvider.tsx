@@ -66,6 +66,12 @@ const ConfigProvider = ({ ...props }: ConfigProviderProps) => {
 				colorLink: colors.link.primary,
 				colorBgTextHover: colors.link.hover,
 			},
+			Pagination: {
+				borderRadius: borderRadius.primary,
+				borderRadiusLG: borderRadius.primary,
+				borderRadiusSM: borderRadius.primary,
+				borderRadiusXS: borderRadius.primary,
+			},
 		},
 	};
 

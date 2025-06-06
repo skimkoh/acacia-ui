@@ -185,23 +185,14 @@ export interface PaletteTabsProps extends TabsProps {
 
 /**
  * Props for Palette Radio component
- *
- * custom Palette props:
- * @property {"outline" | "solid"} [buttonStyle=solid] - determines the radio button style. 'outline' is for outline button while 'solid' is for solid button
- * @property {"default" | "button"} [optionType=default] - determines the radio button option type. 'default' is for default option while 'button' is for button option
- *
  */
-export interface PaletteRadioProps extends RadioProps {
-	/** decides the color of the radio */
-	buttonStyle?: "outline" | "solid";
-	optionType?: "default" | "button";
-}
+export interface AcaciaRadioProps extends RadioProps {}
 
 /**
  * Props for Palette Switch component
  * @see https://ant.design/components/switch
  */
-export interface PaletteSwitchProps extends SwitchProps {}
+export interface AcaciaSwitchProps extends SwitchProps {}
 
 /**
  * Props for Acacia Badge component
@@ -225,7 +216,7 @@ export interface AcaciaCheckboxProps extends CheckboxProps {}
  * Props for Palette Segmented component
  * @see https://ant.design/components/segmented
  */
-export interface PaletteSegmentedProps extends SegmentedProps {}
+export interface AcaciaSegmentedProps extends SegmentedProps {}
 
 /**
  * Props for Palette Steps component
@@ -237,7 +228,7 @@ export interface PaletteStepsProps extends StepsProps {}
  * Props for Palette Select component
  * @see https://ant.design/components/select
  */
-export interface PaletteSelectProps extends SelectProps {}
+export interface AcaciaSelectProps extends SelectProps {}
 
 /**
  * Props for Palette Panel component

@@ -48,8 +48,17 @@ const ConfigProvider = ({ ...props }: ConfigProviderProps) => {
 				separatorColor: neutral[0],
 			},
 			Checkbox: {
-				colorPrimaryHover: "#427e7b",
 				lineWidth: 2,
+			},
+			Segmented: {
+				itemSelectedBg: colors.brightGreen,
+				itemSelectedColor: colors.white,
+			},
+			Select: {
+				borderRadius: borderRadius.primary,
+				borderRadiusLG: borderRadius.primary,
+				borderRadiusSM: borderRadius.primary,
+				borderRadiusXS: borderRadius.primary,
 			},
 		},
 	};

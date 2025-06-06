@@ -40,3 +40,5 @@ next-env.d.ts
 /package
 *storybook.log
 storybook-static
+
+.tgz

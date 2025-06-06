@@ -1,5 +1,5 @@
 /**
- * A Badge normally appears in proximity to notifications or user avatars with eye-catching appeal, typically displaying unread messages count
+ * @description A Badge normally appears in proximity to notifications or user avatars with eye-catching appeal, typically displaying unread messages count
  */
 
 import type { AcaciaBadgeProps } from "../interfaces";

@@ -2,7 +2,7 @@ import { Badge as AntdBadge } from "antd";
 import type { AcaciaRibbonProps } from "../interfaces";
 
 /**
- * An extension of the Badge
+ * @description An extension of the Badge
  */
 
 const Ribbon = ({ ...props }: AcaciaRibbonProps) => {

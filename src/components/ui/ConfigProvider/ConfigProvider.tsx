@@ -47,6 +47,10 @@ const ConfigProvider = ({ ...props }: ConfigProviderProps) => {
 				lastItemColor: neutral[0],
 				separatorColor: neutral[0],
 			},
+			Checkbox: {
+				colorPrimaryHover: "#427e7b",
+				lineWidth: 2,
+			},
 		},
 	};
 

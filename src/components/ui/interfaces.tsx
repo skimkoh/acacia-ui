@@ -31,7 +31,7 @@ import type { TextAreaProps } from "antd/es/input";
 import type { RibbonProps } from "antd/es/badge/Ribbon";
 
 /**
- * Props for Palette Breadcrumb component
+ * Props for Acacia Breadcrumb component
  * @see https://ant.design/components/breadcrumb
  */
 export interface AcaciaBreadcrumbProps extends BreadcrumbProps {}
@@ -52,7 +52,7 @@ export interface PaletteAvatarProps extends AvatarProps {
 }
 
 /**
- * Props for Palette Button component
+ * Props for Acacia Button component
  * @see https://ant.design/components/button
  */
 export interface AcaciaButtonProps extends ButtonProps {}
@@ -204,22 +204,22 @@ export interface PaletteRadioProps extends RadioProps {
 export interface PaletteSwitchProps extends SwitchProps {}
 
 /**
- * Props for Palette Badge component
+ * Props for Acacia Badge component
  * @see https://ant.design/components/badge
  */
 export interface AcaciaBadgeProps extends BadgeProps {}
 
 /**
- * Props for Palette Badge.Ribbon component
+ * Props for Acacia Badge.Ribbon component
  * @see https://ant.design/components/badge#badgeribbon
  */
 export interface AcaciaRibbonProps extends RibbonProps {}
 
 /**
- * Props for Palette Checkbox component
+ * Props for Acacia Checkbox component
  * @see https://ant.design/components/checkbox
  */
-export interface PaletteCheckboxProps extends CheckboxProps {}
+export interface AcaciaCheckboxProps extends CheckboxProps {}
 
 /**
  * Props for Palette Segmented component

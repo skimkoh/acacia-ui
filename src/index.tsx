@@ -9,6 +9,7 @@ export { default as Radio } from "./components/ui/Radio/Radio";
 export { default as Segmented } from "./components/ui/Segmented/Segmented";
 export { default as Select } from "./components/ui/Select/Select";
 export { default as Switch } from "./components/ui/Switch/Switch";
+export { default as Input } from "./components/ui/Input/Input";
 
 // hooks
 export { usePaletteColors } from "./hooks/usePaletteColors";
@@ -25,6 +26,7 @@ export {
 	AcaciaRibbonProps,
 	AcaciaCheckboxProps,
 	AcaciaSegmentedProps,
+	AcaciaInputProps,
 	AcaciaSwitchProps,
 	AcaciaSelectProps,
 	AcaciaRadioProps,

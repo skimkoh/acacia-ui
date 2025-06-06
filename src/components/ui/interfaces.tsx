@@ -163,14 +163,14 @@ export interface PalettePaginationProps extends PaginationProps {}
  * @see https://ant.design/components/input
  *
  */
-export interface PaletteInputProps extends InputProps {}
+export interface AcaciaInputProps extends InputProps {}
 
 /**
  * Props for Palette Input Text Area component
  * @see https://ant.design/components/input#inputtextarea
  *
  */
-export interface PaletteInputTextAreaProps extends TextAreaProps {}
+export interface AcaciaInputTextAreaProps extends TextAreaProps {}
 
 /**
  * Props for Palette Tabs component

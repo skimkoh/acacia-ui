@@ -1,35 +1,34 @@
-import {
-  AvatarProps,
-  BreadcrumbProps,
-  ButtonProps,
-  CardProps,
-  TypographyProps,
-  TabsProps,
-  RadioProps,
-  SwitchProps,
-  BadgeProps,
-  CheckboxProps,
-  SegmentedProps,
-  StepsProps,
-  SelectProps,
-  FormProps,
-  FormItemProps,
-  DatePickerProps,
-  TableProps,
-  MenuProps,
-  ConfigProviderProps,
-  TimePickerProps,
-  TimeRangePickerProps,
+import type {
+	AvatarProps,
+	BreadcrumbProps,
+	ButtonProps,
+	CardProps,
+	TypographyProps,
+	TabsProps,
+	RadioProps,
+	SwitchProps,
+	BadgeProps,
+	CheckboxProps,
+	SegmentedProps,
+	StepsProps,
+	SelectProps,
+	FormProps,
+	FormItemProps,
+	DatePickerProps,
+	TableProps,
+	MenuProps,
+	ConfigProviderProps,
+	TimePickerProps,
 } from "antd";
 
-import { TextProps } from "antd/es/typography/Text";
-import { TitleProps } from "antd/es/typography/Title";
-import { ParagraphProps } from "antd/es/typography/Paragraph";
-import { InputProps } from "antd/es/input/Input";
-import { PaginationProps } from "antd/es/pagination/Pagination";
-import { PaletteThemeConfig } from "../../tokens/interfaces";
-import { TextAreaProps } from "antd/es/input";
-import { RibbonProps } from "antd/es/badge/Ribbon";
+import type { TextProps } from "antd/es/typography/Text";
+import type { TitleProps } from "antd/es/typography/Title";
+import type { ParagraphProps } from "antd/es/typography/Paragraph";
+import type { InputProps } from "antd/es/input/Input";
+import type { PaginationProps } from "antd/es/pagination/Pagination";
+import type { PaletteThemeConfig } from "../../tokens/interfaces";
+import type { TextAreaProps } from "antd/es/input";
+import type { RibbonProps } from "antd/es/badge/Ribbon";
 
 /**
  * Props for Palette Breadcrumb component
@@ -39,8 +38,8 @@ import { RibbonProps } from "antd/es/badge/Ribbon";
  * @property {"header" | "page"} [type=page] - determines the breadcrumb type. 'header' is for breadcrumb within the header while 'page' is for breadcrumb on the page itself
  */
 export interface PaletteBreadcrumbProps extends BreadcrumbProps {
-  /** decides the breadcrumb type */
-  type?: "header" | "page";
+	/** decides the breadcrumb type */
+	type?: "header" | "page";
 }
 
 /**
@@ -53,9 +52,9 @@ export interface PaletteBreadcrumbProps extends BreadcrumbProps {
  * @property {() => void} [onClick] - click handler, to handle showing of
  */
 export interface PaletteAvatarProps extends AvatarProps {
-  userId?: string;
-  type?: "solid" | "transparent";
-  onClick?: () => void;
+	userId?: string;
+	type?: "solid" | "transparent";
+	onClick?: () => void;
 }
 
 /**
@@ -75,11 +74,11 @@ export interface PaletteButtonProps extends ButtonProps {}
  *
  */
 export interface PaletteCardProps extends CardProps {
-  /** content in the card */
-  children: React.ReactNode;
-  subtitle?: React.ReactNode | string;
-  title?: React.ReactNode | string;
-  plainBody?: boolean;
+	/** content in the card */
+	children: React.ReactNode;
+	subtitle?: React.ReactNode | string;
+	title?: React.ReactNode | string;
+	plainBody?: boolean;
 }
 
 /**
@@ -91,8 +90,8 @@ export interface PaletteCardProps extends CardProps {
  *
  */
 export interface PaletteMastheadProps {
-  type: "hidden" | "blackBg" | "greyBg" | "primaryGreenBg" | "whiteBg";
-  children: React.ReactNode;
+	type: "hidden" | "blackBg" | "greyBg" | "primaryGreenBg" | "whiteBg";
+	children: React.ReactNode;
 }
 
 /**
@@ -109,8 +108,8 @@ export interface PaletteTypographyProps extends TypographyProps {}
  * @property {string} [color] - color of the title
  */
 export interface PaletteTitleProps extends TitleProps {
-  children: React.ReactNode;
-  color?: string;
+	children: React.ReactNode;
+	color?: string;
 }
 
 /**
@@ -122,9 +121,9 @@ export interface PaletteTitleProps extends TitleProps {
  * @property {1 | 2} [level=1] - level of the text
  */
 export interface PaletteTextProps extends TextProps {
-  children: React.ReactNode;
-  level?: 1 | 2;
-  color?: string;
+	children: React.ReactNode;
+	level?: 1 | 2;
+	color?: string;
 }
 
 /**
@@ -142,8 +141,8 @@ export interface PaletteEmphasisProps extends PaletteTextProps {}
  * @property {string} [color] - color of the title
  */
 export interface PaletteBasicTypographyProps extends TextProps {
-  children: React.ReactNode;
-  color?: string;
+	children: React.ReactNode;
+	color?: string;
 }
 
 /**
@@ -154,8 +153,8 @@ export interface PaletteBasicTypographyProps extends TextProps {
  * @property {string} [color] - color of the title
  */
 export interface PaletteParagraphProps extends ParagraphProps {
-  children: React.ReactNode;
-  color?: string;
+	children: React.ReactNode;
+	color?: string;
 }
 
 /**
@@ -187,7 +186,7 @@ export interface PaletteInputTextAreaProps extends TextAreaProps {}
  * @property {"page" | "header"} [colorType=page] - determines the breadcrumb type. 'header' is for breadcrumb within the header while 'page' is for breadcrumb on the page itself
  */
 export interface PaletteTabsProps extends TabsProps {
-  colorType?: "page" | "header";
+	colorType?: "page" | "header";
 }
 
 /**
@@ -199,9 +198,9 @@ export interface PaletteTabsProps extends TabsProps {
  *
  */
 export interface PaletteRadioProps extends RadioProps {
-  /** decides the color of the radio */
-  buttonStyle?: "outline" | "solid";
-  optionType?: "default" | "button";
+	/** decides the color of the radio */
+	buttonStyle?: "outline" | "solid";
+	optionType?: "default" | "button";
 }
 
 /**
@@ -215,7 +214,7 @@ export interface PaletteSwitchProps extends SwitchProps {}
  * @see https://ant.design/components/badge
  */
 export interface PaletteBadgeProps extends BadgeProps {
-  children?: React.ReactNode;
+	children?: React.ReactNode;
 }
 
 /**
@@ -255,7 +254,7 @@ export interface PaletteSelectProps extends SelectProps {}
  * @property {React.ReactNode} children - content in the panel
  */
 export interface PalettePanelProps {
-  children: React.ReactNode;
+	children: React.ReactNode;
 }
 
 /**
@@ -264,7 +263,7 @@ export interface PalettePanelProps {
  *
  */
 export interface PaletteFormProps extends FormProps {
-  children: React.ReactNode;
+	children: React.ReactNode;
 }
 
 /**
@@ -275,8 +274,8 @@ export interface PaletteFormProps extends FormProps {
  * @property {string | React.ReactNode} [infoCopy] - helper text under the form item
  */
 export interface PaletteFormItemProps extends FormItemProps {
-  children: React.ReactNode;
-  infoCopy?: string | React.ReactNode;
+	children: React.ReactNode;
+	infoCopy?: string | React.ReactNode;
 }
 
 /**
@@ -293,92 +292,92 @@ export interface PaletteTimePickerProps extends TimePickerProps {}
  */
 export interface PaletteTableProps extends TableProps<any> {}
 export interface PaletteTableActionBarProps {
-  children: React.ReactNode;
+	children: React.ReactNode;
 }
 
 /**
  * PALETTE SWTICH
  */
 export interface PaletteThemeSwitchProps
-  extends Omit<SegmentedProps, "options"> {}
+	extends Omit<SegmentedProps, "options"> {}
 
 /**
  * MENU
  */
 export interface PaletteMenuProps extends MenuProps {
-  borderInline?: "start" | "end" | "none";
+	borderInline?: "start" | "end" | "none";
 }
 
 /**
  * BASIC PANEL
  */
 export interface PaletteBasicPanelProps {
-  children: React.ReactNode;
-  bgColor?: string;
+	children: React.ReactNode;
+	bgColor?: string;
 }
 
 export interface PaletteConfigProviderProps extends ConfigProviderProps {
-  theme?: PaletteThemeConfig;
+	theme?: PaletteThemeConfig;
 }
 
 // custom token for Palette
 export interface PaletteCustomToken {
-  /**
-   * @nameEN Main font for the entire app
-   * @descEN Font used for most elements in the app
-   */
-  fontFamily: string;
-  /**
-   * @nameEN Heading font for the entire app
-   * @descEN Font used for headings in the app
-   */
-  headingFontFamily: string;
-  colors: {
-    /**
-     * @nameEN Main primary color of the app
-     * @descEN Controls the primary color of all elements
-     */
-    primary: string;
-    /**
-     * @nameEN Main color for the text
-     * @descEN Controls the main color for the text elements
-     */
-    primaryText: string;
-    /**
-     * @nameEN Main color for the caption text
-     * @descEN Controls the color for the caption text elements
-     */
-    caption: string;
-  };
-  theme: {
-    lightOnDark: boolean;
-    brand: string;
-    gradient1: string;
-    gradient2: string;
-    gradient3: string;
-    gradient4: string;
-    cove: string;
-    accent: string;
-    body: string;
-  };
-  header: {
-    imgUrl: string;
-  };
-  sidepanel: {
-    imgUrl: string;
-  };
-  panel: {
-    bgColor: string;
-  };
-  card: {
-    bgcolor: string;
-    contentbg: string;
-    headerbg: string;
-  };
+	/**
+	 * @nameEN Main font for the entire app
+	 * @descEN Font used for most elements in the app
+	 */
+	fontFamily: string;
+	/**
+	 * @nameEN Heading font for the entire app
+	 * @descEN Font used for headings in the app
+	 */
+	headingFontFamily: string;
+	colors: {
+		/**
+		 * @nameEN Main primary color of the app
+		 * @descEN Controls the primary color of all elements
+		 */
+		primary: string;
+		/**
+		 * @nameEN Main color for the text
+		 * @descEN Controls the main color for the text elements
+		 */
+		primaryText: string;
+		/**
+		 * @nameEN Main color for the caption text
+		 * @descEN Controls the color for the caption text elements
+		 */
+		caption: string;
+	};
+	theme: {
+		lightOnDark: boolean;
+		brand: string;
+		gradient1: string;
+		gradient2: string;
+		gradient3: string;
+		gradient4: string;
+		cove: string;
+		accent: string;
+		body: string;
+	};
+	header: {
+		imgUrl: string;
+	};
+	sidepanel: {
+		imgUrl: string;
+	};
+	panel: {
+		bgColor: string;
+	};
+	card: {
+		bgcolor: string;
+		contentbg: string;
+		headerbg: string;
+	};
 }
 
 // By extending the CustomToken object type definition for antd-style, you can add corresponding token objects to useTheme
 declare module "antd-style" {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  export interface CustomToken extends PaletteCustomToken {}
+	// eslint-disable-next-line @typescript-eslint/no-empty-interface
+	export interface CustomToken extends PaletteCustomToken {}
 }

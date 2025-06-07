@@ -11,7 +11,10 @@ export { default as Select } from "./components/ui/Select/Select";
 export { default as Switch } from "./components/ui/Switch/Switch";
 export { default as Input } from "./components/ui/Input/Input";
 export { default as Dropdown } from "./components/ui/Dropdown/Dropdown";
+export { default as Pagination } from "./components/ui/Pagination/Pagination";
+export { default as Typography } from "./components/ui/Typography/Typography";
 
+export { NewToken } from "./theme/customTheme";
 // hooks
 export { usePaletteColors } from "./hooks/usePaletteColors";
 export { useFoucHandler } from "./hooks/useFoucHandler";
@@ -27,8 +30,11 @@ export {
 	AcaciaRibbonProps,
 	AcaciaCheckboxProps,
 	AcaciaSegmentedProps,
+	AcaciaTypographyProps,
 	AcaciaInputProps,
 	AcaciaSwitchProps,
+	AcaciaInputTextAreaProps,
+	AcaciaPaginationProps,
 	AcaciaSelectProps,
 	AcaciaRadioProps,
 	PaletteBasicPanelProps,

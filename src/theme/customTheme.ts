@@ -1,4 +1,7 @@
+import "@fontsource-variable/outfit";
+
 export interface NewToken {
+	headingFontFamily: string;
 	theme: {
 		lightOnDark: boolean;
 		accent: string; // Strictly HEX color codes
@@ -12,6 +15,7 @@ declare module "antd-style" {
 }
 
 export const CustomTheme: NewToken = {
+	headingFontFamily: '"Outfit Variable", "Outfit", "Segoe UI", sans-serif',
 	theme: {
 		lightOnDark: true,
 		accent: "#b0e9d6",

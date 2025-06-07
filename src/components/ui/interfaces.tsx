@@ -17,8 +17,8 @@ import type {
 	DatePickerProps,
 	TableProps,
 	MenuProps,
-	ConfigProviderProps,
 	TimePickerProps,
+	ThemeConfig,
 } from "antd";
 
 import type { TextProps } from "antd/es/typography/Text";
@@ -26,9 +26,9 @@ import type { TitleProps } from "antd/es/typography/Title";
 import type { ParagraphProps } from "antd/es/typography/Paragraph";
 import type { InputProps } from "antd/es/input/Input";
 import type { PaginationProps } from "antd/es/pagination/Pagination";
-import type { PaletteThemeConfig } from "../../tokens/interfaces";
 import type { TextAreaProps } from "antd/es/input";
 import type { RibbonProps } from "antd/es/badge/Ribbon";
+import type { NewToken } from "../../theme/customTheme";
 
 /**
  * Props for Acacia Breadcrumb component
@@ -92,7 +92,7 @@ export interface PaletteMastheadProps {
  * Props for Palette Typorgraphy component
  * @see https://ant.design/components/typography
  */
-export interface PaletteTypographyProps extends TypographyProps {}
+export interface AcaciaTypographyProps extends TypographyProps {}
 
 /**
  * Props for Palette Title component
@@ -299,8 +299,10 @@ export interface PaletteBasicPanelProps {
 	bgColor?: string;
 }
 
-export interface PaletteConfigProviderProps extends ConfigProviderProps {
-	theme?: PaletteThemeConfig;
+export interface AcaciaConfigProviderProps {
+	children: React.ReactNode;
+	customToken?: Partial<NewToken>;
+	theme?: ThemeConfig;
 }
 
 // custom token for Palette

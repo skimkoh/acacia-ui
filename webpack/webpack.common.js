@@ -22,29 +22,34 @@ module.exports = {
         test: /\.(ts|tsx)$/,
         loader: "ts-loader",
         exclude: /node_modules/,
+        
       },
       {
         test: /\.css$/i,
+        include: [
+          path.resolve(__dirname, "../node_modules"), // include @fontsource
+          path.resolve(__dirname, "../src"),          // your own styles
+        ],
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: "",
+              publicPath: "./",
             },
           },
           {
             loader: "css-loader",
+            options: {
+              url: true,
+              import: true,
+            },
           },
         ],
       },
-
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        type: "asset/resource",
-        generator: {
-          filename: "./fonts/[name][ext]",
-        },
-      },
+        type: "asset/inline", // ✅ Inlines the font as a base64 string
+      }
     ],
   },
   resolve: {

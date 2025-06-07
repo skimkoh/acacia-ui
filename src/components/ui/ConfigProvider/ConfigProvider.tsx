@@ -1,20 +1,18 @@
-import {
-	ConfigProvider as AntdConfigProvider,
-	type ConfigProviderProps,
-} from "antd";
+import { ConfigProvider as AntdConfigProvider } from "antd";
 import {
 	ConfigContext,
 	type ThemeConfig,
 } from "antd/es/config-provider/context";
-import "@fontsource-variable/outfit";
-import "@fontsource-variable/inter";
 import { usePaletteColors } from "../../../hooks/usePaletteColors";
 import { usePaletteConfig } from "../../../hooks/usePaletteConfig";
-import "@fontsource-variable/inter/wght.css";
+import "@fontsource-variable/inter";
+import "@fontsource-variable/outfit";
 import { ThemeProvider } from "antd-style";
 import { CustomTheme, type NewToken } from "../../../theme/customTheme";
+import { typographyUtil } from "../../../theme/typographyUtil";
+import type { AcaciaConfigProviderProps } from "../interfaces";
 
-const ConfigProvider = ({ ...props }: ConfigProviderProps) => {
+const ConfigProvider = ({ ...props }: AcaciaConfigProviderProps) => {
 	const { colors, generate } = usePaletteColors();
 	const { borderRadius } = usePaletteConfig();
 
@@ -27,7 +25,7 @@ const ConfigProvider = ({ ...props }: ConfigProviderProps) => {
 		token: {
 			colorPrimary: "#427e7b", // your custom default
 			fontFamily:
-				'"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+				'"InterVariable", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
 		},
 		components: {
 			Button: {
@@ -72,12 +70,30 @@ const ConfigProvider = ({ ...props }: ConfigProviderProps) => {
 				borderRadiusSM: borderRadius.primary,
 				borderRadiusXS: borderRadius.primary,
 			},
+			Typography: {
+				fontSizeHeading1: typographyUtil.fontSize.h1,
+				fontSizeHeading2: typographyUtil.fontSize.h2,
+				fontSizeHeading3: typographyUtil.fontSize.h3,
+				fontSizeHeading4: typographyUtil.fontSize.h4,
+				fontSizeHeading5: typographyUtil.fontSize.h5,
+				fontWeightStrong: 600,
+			},
 		},
 	};
 
+	const mergedToken = {
+		...CustomTheme,
+		...props.customToken,
+	};
+
 	return (
-		<ThemeProvider<NewToken> customToken={CustomTheme}>
-			<AntdConfigProvider theme={{ ...defaultTheme, ...props.theme }}>
+		<ThemeProvider<NewToken> customToken={mergedToken}>
+			<AntdConfigProvider
+				theme={{
+					token: { ...defaultTheme.token, ...props.theme.token },
+					components: { ...defaultTheme.components, ...props.theme.components },
+				}}
+			>
 				{props.children}
 			</AntdConfigProvider>
 		</ThemeProvider>

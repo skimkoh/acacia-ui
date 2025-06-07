@@ -13,6 +13,8 @@ export { default as Input } from "./components/ui/Input/Input";
 export { default as Dropdown } from "./components/ui/Dropdown/Dropdown";
 export { default as Pagination } from "./components/ui/Pagination/Pagination";
 export { default as Typography } from "./components/ui/Typography/Typography";
+export { default as TimePicker } from "./components/ui/TimePicker/TimePicker";
+export { default as DatePicker } from "./components/ui/DatePicker/DatePicker";
 
 export { NewToken } from "./theme/customTheme";
 // hooks
@@ -31,6 +33,11 @@ export {
 	AcaciaCheckboxProps,
 	AcaciaSegmentedProps,
 	AcaciaTypographyProps,
+	AcaciaConfigProviderProps,
+	AcaciaDatePickerProps,
+	AcaciaDateRangePickerProps,
+	AcaciaTimePickerProps,
+	AcaciaTimeRangePickerProps,
 	AcaciaInputProps,
 	AcaciaSwitchProps,
 	AcaciaInputTextAreaProps,

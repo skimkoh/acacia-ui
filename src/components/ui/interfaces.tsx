@@ -19,6 +19,7 @@ import type {
 	MenuProps,
 	TimePickerProps,
 	ThemeConfig,
+	TimeRangePickerProps,
 } from "antd";
 
 import type { TextProps } from "antd/es/typography/Text";
@@ -264,11 +265,12 @@ export interface PaletteFormItemProps extends FormItemProps {
 /**
  * DATEPICKER
  */
-export interface PaletteDatePickerProps extends DatePickerProps {}
+export interface AcaciaDatePickerProps extends DatePickerProps {}
+export interface AcaciaDateRangePickerProps extends TimeRangePickerProps {}
 
-export interface PaletteRangePickerProps extends DatePickerProps {}
+export interface AcaciaTimePickerProps extends TimePickerProps {}
 
-export interface PaletteTimePickerProps extends TimePickerProps {}
+export interface AcaciaTimeRangePickerProps extends TimeRangePickerProps {}
 
 /**
  * TABLE

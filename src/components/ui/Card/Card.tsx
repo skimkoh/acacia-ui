@@ -2,9 +2,15 @@ import { useMemo } from "react";
 import type { AcaciaCardProps } from "../interfaces";
 import { Card as AntdCard, Typography } from "antd";
 import { useCardStyles } from "./useCardStyles";
-import background from "../../../assets/cardheader.png";
+import HexagonBackground from "../../../assets/cardheader.png";
+import StripedBackground from "../../../assets/cardheader2.png";
+import MysticalBackground from "../../../assets/cardheader3.png";
+import { match } from "ts-pattern";
 
-const Card = ({ ...props }: AcaciaCardProps) => {
+const Card = ({
+	headerBackgroundTheme = "hexagon",
+	...props
+}: AcaciaCardProps) => {
 	const cardStyles = useCardStyles().styles;
 
 	const titleStyles = useMemo(() => {
@@ -39,12 +45,20 @@ const Card = ({ ...props }: AcaciaCardProps) => {
 		return styles;
 	}, [props.size]);
 
+	const getThemedBackground = () => {
+		return match(headerBackgroundTheme)
+			.with("hexagon", () => HexagonBackground)
+			.with("striped", () => StripedBackground)
+			.with("mystical", () => MysticalBackground)
+			.exhaustive();
+	};
+
 	return (
 		<AntdCard
 			styles={{
 				header: {
 					padding: "20px",
-					background: `linear-gradient(70deg, #EbF1F1CC 80%, #8EAFAC69 80%), url(${background})`,
+					background: `linear-gradient(70deg, #EbF1F1CC 80%, #8EAFAC69 80%), url(${getThemedBackground()})`,
 				},
 				title: {
 					whiteSpace: "normal",

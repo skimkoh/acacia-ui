@@ -73,6 +73,9 @@ export interface AcaciaCardProps extends CardProps {
 	subtitle?: React.ReactNode | string;
 	title?: React.ReactNode | string;
 	plainBody?: boolean;
+	headerBackgroundPicture?: string;
+	headerBackgroundTheme?: "hexagon" | "striped" | "mystical";
+	// provides 3 themes of card header background, and put hexagon as the default
 }
 
 /**

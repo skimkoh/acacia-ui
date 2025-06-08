@@ -48,7 +48,11 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        type: "asset/inline", // ✅ Inlines the font as a base64 string
+        type: "asset/inline",
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/,
+        type: "asset/inline",
       }
     ],
   },
@@ -81,8 +85,6 @@ module.exports = {
     // /^antd[.]*/,
   ],
   plugins: [
-    new MiniCssExtractPlugin(),
-
-    // new BundleAnalyzerPlugin(),
+    new MiniCssExtractPlugin()
   ],
 };

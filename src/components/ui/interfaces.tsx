@@ -68,9 +68,8 @@ export interface AcaciaButtonProps extends ButtonProps {}
  * @property {React.ReactNode | string} [subtitle] - card header subtitle
  *
  */
-export interface PaletteCardProps extends CardProps {
+export interface AcaciaCardProps extends CardProps {
 	/** content in the card */
-	children: React.ReactNode;
 	subtitle?: React.ReactNode | string;
 	title?: React.ReactNode | string;
 	plainBody?: boolean;

@@ -24,6 +24,8 @@ const ConfigProvider = ({ ...props }: AcaciaConfigProviderProps) => {
 	const defaultTheme: ThemeConfig = {
 		token: {
 			colorPrimary: "#427e7b", // your custom default
+			colorText: "#080808",
+			colorTextTertiary: "#757C7C",
 			fontFamily:
 				'"InterVariable", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
 		},
@@ -77,6 +79,12 @@ const ConfigProvider = ({ ...props }: AcaciaConfigProviderProps) => {
 				fontSizeHeading4: typographyUtil.fontSize.h4,
 				fontSizeHeading5: typographyUtil.fontSize.h5,
 				fontWeightStrong: 600,
+			},
+			Card: {
+				borderRadius: borderRadius.card,
+				borderRadiusLG: borderRadius.card,
+				borderRadiusSM: borderRadius.card,
+				borderRadiusXS: borderRadius.card,
 			},
 		},
 	};

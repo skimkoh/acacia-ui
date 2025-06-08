@@ -58,7 +58,7 @@ const Card = ({
 			styles={{
 				header: {
 					padding: "20px",
-					background: `linear-gradient(70deg, #EbF1F1CC 80%, #8EAFAC69 80%), url(${getThemedBackground()})`,
+					background: `linear-gradient(70deg, #EbF1F1CC 80%, #8EAFAC69 80%), url(${props.headerBackgroundPicture ?? getThemedBackground()})`,
 				},
 				title: {
 					whiteSpace: "normal",

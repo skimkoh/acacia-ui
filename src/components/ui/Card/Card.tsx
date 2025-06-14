@@ -6,12 +6,20 @@ import HexagonBackground from "../../../assets/cardheader.png";
 import StripedBackground from "../../../assets/cardheader2.png";
 import MysticalBackground from "../../../assets/cardheader3.png";
 import { match } from "ts-pattern";
+import { useTheme } from "antd-style";
+import { generate } from "@ant-design/colors";
 
 const Card = ({
-	headerBackgroundTheme = "hexagon",
+	headerBackgroundTheme = "classic",
 	...props
 }: AcaciaCardProps) => {
 	const cardStyles = useCardStyles().styles;
+	const token = useTheme();
+
+	const levelOneColors = generate(token.colorPrimary);
+	console.log(levelOneColors);
+	const levelTwoColors = generate(levelOneColors[1]);
+	console.log(levelTwoColors);
 
 	const titleStyles = useMemo(() => {
 		const styles: {
@@ -34,7 +42,7 @@ const Card = ({
 			fontWeight: number;
 			fontSize?: string | number;
 		} = {
-			color: "#FF0000",
+			color: token.colorTextTertiary,
 			fontWeight: 500,
 		};
 
@@ -47,8 +55,8 @@ const Card = ({
 
 	const getThemedBackground = () => {
 		return match(headerBackgroundTheme)
-			.with("hexagon", () => HexagonBackground)
-			.with("striped", () => StripedBackground)
+			.with("classic", () => HexagonBackground)
+			.with("submarine", () => StripedBackground)
 			.with("mystical", () => MysticalBackground)
 			.exhaustive();
 	};
@@ -58,7 +66,7 @@ const Card = ({
 			styles={{
 				header: {
 					padding: "20px",
-					background: `linear-gradient(70deg, #EbF1F1CC 80%, #8EAFAC69 80%), url(${props.headerBackgroundPicture ?? getThemedBackground()})`,
+					background: `linear-gradient(70deg, ${levelTwoColors[1]}CC 80%, ${levelOneColors[4]}69 80%), url(${props.headerBackgroundPicture ?? getThemedBackground()})`,
 				},
 				title: {
 					whiteSpace: "normal",

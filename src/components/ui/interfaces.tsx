@@ -20,6 +20,7 @@ import type {
 	TimePickerProps,
 	ThemeConfig,
 	TimeRangePickerProps,
+	TagProps,
 } from "antd";
 
 import type { TextProps } from "antd/es/typography/Text";
@@ -30,6 +31,16 @@ import type { PaginationProps } from "antd/es/pagination/Pagination";
 import type { TextAreaProps } from "antd/es/input";
 import type { RibbonProps } from "antd/es/badge/Ribbon";
 import type { NewToken } from "../../theme/customTheme";
+import type {
+	PresetColorType,
+	PresetStatusColorType,
+} from "antd/es/_util/colors";
+import type { LiteralUnion } from "antd/es/_util/type";
+
+/**
+ * props for the acacia themes
+ */
+export type AcaciaThemes = "classic" | "submarine" | "mystical";
 
 /**
  * Props for Acacia Breadcrumb component
@@ -74,8 +85,9 @@ export interface AcaciaCardProps extends CardProps {
 	title?: React.ReactNode | string;
 	plainBody?: boolean;
 	headerBackgroundPicture?: string;
-	headerBackgroundTheme?: "hexagon" | "striped" | "mystical";
 	// provides 3 themes of card header background, and put hexagon as the default
+	headerBackgroundTheme?: AcaciaThemes;
+	icon: React.ReactNode | string;
 }
 
 /**
@@ -307,6 +319,30 @@ export interface AcaciaConfigProviderProps {
 	children: React.ReactNode;
 	customToken?: Partial<NewToken>;
 	theme?: ThemeConfig;
+}
+
+/**
+ * TAG
+ */
+export const AcaciaCustomColors = {
+	"cobalt-blue": { background: "#2C62D5", color: "white" },
+	"pastel-red": { background: "#DB3056", color: "white" },
+};
+
+export const AcaciaColorArray = ["cobalt-blue", "pastel-red"] as const;
+export type AcaciaColorType = (typeof AcaciaColorArray)[number];
+export type AcaciaColors = LiteralUnion<
+	PresetColorType | PresetStatusColorType | AcaciaColorType
+>;
+
+export const isValidCustomColor = (
+	value: string,
+): value is (typeof AcaciaColorArray)[number] => {
+	return AcaciaColorArray.includes(value as any);
+};
+
+export interface AcaciaTagProps extends TagProps {
+	color?: AcaciaColors;
 }
 
 // custom token for Palette

@@ -86,6 +86,12 @@ const ConfigProvider = ({ ...props }: AcaciaConfigProviderProps) => {
 				borderRadiusSM: borderRadius.card,
 				borderRadiusXS: borderRadius.card,
 			},
+			Tag: {
+				borderRadius: borderRadius.tag,
+				borderRadiusLG: borderRadius.tag,
+				borderRadiusSM: borderRadius.tag,
+				borderRadiusXS: borderRadius.tag,
+			},
 		},
 	};
 
@@ -98,8 +104,11 @@ const ConfigProvider = ({ ...props }: AcaciaConfigProviderProps) => {
 		<ThemeProvider<NewToken> customToken={mergedToken}>
 			<AntdConfigProvider
 				theme={{
-					token: { ...defaultTheme.token, ...props.theme.token },
-					components: { ...defaultTheme.components, ...props.theme.components },
+					token: { ...defaultTheme.token, ...props.theme?.token },
+					components: {
+						...defaultTheme.components,
+						...props.theme?.components,
+					},
 				}}
 			>
 				{props.children}

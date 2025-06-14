@@ -16,6 +16,7 @@ export { default as Typography } from "./components/ui/Typography/Typography";
 export { default as TimePicker } from "./components/ui/TimePicker/TimePicker";
 export { default as DatePicker } from "./components/ui/DatePicker/DatePicker";
 export { default as Card } from "./components/ui/Card/Card";
+export { default as Tag } from "./components/ui/Tag/Tag";
 
 export { NewToken } from "./theme/customTheme";
 // hooks

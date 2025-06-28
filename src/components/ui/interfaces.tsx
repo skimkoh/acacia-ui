@@ -36,6 +36,7 @@ import type {
 	PresetStatusColorType,
 } from "antd/es/_util/colors";
 import type { LiteralUnion } from "antd/es/_util/type";
+import type { TabsType } from "antd/es/tabs";
 
 /**
  * props for the acacia themes
@@ -67,7 +68,33 @@ export interface PaletteAvatarProps extends AvatarProps {
  * Props for Acacia Button component
  * @see https://ant.design/components/button
  */
-export interface AcaciaButtonProps extends ButtonProps {}
+export interface AcaciaButtonProps extends ButtonProps {
+	/** Set button color */
+	color?:
+		| "default"
+		| "primary"
+		| "danger"
+		| "blue"
+		| "purple"
+		| "cyan"
+		| "green"
+		| "magenta"
+		| "pink"
+		| "red"
+		| "orange"
+		| "yellow"
+		| "volcano"
+		| "geekblue"
+		| "lime"
+		| "gold";
+
+	variant?: "outlined" | "dashed" | "solid" | "filled" | "text" | "link";
+	/**
+	 * Button style type.
+	 * @default default
+	 */
+	type?: "primary" | "dashed" | "link" | "text" | "default";
+}
 
 /**
  * Props for Palette Card component
@@ -194,8 +221,11 @@ export interface AcaciaInputTextAreaProps extends TextAreaProps {}
  * custom Palette props:
  * @property {"page" | "header"} [colorType=page] - determines the breadcrumb type. 'header' is for breadcrumb within the header while 'page' is for breadcrumb on the page itself
  */
-export interface PaletteTabsProps extends TabsProps {
-	colorType?: "page" | "header";
+
+type AcaciaTabsType = TabsType | "page" | "header";
+
+export interface AcaciaTabsProps extends Omit<TabsProps, "type"> {
+	type: AcaciaTabsType;
 }
 
 /**
@@ -343,6 +373,7 @@ export const isValidCustomColor = (
 
 export interface AcaciaTagProps extends TagProps {
 	color?: AcaciaColors;
+	paddingInline?: number;
 }
 
 // custom token for Palette

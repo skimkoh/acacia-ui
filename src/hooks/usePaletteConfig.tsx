@@ -30,5 +30,9 @@ export const usePaletteConfig = () => {
 		},
 	};
 
-	return { borderRadius, layout, transition, shadow };
+	const padding = {
+		tabs: "10px 20px",
+	};
+
+	return { borderRadius, layout, transition, shadow, padding };
 };

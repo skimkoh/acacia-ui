@@ -18,7 +18,13 @@ const Tag = ({ ...props }: AcaciaTagProps) => {
 		}
 		return color;
 	}
-	return <AntdTag {...props} color={renderColor(props.color)} />;
+	return (
+		<AntdTag
+			style={{ paddingInline: props.paddingInline }}
+			{...props}
+			color={renderColor(props.color)}
+		/>
+	);
 };
 
 export default Tag;

@@ -21,7 +21,7 @@ module.exports = {
       {
         test: /\.(ts|tsx)$/,
         loader: "ts-loader",
-        exclude: /node_modules/,
+        exclude:/node_modules/ ,
         
       },
       {
@@ -53,6 +53,7 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif|svg)$/,
         type: "asset/inline",
+
       }
     ],
   },
@@ -85,6 +86,7 @@ module.exports = {
     // /^antd[.]*/,
   ],
   plugins: [
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin(),
+   
   ],
 };

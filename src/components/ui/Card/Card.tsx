@@ -8,7 +8,7 @@ import MysticalBackground from "../../../assets/cardheader3.png";
 import { match } from "ts-pattern";
 import { useTheme } from "antd-style";
 import { generate } from "@ant-design/colors";
-
+import { tint } from "@mirawision/colorize";
 const Card = ({
 	headerBackgroundTheme = "classic",
 	...props
@@ -17,9 +17,8 @@ const Card = ({
 	const token = useTheme();
 
 	const levelOneColors = generate(token.colorPrimary);
-	console.log(levelOneColors);
-	const levelTwoColors = generate(levelOneColors[1]);
-	console.log(levelTwoColors);
+
+	const lightShadeColor = tint(token.colorPrimary, 0.7); // for the left side gradient
 
 	const titleStyles = useMemo(() => {
 		const styles: {
@@ -66,7 +65,7 @@ const Card = ({
 			styles={{
 				header: {
 					padding: "20px",
-					background: `linear-gradient(70deg, ${levelTwoColors[1]}CC 80%, ${levelOneColors[4]}69 80%), url(${props.headerBackgroundPicture ?? getThemedBackground()})`,
+					background: `linear-gradient(70deg, ${lightShadeColor}CC 80%, ${levelOneColors[4]}69 80%), url(${props.headerBackgroundPicture ?? getThemedBackground()})`,
 				},
 				title: {
 					whiteSpace: "normal",

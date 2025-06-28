@@ -17,8 +17,9 @@ export { default as TimePicker } from "./components/ui/TimePicker/TimePicker";
 export { default as DatePicker } from "./components/ui/DatePicker/DatePicker";
 export { default as Card } from "./components/ui/Card/Card";
 export { default as Tag } from "./components/ui/Tag/Tag";
+export { default as Tabs } from "./components/ui/Tabs/Tabs";
 
-export { NewToken } from "./theme/customTheme";
+export type { NewToken } from "./theme/customTheme";
 // hooks
 export { usePaletteColors } from "./hooks/usePaletteColors";
 export { useFoucHandler } from "./hooks/useFoucHandler";
@@ -27,7 +28,7 @@ export { useScreenSize } from "./hooks/useScreenSize";
 // export { usePaletteToken } from "./tokens/usePaletteToken";
 
 // interfaces
-export {
+export type {
 	AcaciaButtonProps,
 	AcaciaBreadcrumbProps,
 	AcaciaBadgeProps,
@@ -38,6 +39,7 @@ export {
 	AcaciaConfigProviderProps,
 	AcaciaDatePickerProps,
 	AcaciaDateRangePickerProps,
+	AcaciaTabsProps,
 	AcaciaTimePickerProps,
 	AcaciaTimeRangePickerProps,
 	AcaciaInputProps,
@@ -48,4 +50,4 @@ export {
 	AcaciaRadioProps,
 	PaletteBasicPanelProps,
 	PaletteCustomToken,
-} from "../src/components/ui/interfaces";
+} from "./components/ui/interfaces";

@@ -14,7 +14,7 @@ import type { AcaciaConfigProviderProps } from "../interfaces";
 
 const ConfigProvider = ({ ...props }: AcaciaConfigProviderProps) => {
 	const { colors, generate } = usePaletteColors();
-	const { borderRadius } = usePaletteConfig();
+	const { borderRadius, padding } = usePaletteConfig();
 
 	const { neutral } = generate(
 		CustomTheme.theme.accent,
@@ -91,6 +91,11 @@ const ConfigProvider = ({ ...props }: AcaciaConfigProviderProps) => {
 				borderRadiusLG: borderRadius.tag,
 				borderRadiusSM: borderRadius.tag,
 				borderRadiusXS: borderRadius.tag,
+			},
+			Tabs: {
+				horizontalItemPadding: padding.tabs,
+				horizontalItemPaddingLG: padding.tabs,
+				horizontalItemPaddingSM: padding.tabs,
 			},
 		},
 	};

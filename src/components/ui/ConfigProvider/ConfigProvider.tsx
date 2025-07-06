@@ -7,6 +7,7 @@ import { usePaletteColors } from "../../../hooks/usePaletteColors";
 import { usePaletteConfig } from "../../../hooks/usePaletteConfig";
 import "@fontsource-variable/inter";
 import "@fontsource-variable/outfit";
+import "@fontsource-variable/roboto-flex";
 import { ThemeProvider } from "antd-style";
 import { CustomTheme, type NewToken } from "../../../theme/customTheme";
 import { typographyUtil } from "../../../theme/typographyUtil";
@@ -41,6 +42,10 @@ const ConfigProvider = ({ ...props }: AcaciaConfigProviderProps) => {
 				borderRadiusLG: borderRadius.primary,
 				borderRadiusSM: borderRadius.primary,
 				borderRadiusXS: borderRadius.primary,
+			},
+			Layout: {
+				headerBg: "transparent",
+				headerHeight: undefined,
 			},
 			Breadcrumb: {
 				itemColor: neutral[0],
@@ -108,6 +113,7 @@ const ConfigProvider = ({ ...props }: AcaciaConfigProviderProps) => {
 	return (
 		<ThemeProvider<NewToken> customToken={mergedToken}>
 			<AntdConfigProvider
+				{...props}
 				theme={{
 					token: { ...defaultTheme.token, ...props.theme?.token },
 					components: {

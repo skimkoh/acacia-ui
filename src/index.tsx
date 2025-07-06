@@ -18,6 +18,8 @@ export { default as DatePicker } from "./components/ui/DatePicker/DatePicker";
 export { default as Card } from "./components/ui/Card/Card";
 export { default as Tag } from "./components/ui/Tag/Tag";
 export { default as Tabs } from "./components/ui/Tabs/Tabs";
+export { default as VerticalLayout } from "./components/layout/VerticalLayout/VerticalLayout";
+export { default as VerticalHeader } from "./components/layout/VerticalLayout/VerticalHeader";
 
 export type { NewToken } from "./theme/customTheme";
 // hooks

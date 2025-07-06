@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Button from "../components/ui/Button/Button";
+import Button from "../src/components/ui/Button/Button";
 
 const meta = {
 	component: Button,
@@ -28,5 +28,11 @@ export const Primary: Story = {
 		children: "Button",
 		type: "default",
 		disabled: false,
+	},
+};
+
+export const LoggedOut: Story = {
+	args: {
+		type: "primary",
 	},
 };

@@ -21,6 +21,7 @@ import type {
 	ThemeConfig,
 	TimeRangePickerProps,
 	TagProps,
+	ConfigProviderProps,
 } from "antd";
 
 import type { TextProps } from "antd/es/typography/Text";
@@ -111,7 +112,7 @@ export interface AcaciaCardProps extends CardProps {
 	subtitle?: React.ReactNode | string;
 	title?: React.ReactNode | string;
 	plainBody?: boolean;
-	headerBackgroundPicture?: string;
+	headerBackgroundPicture?: string; // custom picture if decides not to use themes
 	// provides 3 themes of card header background, and put hexagon as the default
 	headerBackgroundTheme?: AcaciaThemes;
 	icon: React.ReactNode | string;
@@ -345,7 +346,7 @@ export interface PaletteBasicPanelProps {
 	bgColor?: string;
 }
 
-export interface AcaciaConfigProviderProps {
+export interface AcaciaConfigProviderProps extends ConfigProviderProps {
 	children: React.ReactNode;
 	customToken?: Partial<NewToken>;
 	theme?: ThemeConfig;

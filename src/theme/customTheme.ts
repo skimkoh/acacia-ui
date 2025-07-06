@@ -1,7 +1,10 @@
 import "@fontsource-variable/outfit";
+import type { AcaciaThemes } from "../components/ui/interfaces";
 
 export interface NewToken {
 	headingFontFamily: string;
+	webTheme: AcaciaThemes;
+	logo: React.ReactNode | string;
 	theme: {
 		lightOnDark: boolean;
 		accent: string; // Strictly HEX color codes
@@ -16,6 +19,8 @@ declare module "antd-style" {
 
 export const CustomTheme: NewToken = {
 	headingFontFamily: '"Outfit Variable", "Outfit", "Segoe UI", sans-serif',
+	webTheme: "classic",
+	logo: "LOGO",
 	theme: {
 		lightOnDark: true,
 		accent: "#b0e9d6",

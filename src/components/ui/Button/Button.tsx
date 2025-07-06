@@ -8,8 +8,3 @@ const Button = ({ children, ...props }: AcaciaButtonProps) => {
 	return <AntdButton {...props}>{children}</AntdButton>;
 };
 export default Button;
-
-// Set defaultProps here:
-Button.defaultProps = {
-	disabled: false,
-};

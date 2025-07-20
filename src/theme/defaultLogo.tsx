@@ -1,8 +1,11 @@
-import { Typography } from "antd";
 import { useTheme } from "antd-style";
 import "@fontsource-variable/roboto-flex";
+import Typography from "../components/ui/Typography/Typography";
+import { useContext } from "react";
+import { VerticalLayoutContext } from "../components/layout/VerticalLayout/VerticalLayout";
 
 export default function DefaultLogo() {
+	const context = useContext(VerticalLayoutContext);
 	const token = useTheme();
 
 	const getLogo = () => {
@@ -10,11 +13,10 @@ export default function DefaultLogo() {
 			return (
 				<Typography.Title
 					style={{
-						color: "white",
+						color: context?.mainColor ?? "white",
 						margin: 0,
-						fontFamily: "RobotoFlexVariable",
 					}}
-					level={3}
+					level={4}
 				>
 					{token.logo}
 				</Typography.Title>

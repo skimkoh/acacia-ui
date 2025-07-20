@@ -8,12 +8,10 @@ export const useMainNavStyles = createStyles(({ css, prefixCls }) => {
         }
 
          &.${prefixCls}-menu > .${prefixCls}-menu-item {
-            color: #E3E3E3;
             font-weight: 700;
          }
 
         .${prefixCls}-menu-submenu-title {
-            color: #E3E3E3;
             font-weight: 700;
         }
 

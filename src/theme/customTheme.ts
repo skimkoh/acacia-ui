@@ -1,4 +1,4 @@
-import "@fontsource-variable/outfit";
+import "@fontsource-variable/roboto-flex";
 import type { AcaciaThemes } from "../components/ui/interfaces";
 
 export interface NewToken {
@@ -18,7 +18,8 @@ declare module "antd-style" {
 }
 
 export const CustomTheme: NewToken = {
-	headingFontFamily: '"Outfit Variable", "Outfit", "Segoe UI", sans-serif',
+	headingFontFamily:
+		'"Roboto Flex Variable", "Roboto Flex", "Segoe UI", sans-serif',
 	webTheme: "classic",
 	logo: "LOGO",
 	theme: {

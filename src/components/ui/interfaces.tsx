@@ -38,6 +38,7 @@ import type {
 } from "antd/es/_util/colors";
 import type { LiteralUnion } from "antd/es/_util/type";
 import type { TabsType } from "antd/es/tabs";
+import type { ItemType } from "antd/es/breadcrumb/Breadcrumb";
 
 /**
  * props for the acacia themes
@@ -48,7 +49,13 @@ export type AcaciaThemes = "classic" | "submarine" | "mystical";
  * Props for Acacia Breadcrumb component
  * @see https://ant.design/components/breadcrumb
  */
-export interface AcaciaBreadcrumbProps extends BreadcrumbProps {}
+export interface AcaciaBreadcrumbProps extends BreadcrumbProps {
+	items?: ItemType[];
+	/**
+	 * @default /
+	 */
+	separator?: "/";
+}
 
 /**
  * Props for Palette Avatar component

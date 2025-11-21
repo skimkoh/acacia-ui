@@ -9,6 +9,9 @@ export interface NewToken {
 		lightOnDark: boolean;
 		accent: string; // Strictly HEX color codes
 	};
+	tabs: {
+		headerItemSelectedColor: string;
+	};
 }
 
 // By extending the type definition of the `CustomToken` interface for `antd-style`, you can add corresponding token type definitions to the `useTheme` hooks
@@ -25,5 +28,8 @@ export const CustomTheme: NewToken = {
 	theme: {
 		lightOnDark: true,
 		accent: "#b0e9d6",
+	},
+	tabs: {
+		headerItemSelectedColor: "#FF0000",
 	},
 };

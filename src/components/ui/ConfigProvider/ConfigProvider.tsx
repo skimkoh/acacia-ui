@@ -12,6 +12,7 @@ import { ThemeProvider } from "antd-style";
 import { CustomTheme, type NewToken } from "../../../theme/customTheme";
 import { typographyUtil } from "../../../theme/typographyUtil";
 import type { AcaciaConfigProviderProps } from "../interfaces";
+import { grey } from "@ant-design/colors";
 
 const ConfigProvider = ({ ...props }: AcaciaConfigProviderProps) => {
 	const { colors, generate } = usePaletteColors();
@@ -46,11 +47,6 @@ const ConfigProvider = ({ ...props }: AcaciaConfigProviderProps) => {
 			Layout: {
 				headerBg: "transparent",
 				headerHeight: undefined,
-			},
-			Breadcrumb: {
-				itemColor: neutral[0],
-				lastItemColor: neutral[0],
-				separatorColor: neutral[0],
 			},
 			Checkbox: {
 				lineWidth: 2,
@@ -101,6 +97,7 @@ const ConfigProvider = ({ ...props }: AcaciaConfigProviderProps) => {
 				horizontalItemPadding: padding.tabs,
 				horizontalItemPaddingLG: padding.tabs,
 				horizontalItemPaddingSM: padding.tabs,
+				colorBorderSecondary: grey[6],
 			},
 		},
 	};

@@ -115,12 +115,22 @@ export interface AcaciaButtonProps extends ButtonProps {
  *
  */
 export interface AcaciaCardProps extends CardProps {
-	/** content in the card */
+	/**
+	 * content in the card
+	 */
 	subtitle?: React.ReactNode | string;
 	title?: React.ReactNode | string;
 	plainBody?: boolean;
-	headerBackgroundPicture?: string; // custom picture if decides not to use themes
-	// provides 3 themes of card header background, and put hexagon as the default
+	/**
+	 * custom background banner picture if decides not to use themes.
+	 * we are assuming that the picture is found under the public folder in nextjs
+	 * example usage:
+	 * headerBackgroundPicture: "./test.png"
+	 */
+	headerBackgroundPicture?: string;
+	/**
+	 * 	provides 3 themes of card header background, and put hexagon as the default
+	 */
 	headerBackgroundTheme?: AcaciaThemes;
 	icon: React.ReactNode | string;
 }

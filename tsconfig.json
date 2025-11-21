@@ -14,6 +14,10 @@
 		"declarationMap": true,
 		"noEmit": false
 	},
-	"include": ["src", "src/utils/images.d.ts"],
+	"include": [
+		"src",
+		"src/utils/images.d.ts",
+		"stories/VerticalHeader.stories.tsx"
+	],
 	"exclude": ["node_modules", "dist", "stories"]
 }

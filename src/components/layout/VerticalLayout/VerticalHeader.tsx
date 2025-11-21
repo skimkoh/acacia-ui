@@ -8,6 +8,7 @@ import type {
 	AcaciaTabsProps,
 } from "../../ui/interfaces";
 import Breadcrumb from "../../ui/Breadcrumb/Breadcrumb";
+import { usePaletteToken } from "../../../tokens/usePaletteToken";
 import Tabs from "../../ui/Tabs/Tabs";
 
 export interface VerticalHeaderProps {
@@ -16,46 +17,65 @@ export interface VerticalHeaderProps {
 	pageIcon?: React.ReactNode;
 	rightSideItems?: React.ReactNode;
 	leftSideItems?: React.ReactNode;
-	mainColor?: string; // hex string
 	breadcrumbs?: AcaciaBreadcrumbProps;
 	tabs?: Omit<AcaciaTabsProps, "type">;
 }
 
 const VerticalHeader = ({ ...props }: VerticalHeaderProps) => {
-	const context = useContext(VerticalLayoutContext); // context to check if its nested
+	const context = useContext(VerticalLayoutContext); // context to check if its nested - its possible that the user can use the header without the VerticalLayout
 	const isNestedInLayout = Boolean(context); // check if nested or not to handle colors
 
+	const token = usePaletteToken();
+	// render tabs
+	const renderTabs = () => {
+		return (
+			<Tabs
+				{...props.tabs}
+				style={{ marginTop: "0.5rem" }}
+				type={isNestedInLayout ? "header" : "page"}
+			/>
+		);
+	};
+
 	return (
-		<Flex
-			justify="space-between"
-			style={{ paddingTop: isNestedInLayout ? "1rem" : 0 }}
-		>
-			<Space direction="vertical" size={0}>
-				{props.breadcrumbs && <Breadcrumb {...props.breadcrumbs} />}
-				<Typography.Title
-					level={2}
-					style={{
-						margin: 0,
-						color: context.mainColor ?? props.mainColor ?? "white",
-					}}
-				>
-					{props.pageTitle}
-				</Typography.Title>
-				<Typography.Text
-					style={{
-						color: isNestedInLayout
-							? context.firstBackgroundColor
-							: (context.mainColor ?? props.mainColor ?? "white"),
-					}}
-				>
-					{props.pageSubtitle}
-				</Typography.Text>
-				{props.tabs && (
-					<Tabs {...props.tabs} style={{ marginTop: "0.5rem" }} type="header" />
-				)}
-			</Space>
-			{props.rightSideItems}
-		</Flex>
+		<div style={{ padding: isNestedInLayout ? 0 : 20 }}>
+			<Flex
+				align="center"
+				justify="space-between"
+				style={{ paddingTop: isNestedInLayout ? "1rem" : 0 }}
+			>
+				<Space direction="vertical" size={0} style={{ display: "flex" }}>
+					{props.breadcrumbs && <Breadcrumb {...props.breadcrumbs} />}
+					<Typography.Title
+						level={2}
+						style={{
+							margin: 0,
+							color: isNestedInLayout
+								? context?.mainColor
+								: token.token.colorText,
+						}}
+					>
+						{props.pageTitle}
+					</Typography.Title>
+					<Typography.Text
+						style={{
+							color: isNestedInLayout
+								? context?.firstBackgroundColor
+								: (context?.mainColor ??
+									context?.mainColor ??
+									token.token.colorText),
+						}}
+					>
+						{props.pageSubtitle}
+					</Typography.Text>
+					{/* // if its nested, then its under the left hand side items */}
+					{props.tabs && isNestedInLayout && renderTabs()}
+				</Space>
+				{props.rightSideItems}
+			</Flex>
+			{/* // if its not nested, then remove it under the left hand side items and place it on its own */}
+			{props.tabs && !isNestedInLayout && renderTabs()}
+		</div>
 	);
 };
 

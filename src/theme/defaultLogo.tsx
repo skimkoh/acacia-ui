@@ -13,7 +13,7 @@ export default function DefaultLogo() {
 			return (
 				<Typography.Title
 					style={{
-						color: context?.mainColor ?? "white",
+						color: context?.mainTextColor ?? "white",
 						margin: 0,
 					}}
 					level={4}

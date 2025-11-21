@@ -8,7 +8,6 @@ import { tint } from "@mirawision/colorize";
 import { useContext } from "react";
 import { VerticalLayoutContext } from "../../layout/VerticalLayout/VerticalLayout";
 import { usePaletteToken } from "../../../tokens/usePaletteToken";
-import { ConfigContext } from "antd/es/config-provider";
 export default function Tabs({ type, ...restProps }: AcaciaTabsProps) {
 	const { generate } = usePaletteColors();
 	const token = useTheme();
@@ -18,19 +17,6 @@ export default function Tabs({ type, ...restProps }: AcaciaTabsProps) {
 	const token3 = theme.useToken();
 	const context = useContext(VerticalLayoutContext);
 	const isNestedInLayout = Boolean(context);
-
-	console.log(`token:${token.colorPrimary}`);
-	console.log(`token2:${tokens.token.colorPrimary}`);
-	console.log(`token3:${token3.token.colorPrimary}`);
-	const { tabs } = useContext(ConfigContext);
-	console.log(tabs);
-
-	console.log(`token4:${token.tabs.headerItemSelectedColor}`);
-	console.log(`token5:${token3.token.Tabs.inkBarColor}`);
-
-	console.log(`isnested:${isNestedInLayout}`);
-	console.log(`type:${type}`);
-	console.log(`color:${context?.firstBackgroundColor}`);
 
 	const { colors: pageColors, neutral: pageNeutral } = generate(
 		token.colorPrimary,

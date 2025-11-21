@@ -51,7 +51,7 @@ const VerticalHeader = ({ ...props }: VerticalHeaderProps) => {
 						style={{
 							margin: 0,
 							color: isNestedInLayout
-								? context?.mainColor
+								? context?.mainTextColor
 								: token.token.colorText,
 						}}
 					>
@@ -61,8 +61,8 @@ const VerticalHeader = ({ ...props }: VerticalHeaderProps) => {
 						style={{
 							color: isNestedInLayout
 								? context?.firstBackgroundColor
-								: (context?.mainColor ??
-									context?.mainColor ??
+								: (context?.mainTextColor ??
+									context?.mainTextColor ??
 									token.token.colorText),
 						}}
 					>

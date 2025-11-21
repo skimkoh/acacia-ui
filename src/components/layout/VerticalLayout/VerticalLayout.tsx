@@ -5,18 +5,19 @@ import type { AcaciaThemes } from "../../ui/interfaces";
 import { match } from "ts-pattern";
 import { createContext, useCallback, type PropsWithChildren } from "react";
 import { Flex, Menu, Space, type MenuProps } from "antd";
-import { adjustBrightness } from "@mirawision/colorize";
+import { adjustBrightness, isLight } from "@mirawision/colorize";
 import { useMainNavStyles } from "../styles/useMainNavStyles";
 import ConfigProvider from "../../ui/ConfigProvider/ConfigProvider";
 import DefaultLogo from "../../../theme/defaultLogo";
 import { Helmet } from "react-helmet";
 import VerticalHeader from "./VerticalHeader";
+import { renderBlackOrWhiteText } from "./utils";
 
 interface LayoutProps {
 	headerBackgroundProps: HeaderBackgroundProps;
 	menuProps?: Omit<MenuProps, "mode">;
 	documentHeadLabel?: string;
-	mainColor?: string; // main color of the layout
+	mainTextColor?: string; // main color of the layout
 }
 
 // interface to handle header background - props allowed for users to change picture, change theme or custom gradient entirely
@@ -28,7 +29,7 @@ interface HeaderBackgroundProps {
 }
 
 export const VerticalLayoutContext = createContext<{
-	mainColor: string;
+	mainTextColor: string;
 	firstBackgroundColor: string;
 } | null>(null);
 
@@ -41,11 +42,13 @@ const VerticalLayout = ({
 	},
 	...props
 }: PropsWithChildren<LayoutProps>) => {
+	const firstBackgroundColor = headerBackgroundCustomGradientColors
+		? `#${headerBackgroundCustomGradientColors[0]}`
+		: "#1d4042";
+
 	const accentColor = adjustBrightness(
-		headerBackgroundCustomGradientColors
-			? `#${headerBackgroundCustomGradientColors[0]}`
-			: "#1d4042",
-		45,
+		firstBackgroundColor,
+		isLight(firstBackgroundColor) ? -45 : 45,
 	); // for the accent color - subtitles and tabs. based on the color of the theme background
 	const headerStyles = useMainNavStyles();
 
@@ -87,7 +90,11 @@ const VerticalLayout = ({
 
 	return (
 		<VerticalLayoutContext.Provider
-			value={{ mainColor: props.mainColor, firstBackgroundColor: accentColor }}
+			value={{
+				mainTextColor:
+					props.mainTextColor ?? renderBlackOrWhiteText(firstBackgroundColor), // by default it will try to render white/black text for content
+				firstBackgroundColor: accentColor,
+			}}
 		>
 			<Helmet>
 				<title>{props.documentHeadLabel}</title>
@@ -111,9 +118,10 @@ const VerticalLayout = ({
 										theme={{
 											components: {
 												Menu: {
-													itemHoverColor: props.mainColor ?? "white",
+													itemHoverColor: props.mainTextColor ?? "white",
 
-													horizontalItemHoverColor: props.mainColor ?? "white",
+													horizontalItemHoverColor:
+														props.mainTextColor ?? "white",
 												},
 											},
 										}}

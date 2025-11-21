@@ -12,12 +12,9 @@
 		"esModuleInterop": true,
 		"allowJs": true,
 		"declarationMap": true,
-		"noEmit": false
+		"noEmit": false,
+		"types": ["node"]
 	},
-	"include": [
-		"src",
-		"src/utils/images.d.ts",
-		"stories/VerticalHeader.stories.tsx"
-	],
+	"include": ["src", "src/utils/images.d.ts"],
 	"exclude": ["node_modules", "dist", "stories"]
 }

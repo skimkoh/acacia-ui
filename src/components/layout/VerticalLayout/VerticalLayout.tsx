@@ -30,7 +30,7 @@ interface HeaderBackgroundProps {
 
 export const VerticalLayoutContext = createContext<{
 	mainTextColor: string;
-	firstBackgroundColor: string;
+	accentColor: string;
 } | null>(null);
 
 const VerticalLayout = ({
@@ -93,7 +93,7 @@ const VerticalLayout = ({
 			value={{
 				mainTextColor:
 					props.mainTextColor ?? renderBlackOrWhiteText(firstBackgroundColor), // by default it will try to render white/black text for content
-				firstBackgroundColor: accentColor,
+				accentColor: accentColor,
 			}}
 		>
 			<Helmet>

@@ -22,6 +22,7 @@ import type {
 	TimeRangePickerProps,
 	TagProps,
 	ConfigProviderProps,
+	SpaceProps,
 } from "antd";
 
 import type { TextProps } from "antd/es/typography/Text";
@@ -38,7 +39,10 @@ import type {
 } from "antd/es/_util/colors";
 import type { LiteralUnion } from "antd/es/_util/type";
 import type { TabsType } from "antd/es/tabs";
-import type { ItemType } from "antd/es/breadcrumb/Breadcrumb";
+import type {
+	BreadcrumbItemType,
+	BreadcrumbSeparatorType,
+} from "antd/es/breadcrumb/Breadcrumb";
 
 /**
  * props for the acacia themes
@@ -49,8 +53,21 @@ export type AcaciaThemes = "classic" | "submarine" | "mystical";
  * Props for Acacia Breadcrumb component
  * @see https://ant.design/components/breadcrumb
  */
+
+export type AcaciaBreadcrumbItemType = BreadcrumbItemType & {
+	icon?: React.ReactNode;
+	/**
+	 * @default end
+	 */
+	iconPosition?: "start" | "end";
+};
+
+export type AcaciaItemType = Partial<
+	AcaciaBreadcrumbItemType & BreadcrumbSeparatorType
+>;
+
 export interface AcaciaBreadcrumbProps extends BreadcrumbProps {
-	items?: ItemType[];
+	items?: AcaciaItemType[];
 	/**
 	 * @default /
 	 */
@@ -212,6 +229,13 @@ export interface PaletteParagraphProps extends ParagraphProps {
 }
 
 /**
+ * Props for Palette Space component
+ * @see https://ant.design/components/space
+ *
+ */
+export interface AcaciaSpaceProps extends SpaceProps {}
+
+/**
  * Props for Palette Pagination component
  * @see https://ant.design/components/pagination
  *
@@ -242,9 +266,7 @@ export interface AcaciaInputTextAreaProps extends TextAreaProps {}
 
 type AcaciaTabsType = TabsType | "page" | "header";
 
-export interface AcaciaTabsProps extends Omit<TabsProps, "type"> {
-	type: AcaciaTabsType;
-}
+export interface AcaciaTabsProps extends TabsProps {}
 
 /**
  * Props for Palette Radio component

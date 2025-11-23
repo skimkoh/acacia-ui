@@ -60,10 +60,8 @@ const VerticalHeader = ({ ...props }: VerticalHeaderProps) => {
 					<Typography.Text
 						style={{
 							color: isNestedInLayout
-								? context?.firstBackgroundColor
-								: (context?.mainTextColor ??
-									context?.mainTextColor ??
-									token.token.colorText),
+								? context?.accentColor
+								: token.token.colorText,
 						}}
 					>
 						{props.pageSubtitle}

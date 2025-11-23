@@ -3,7 +3,7 @@ import type { AcaciaThemes } from "../components/ui/interfaces";
 
 export interface NewToken {
 	headingFontFamily: string;
-	webTheme: AcaciaThemes;
+	appTheme: AcaciaThemes;
 	logo: React.ReactNode | string;
 	theme: {
 		lightOnDark: boolean;
@@ -23,7 +23,7 @@ declare module "antd-style" {
 export const CustomTheme: NewToken = {
 	headingFontFamily:
 		'"Roboto Flex Variable", "Roboto Flex", "Segoe UI", sans-serif',
-	webTheme: "classic",
+	appTheme: "classic",
 	logo: "LOGO",
 	theme: {
 		lightOnDark: true,

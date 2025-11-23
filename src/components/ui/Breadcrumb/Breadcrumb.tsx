@@ -6,7 +6,6 @@ import { useGetDefaultTheme } from "../ConfigProvider/defaultTheme";
 
 /**
  * A breadcrumb displays the current location within a hierarchy. It allows going back to states higher up in the hierarchy.
- *
  */
 
 const Breadcrumb = ({ ...props }: AcaciaBreadcrumbProps) => {
@@ -14,13 +13,12 @@ const Breadcrumb = ({ ...props }: AcaciaBreadcrumbProps) => {
 	const isNestedInLayout = Boolean(context); // check if nested or not to handle colors
 
 	const { useToken } = theme;
-	const globalToken = useToken();
+	const globalToken = useToken(); // get the default, antd tokens
 
-	const defaultTheme = useGetDefaultTheme();
+	const defaultTheme = useGetDefaultTheme(); // get the default, overwritten tokens
 
 	return (
 		<ConfigProvider
-			{...props}
 			theme={{
 				token: { ...defaultTheme.token, ...globalToken.token },
 				components: {
@@ -29,6 +27,9 @@ const Breadcrumb = ({ ...props }: AcaciaBreadcrumbProps) => {
 						...(isNestedInLayout
 							? {
 									linkColor: context.mainTextColor,
+									itemColor: context.mainTextColor,
+									lastItemColor: context.mainTextColor,
+									separatorColor: context.mainTextColor,
 								}
 							: {}), // only override if its nested in the layout
 					},

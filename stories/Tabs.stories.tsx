@@ -15,13 +15,16 @@ const meta = {
 	},
 	title: "Components/Tabs",
 	tags: ["autodocs"],
+	argTypes: {
+		type: { control: "select", defaultValue: "line" },
+	},
 } satisfies Meta<typeof Tabs>;
 
 export default meta;
 
 type Story = StoryObj<typeof Tabs>;
 
-export const Primary: Story = {
+export const BasicTabs: Story = {
 	args: {
 		items: [
 			{
@@ -40,5 +43,28 @@ export const Primary: Story = {
 				children: "Content of Tab Pane 3",
 			},
 		],
+	},
+};
+
+export const BasicTabsCardType: Story = {
+	args: {
+		items: [
+			{
+				key: "1",
+				label: "Tab 1",
+				children: "Content of Tab Pane 1",
+			},
+			{
+				key: "2",
+				label: "Tab 2",
+				children: "Content of Tab Pane 2",
+			},
+			{
+				key: "3",
+				label: "Tab 3",
+				children: "Content of Tab Pane 3",
+			},
+		],
+		type: "card",
 	},
 };

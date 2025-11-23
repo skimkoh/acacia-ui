@@ -180,3 +180,49 @@ BasicVerticalLayoutWithCustomHeaderGradient.parameters = {
 		},
 	},
 };
+
+export const BasicVerticalLayoutWithCustomHeaderGradientLight = () => (
+	<VerticalLayout
+		headerBackgroundProps={{
+			headerBackgroundCustomGradientColors: ["cebce0", "966dbf", "572985"],
+		}}
+		menuProps={{
+			items: [
+				{ key: 1, label: "Page One" },
+				{ key: 2, label: "Page Two" },
+				{ key: 3, label: "Page Three" },
+			],
+		}}
+	>
+		<VerticalLayout.VerticalHeader
+			pageTitle="Title"
+			pageSubtitle="testing 123"
+			breadcrumbs={{
+				items: [
+					{
+						title: "Home",
+					},
+					{
+						title: "An Application",
+					},
+				],
+			}}
+			tabs={{
+				items: [
+					{
+						key: "1",
+						label: "Tab 1",
+					},
+					{
+						key: "2",
+						label: "Tab 2",
+					},
+					{
+						key: "3",
+						label: "Tab 3",
+					},
+				],
+			}}
+		/>
+	</VerticalLayout>
+);

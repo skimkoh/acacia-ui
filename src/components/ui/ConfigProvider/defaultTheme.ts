@@ -84,7 +84,7 @@ export function useGetDefaultTheme(): ThemeConfig {
 					horizontalItemPadding: padding.tabs,
 					horizontalItemPaddingLG: padding.tabs,
 					horizontalItemPaddingSM: padding.tabs,
-					colorBorderSecondary: grey[6],
+					colorBorderSecondary: grey[1],
 				},
 			},
 		};

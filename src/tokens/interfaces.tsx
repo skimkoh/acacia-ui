@@ -6,11 +6,11 @@ type DeepPartial<T> = {
 	[P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
 };
 
-export interface PaletteThemeConfig extends ThemeConfig {
-	token?: DeepPartial<PaletteAliasToken>;
+export interface AcaciaThemeConfig extends ThemeConfig {
+	token?: DeepPartial<AcaciaAliasToken>;
 }
 
-export interface PaletteAliasToken extends AliasToken {
+export interface AcaciaAliasToken extends AliasToken {
 	/**
 	 * @nameEN Main font for the entire app
 	 * @descEN Font used for most elements in the app
@@ -68,7 +68,7 @@ export interface PaletteAliasToken extends AliasToken {
 	};
 }
 
-export interface PaletteToken extends GlobalToken {
+export interface AcaciaToken extends GlobalToken {
 	fontFamily: string;
 	headingFontFamily: string;
 	colors: {

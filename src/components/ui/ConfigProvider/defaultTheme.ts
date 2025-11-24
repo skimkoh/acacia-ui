@@ -1,13 +1,13 @@
 import type { ThemeConfig } from "antd";
-import { usePaletteColors } from "../../../hooks/usePaletteColors";
-import { usePaletteConfig } from "../../../hooks/usePaletteConfig";
+import { useAcaciaColors } from "../../../hooks/useAcaciaColors";
+import { useAcaciaConfig } from "../../../hooks/useAcaciaConfig";
 import { useMemo } from "react";
 import { grey } from "@ant-design/colors";
 import { typographyUtil } from "../../../theme/typographyUtil";
 
 export function useGetDefaultTheme(): ThemeConfig {
-	const { colors } = usePaletteColors();
-	const { borderRadius, padding } = usePaletteConfig();
+	const { colors } = useAcaciaColors();
+	const { borderRadius, padding } = useAcaciaConfig();
 
 	return useMemo<ThemeConfig>(() => {
 		return {

@@ -1,6 +1,6 @@
 import { generate } from "../utils/colors.util";
 import theme from "../theme/theme";
-export const usePaletteColors = () => {
+export const useAcaciaColors = () => {
 	// const { token } = usePaletteToken()
 	const colors = {
 		primaryGreen: "#334F4E",
@@ -11,9 +11,9 @@ export const usePaletteColors = () => {
 		neutralGrey: "#BBBDBE",
 		lesserInk: "#3D4040",
 		border: {
-			button: `#B3B3B3`,
-			cell: `#CCC`,
-			page: `#B3B3B3`,
+			button: "#B3B3B3",
+			cell: "#CCC",
+			page: "#B3B3B3",
 		},
 		link: {
 			primary: theme.colors.primary,

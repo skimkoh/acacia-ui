@@ -1,14 +1,14 @@
 import { createStyles, useTheme } from "antd-style";
-import { usePaletteColors } from "../../../hooks/usePaletteColors";
-import { usePaletteConfig } from "../../../hooks/usePaletteConfig";
+import { useAcaciaColors } from "../../../hooks/useAcaciaColors";
+import { useAcaciaConfig } from "../../../hooks/useAcaciaConfig";
 import { typographyUtil } from "../../../theme/typographyUtil";
 
 const wrapPaddingBottom = 10;
 
 export const useTabsStyles = (inkBarColor: string) => {
 	const token = useTheme();
-	const { colors, generate } = usePaletteColors();
-	const { borderRadius } = usePaletteConfig();
+	const { colors, generate } = useAcaciaColors();
+	const { borderRadius } = useAcaciaConfig();
 	const { colors: accentColors } = generate(token.theme.accent);
 
 	return createStyles(({ css, prefixCls }) => ({

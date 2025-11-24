@@ -1,4 +1,4 @@
-export const usePaletteConfig = () => {
+export const useAcaciaConfig = () => {
 	const borderRadius = {
 		primary: 3,
 		tag: 20,

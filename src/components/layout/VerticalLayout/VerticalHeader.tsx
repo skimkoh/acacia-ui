@@ -8,7 +8,7 @@ import type {
 	AcaciaTabsProps,
 } from "../../ui/interfaces";
 import Breadcrumb from "../../ui/Breadcrumb/Breadcrumb";
-import { usePaletteToken } from "../../../tokens/usePaletteToken";
+import { useAcaciaToken } from "../../../tokens/useAcaciaToken";
 import Tabs from "../../ui/Tabs/Tabs";
 
 export interface VerticalHeaderProps {
@@ -25,7 +25,7 @@ const VerticalHeader = ({ ...props }: VerticalHeaderProps) => {
 	const context = useContext(VerticalLayoutContext); // context to check if its nested - its possible that the user can use the header without the VerticalLayout
 	const isNestedInLayout = Boolean(context); // check if nested or not to handle colors
 
-	const token = usePaletteToken();
+	const token = useAcaciaToken();
 	// render tabs
 	const renderTabs = () => {
 		return (
@@ -44,7 +44,7 @@ const VerticalHeader = ({ ...props }: VerticalHeaderProps) => {
 				justify="space-between"
 				style={{ paddingTop: isNestedInLayout ? "1rem" : 0 }}
 			>
-				<Space direction="vertical" size={0} style={{ display: "flex" }}>
+				<Space orientation="vertical" size={0} style={{ display: "flex" }}>
 					{props.breadcrumbs && <Breadcrumb {...props.breadcrumbs} />}
 					<Typography.Title
 						level={2}

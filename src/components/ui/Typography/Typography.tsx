@@ -1,13 +1,13 @@
 import { Typography as AntdTypography } from "antd";
 
-import type {
-	PaletteTextProps,
-	PaletteTitleProps,
-	PaletteBasicTypographyProps,
-	PaletteParagraphProps,
-} from "../interfaces";
 import { useTypographyStyles } from "./useTypographyStyles";
 import { typographyUtil } from "../../../theme/typographyUtil";
+import type {
+	AcaciaBasicTypographyProps,
+	AcaciaParagraphProps,
+	AcaciaTextProps,
+	AcaciaTitleProps,
+} from "../interfaces";
 
 const TypographyToken = {
 	fontSizeHeading1: typographyUtil.fontSize.h1,
@@ -23,7 +23,7 @@ const Title = ({
 	level = 1,
 	color,
 	...antdProps
-}: PaletteTitleProps) => {
+}: AcaciaTitleProps) => {
 	const typoStyles = useTypographyStyles(color).styles;
 
 	return (
@@ -46,7 +46,7 @@ const Text = ({
 	level = 2,
 	color,
 	...antdProps
-}: PaletteTextProps) => {
+}: AcaciaTextProps) => {
 	const typoStyles = useTypographyStyles(color).styles;
 
 	return (
@@ -63,7 +63,7 @@ const Text = ({
 	);
 };
 
-const Emphasis = ({ children, color, ...props }: PaletteTextProps) => {
+const Emphasis = ({ children, color, ...props }: AcaciaTextProps) => {
 	const typoStyles = useTypographyStyles(color).styles;
 
 	return (
@@ -84,7 +84,7 @@ const Caption = ({
 	children,
 	color,
 	...antdProps
-}: PaletteBasicTypographyProps) => {
+}: AcaciaBasicTypographyProps) => {
 	const typoStyles = useTypographyStyles(color).styles;
 
 	return (
@@ -104,7 +104,7 @@ const Overline = ({
 	children,
 	color,
 	...antdProps
-}: PaletteBasicTypographyProps) => {
+}: AcaciaBasicTypographyProps) => {
 	const typoStyles = useTypographyStyles(color).styles;
 
 	return (
@@ -120,11 +120,7 @@ const Overline = ({
 	);
 };
 
-const Paragraph = ({
-	children,
-	color,
-	...antdProps
-}: PaletteParagraphProps) => {
+const Paragraph = ({ children, color, ...antdProps }: AcaciaParagraphProps) => {
 	const typoStyles = useTypographyStyles(color).styles;
 
 	return (

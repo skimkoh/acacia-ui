@@ -1,10 +1,10 @@
 import { createStyles } from "antd-style";
-import { usePaletteConfig } from "../../../hooks/usePaletteConfig";
+import { useAcaciaConfig } from "../../../hooks/useAcaciaConfig";
 
 export const useCardStyles = () => {
-	const { shadow } = usePaletteConfig();
+	const { shadow } = useAcaciaConfig();
 
-	return createStyles(({ css, prefixCls }) => ({
+	return createStyles(({ css }) => ({
 		card: css`
         && {
           box-shadow: ${shadow.card};

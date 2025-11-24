@@ -1,6 +1,6 @@
-import type { PaletteCustomToken } from "../components/ui/interfaces";
+import type { AcaciaCustomToken } from "../components/ui/interfaces";
 
-const defaultPaletteToken: PaletteCustomToken = {
+const defaultPaletteToken: AcaciaCustomToken = {
 	fontFamily: "Inter Variable", // Leave this blank to use Inter
 	headingFontFamily: "Outfit Variable",
 	colors: {
@@ -32,7 +32,8 @@ const defaultPaletteToken: PaletteCustomToken = {
 		bgcolor: "#F9F9F9", // Strictly HEX color codes
 		contentbg:
 			"linear-gradient(-90deg, #EbF1F1CC 70%, #8EAFAC33), url(assets/cardheader.png)",
-		headerbg: `linear-gradient(70deg, #EbF1F1CC 80%, #8EAFAC69 80%), url(assets/cardheader.png)`,
+		headerbg:
+			"linear-gradient(70deg, #EbF1F1CC 80%, #8EAFAC69 80%), url(assets/cardheader.png)",
 	},
 };
 

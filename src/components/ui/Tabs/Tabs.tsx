@@ -4,7 +4,7 @@ import { adjustBrightness, isLight } from "@mirawision/colorize";
 import { useContext } from "react";
 import { VerticalLayoutContext } from "../../layout/VerticalLayout/VerticalLayout";
 import { useGetDefaultTheme } from "../ConfigProvider/defaultTheme";
-export default function Tabs({ ...props }: AcaciaTabsProps) {
+export default function Tabs({ type = "line", ...props }: AcaciaTabsProps) {
 	const context = useContext(VerticalLayoutContext);
 	const isNestedInLayout = Boolean(context); // for when tabs are nested in Layout
 

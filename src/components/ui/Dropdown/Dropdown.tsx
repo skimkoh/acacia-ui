@@ -2,7 +2,7 @@
  * @description A dropdown list
  */
 
-import { type DropDownProps, Dropdown as AntdDropdown } from "antd";
+import { Dropdown as AntdDropdown, type DropDownProps } from "antd";
 import DropdownButton from "./DropdownButton";
 
 const Dropdown = ({ ...props }: DropDownProps) => {

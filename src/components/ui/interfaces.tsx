@@ -15,7 +15,6 @@ import type {
 	FormProps,
 	FormItemProps,
 	DatePickerProps,
-	TableProps,
 	MenuProps,
 	TimePickerProps,
 	ThemeConfig,
@@ -78,12 +77,12 @@ export interface AcaciaBreadcrumbProps extends BreadcrumbProps {
  * Props for Palette Avatar component
  * @see https://ant.design/components/avatar
  *
- * Custom Palette props:
+ * Custom props:
  * @property {string} [userId] - id of the user. if you want to show the user id in the avatar, set this property
  * @property {"solid" | "transparent"} [type=solid] - determines the avatar type. 'solid' is for solid background while 'transparent' is for transparent background
  * @property {() => void} [onClick] - click handler, to handle showing of
  */
-export interface PaletteAvatarProps extends AvatarProps {
+export interface AcaciaAvatarProps extends AvatarProps {
 	userId?: string;
 	type?: "solid" | "transparent";
 	onClick?: () => void;
@@ -122,10 +121,10 @@ export interface AcaciaButtonProps extends ButtonProps {
 }
 
 /**
- * Props for Palette Card component
+ * Props for Acacia Card component
  * @see https://ant.design/components/card
  *
- * custom Palette props:
+ * custom props:
  * @property {boolean} [plainBody=false] - determines if the card should have plain body or textured body
  * @property {React.ReactNode | string} [title] - card header title
  * @property {React.ReactNode | string} [subtitle] - card header subtitle
@@ -153,32 +152,19 @@ export interface AcaciaCardProps extends CardProps {
 }
 
 /**
- * Props for Palette Masthead component
- * This is a custom bar of honor component
- *
- * custom Palette props:
- * @property {"hidden" | "blackBg" | "greyBg" | "primaryGreenBg" | "whiteBg"} [type=blackBg] - determines the masthead type
- *
- */
-export interface PaletteMastheadProps {
-	type: "hidden" | "blackBg" | "greyBg" | "primaryGreenBg" | "whiteBg";
-	children: React.ReactNode;
-}
-
-/**
- * Props for Palette Typorgraphy component
+ * Props for Typography component
  * @see https://ant.design/components/typography
  */
 export interface AcaciaTypographyProps extends TypographyProps {}
 
 /**
- * Props for Palette Title component
+ * Props for Acacia Title component
  * @see https://ant.design/components/typography
  *
- * custom Palette props:
+ * custom props:
  * @property {string} [color] - color of the title
  */
-export interface PaletteTitleProps extends TitleProps {
+export interface AcaciaTitleProps extends TitleProps {
 	children: React.ReactNode;
 	color?: string;
 }
@@ -187,86 +173,88 @@ export interface PaletteTitleProps extends TitleProps {
  * Props for Palette Text component
  * @see https://ant.design/components/typography
  *
- * custom Palette props:
+ * custom props:
  * @property {string} [color] - color of the title
  * @property {1 | 2} [level=1] - level of the text
  */
-export interface PaletteTextProps extends TextProps {
+export interface AcaciaTextProps extends TextProps {
 	children: React.ReactNode;
 	level?: 1 | 2;
 	color?: string;
 }
 
 /**
- * Props for Palette Text component
+ * Props for Acacia Text component
  * @see https://ant.design/components/typography
  *
  */
-export interface PaletteEmphasisProps extends PaletteTextProps {}
+export interface AcaciaEmphasisProps extends AcaciaTextProps {}
 
 /**
- * Props for Palette Typography component
- * @see https://ant.design/components/typography
- *
- * custom Palette props:
- * @property {string} [color] - color of the title
- */
-export interface PaletteBasicTypographyProps extends TextProps {
-	children: React.ReactNode;
-	color?: string;
-}
-
-/**
- * Props for Palette Paragraph component
+ * Props for Acacia Typography component
  * @see https://ant.design/components/typography
  *
  * custom Palette props:
  * @property {string} [color] - color of the title
  */
-export interface PaletteParagraphProps extends ParagraphProps {
+export interface AcaciaBasicTypographyProps extends TextProps {
 	children: React.ReactNode;
 	color?: string;
 }
 
 /**
- * Props for Palette Space component
+ * Props for Acacia Paragraph component
+ * @see https://ant.design/components/typography
+ *
+ * custom props:
+ * @property {string} [color] - color of the title
+ */
+export interface AcaciaParagraphProps extends ParagraphProps {
+	children: React.ReactNode;
+	color?: string;
+}
+
+/**
+ * Props for Acacia Space component
  * @see https://ant.design/components/space
  *
  */
 export interface AcaciaSpaceProps extends SpaceProps {}
 
 /**
- * Props for Palette Pagination component
+ * Props for Acacia Pagination component
  * @see https://ant.design/components/pagination
  *
  */
 export interface AcaciaPaginationProps extends PaginationProps {}
 
 /**
- * Props for Palette Input component
+ * Props for Acacia Input component
  * @see https://ant.design/components/input
  *
  */
 export interface AcaciaInputProps extends InputProps {}
 
 /**
- * Props for Palette Input Text Area component
+ * Props for Acacia Input Text Area component
  * @see https://ant.design/components/input#inputtextarea
  *
  */
 export interface AcaciaInputTextAreaProps extends TextAreaProps {}
 
 /**
- * Props for Palette Tabs component
+ * Props for Acacia Tabs component
  * @see https://ant.design/components/tabs
  *
- * custom Palette props:
+ * custom props:
  * @property {"page" | "header"} [colorType=page] - determines the breadcrumb type. 'header' is for breadcrumb within the header while 'page' is for breadcrumb on the page itself
  */
 
 type AcaciaTabsType = TabsType | "page" | "header";
 
-export interface AcaciaTabsProps extends TabsProps {}
+export interface AcaciaTabsProps extends Omit<TabsProps, "type"> {
+	type: TabsType | "page" | "header";
+}
 
 /**
  * Props for Palette Radio component
@@ -274,7 +262,7 @@ export interface AcaciaTabsProps extends TabsProps {}
 export interface AcaciaRadioProps extends RadioProps {}
 
 /**
- * Props for Palette Switch component
+ * Props for Acacia Switch component
  * @see https://ant.design/components/switch
  */
 export interface AcaciaSwitchProps extends SwitchProps {}
@@ -298,50 +286,50 @@ export interface AcaciaRibbonProps extends RibbonProps {}
 export interface AcaciaCheckboxProps extends CheckboxProps {}
 
 /**
- * Props for Palette Segmented component
+ * Props for Acacia Segmented component
  * @see https://ant.design/components/segmented
  */
 export interface AcaciaSegmentedProps extends SegmentedProps {}
 
 /**
- * Props for Palette Steps component
+ * Props for Acacia Steps component
  * @see https://ant.design/components/steps
  */
 export interface PaletteStepsProps extends StepsProps {}
 
 /**
- * Props for Palette Select component
+ * Props for Acacia Select component
  * @see https://ant.design/components/select
  */
 export interface AcaciaSelectProps extends SelectProps {}
 
 /**
- * Props for Palette Panel component
+ * Props for Acacia Panel component
  *
- * custom Palette props:
+ * custom props:
  * @property {React.ReactNode} children - content in the panel
  */
-export interface PalettePanelProps {
+export interface AcaciaPanelProps {
 	children: React.ReactNode;
 }
 
 /**
- * Props for Palette Form component
+ * Props for Acacia Form component
  * @see https://ant.design/components/form
  *
  */
-export interface PaletteFormProps extends FormProps {
+export interface AcaciaFormProps extends FormProps {
 	children: React.ReactNode;
 }
 
 /**
- * Props for Palette Form.Item component
+ * Props for Acacia Form.Item component
  * @see https://ant.design/components/form#formitem
  *
- * custom Palette props:
+ * custom props:
  * @property {string | React.ReactNode} [infoCopy] - helper text under the form item
  */
-export interface PaletteFormItemProps extends FormItemProps {
+export interface AcaciaFormItemProps extends FormItemProps {
 	children: React.ReactNode;
 	infoCopy?: string | React.ReactNode;
 }
@@ -357,30 +345,16 @@ export interface AcaciaTimePickerProps extends TimePickerProps {}
 export interface AcaciaTimeRangePickerProps extends TimeRangePickerProps {}
 
 /**
- * TABLE
- */
-export interface PaletteTableProps extends TableProps<any> {}
-export interface PaletteTableActionBarProps {
-	children: React.ReactNode;
-}
-
-/**
- * PALETTE SWTICH
- */
-export interface PaletteThemeSwitchProps
-	extends Omit<SegmentedProps, "options"> {}
-
-/**
  * MENU
  */
-export interface PaletteMenuProps extends MenuProps {
+export interface AcaciaMenuProps extends MenuProps {
 	borderInline?: "start" | "end" | "none";
 }
 
 /**
  * BASIC PANEL
  */
-export interface PaletteBasicPanelProps {
+export interface AcaciaBasicPanelProps {
 	children: React.ReactNode;
 	bgColor?: string;
 }
@@ -416,8 +390,8 @@ export interface AcaciaTagProps extends TagProps {
 	paddingInline?: number;
 }
 
-// custom token for Palette
-export interface PaletteCustomToken {
+// custom token for Acacia
+export interface AcaciaCustomToken {
 	/**
 	 * @nameEN Main font for the entire app
 	 * @descEN Font used for most elements in the app

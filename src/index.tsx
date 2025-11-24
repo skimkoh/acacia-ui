@@ -23,9 +23,9 @@ export { default as VerticalHeader } from "./components/layout/VerticalLayout/Ve
 
 export type { NewToken } from "./theme/customTheme";
 // hooks
-export { usePaletteColors } from "./hooks/usePaletteColors";
+export { usePaletteColors } from "./hooks/useAcaciaColors";
 export { useFoucHandler } from "./hooks/useFoucHandler";
-export { usePaletteConfig } from "./hooks/usePaletteConfig";
+export { usePaletteConfig } from "./hooks/useAcaciaConfig";
 export { useScreenSize } from "./hooks/useScreenSize";
 // export { usePaletteToken } from "./tokens/usePaletteToken";
 

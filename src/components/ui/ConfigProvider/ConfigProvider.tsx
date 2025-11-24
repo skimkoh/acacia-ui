@@ -1,7 +1,7 @@
 import { ConfigProvider as AntdConfigProvider } from "antd";
 import { ConfigContext } from "antd/es/config-provider/context";
-import { usePaletteColors } from "../../../hooks/usePaletteColors";
-import { usePaletteConfig } from "../../../hooks/usePaletteConfig";
+import { useAcaciaColors } from "../../../hooks/useAcaciaColors";
+import { useAcaciaConfig } from "../../../hooks/useAcaciaConfig";
 import "@fontsource-variable/inter";
 import "@fontsource-variable/outfit";
 import "@fontsource-variable/roboto-flex";
@@ -11,8 +11,8 @@ import type { AcaciaConfigProviderProps } from "../interfaces";
 import { useGetDefaultTheme } from "./defaultTheme";
 
 const ConfigProvider = ({ ...props }: AcaciaConfigProviderProps) => {
-	const { colors, generate } = usePaletteColors();
-	const { borderRadius, padding } = usePaletteConfig();
+	const { colors, generate } = useAcaciaColors();
+	const { borderRadius, padding } = useAcaciaConfig();
 
 	const { neutral } = generate(
 		CustomTheme.theme.accent,

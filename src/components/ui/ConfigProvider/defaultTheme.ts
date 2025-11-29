@@ -4,6 +4,9 @@ import { useAcaciaConfig } from "../../../hooks/useAcaciaConfig";
 import { useMemo } from "react";
 import { grey } from "@ant-design/colors";
 import { typographyUtil } from "../../../theme/typographyUtil";
+import "@fontsource-variable/inter";
+import "@fontsource-variable/outfit";
+import "@fontsource-variable/roboto-flex";
 
 export function useGetDefaultTheme(): ThemeConfig {
 	const { colors } = useAcaciaColors();

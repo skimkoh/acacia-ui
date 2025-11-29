@@ -2,9 +2,7 @@ import { ConfigProvider as AntdConfigProvider } from "antd";
 import { ConfigContext } from "antd/es/config-provider/context";
 import { useAcaciaColors } from "../../../hooks/useAcaciaColors";
 import { useAcaciaConfig } from "../../../hooks/useAcaciaConfig";
-import "@fontsource-variable/inter";
-import "@fontsource-variable/outfit";
-import "@fontsource-variable/roboto-flex";
+
 import { ThemeProvider } from "antd-style";
 import { CustomTheme, type NewToken } from "../../../theme/customTheme";
 import type { AcaciaConfigProviderProps } from "../interfaces";

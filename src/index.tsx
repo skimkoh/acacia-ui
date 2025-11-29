@@ -23,9 +23,9 @@ export { default as VerticalHeader } from "./components/layout/VerticalLayout/Ve
 
 export type { NewToken } from "./theme/customTheme";
 // hooks
-export { usePaletteColors } from "./hooks/useAcaciaColors";
+export { useAcaciaColors } from "./hooks/useAcaciaColors";
 export { useFoucHandler } from "./hooks/useFoucHandler";
-export { usePaletteConfig } from "./hooks/useAcaciaConfig";
+export { useAcaciaConfig } from "./hooks/useAcaciaConfig";
 export { useScreenSize } from "./hooks/useScreenSize";
 // export { usePaletteToken } from "./tokens/usePaletteToken";
 
@@ -50,6 +50,6 @@ export type {
 	AcaciaPaginationProps,
 	AcaciaSelectProps,
 	AcaciaRadioProps,
-	PaletteBasicPanelProps,
-	PaletteCustomToken,
+	AcaciaBasicPanelProps,
+	AcaciaCustomToken,
 } from "./components/ui/interfaces";

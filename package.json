@@ -13,8 +13,7 @@
 		"build": "cross-env NODE_ENV=production webpack-cli --progress --color",
 		"semantic-release": "semantic-release",
 		"storybook": "storybook dev -p 6006",
-		"build-storybook": "storybook build",
-		"chromatic": "npx chromatic --project-token=chpt_ebce0d0ee26608e"
+		"build-storybook": "storybook build"
 	},
 	"peerDependencies": {
 		"@ant-design/colors": "^7.0.2",

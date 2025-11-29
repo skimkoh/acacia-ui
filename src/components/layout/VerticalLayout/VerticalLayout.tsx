@@ -11,7 +11,7 @@ import ConfigProvider from "../../ui/ConfigProvider/ConfigProvider";
 import DefaultLogo from "../../../theme/defaultLogo";
 import { Helmet } from "react-helmet";
 import VerticalHeader from "./VerticalHeader";
-import { renderBlackOrWhiteText } from "./utils";
+import { renderBlackOrWhiteText } from "../../../utils/colors.util";
 
 interface LayoutProps {
 	headerBackgroundProps: HeaderBackgroundProps;

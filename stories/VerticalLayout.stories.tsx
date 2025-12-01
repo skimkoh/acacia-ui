@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>;
 export const BasicVerticalLayout = () => (
 	<VerticalLayout
 		headerBackgroundProps={{
-			headerBackgroundTheme: "classic",
+			headerBackgroundImage: { type: "theme", theme: "classic" },
 		}}
 		menuProps={{
 			items: [
@@ -74,7 +74,7 @@ BasicVerticalLayout.parameters = {
 export const BasicVerticalLayoutWithDifferentPresetTheme = () => (
 	<VerticalLayout
 		headerBackgroundProps={{
-			headerBackgroundTheme: "mystical",
+			headerBackgroundImage: { type: "theme", theme: "mystical" },
 		}}
 		menuProps={{
 			items: [
@@ -129,7 +129,10 @@ BasicVerticalLayoutWithDifferentPresetTheme.parameters = {
 export const BasicVerticalLayoutWithCustomHeaderGradient = () => (
 	<VerticalLayout
 		headerBackgroundProps={{
-			headerBackgroundCustomGradientColors: ["7d1b1b", "e37b7b", "e0a4a4"],
+			headerBackgroundFill: {
+				type: "gradient",
+				colors: ["7d1b1b", "e37b7b", "e0a4a4"],
+			},
 		}}
 		menuProps={{
 			items: [
@@ -184,7 +187,10 @@ BasicVerticalLayoutWithCustomHeaderGradient.parameters = {
 export const BasicVerticalLayoutWithCustomHeaderGradientLight = () => (
 	<VerticalLayout
 		headerBackgroundProps={{
-			headerBackgroundCustomGradientColors: ["cebce0", "966dbf", "572985"],
+			headerBackgroundFill: {
+				type: "gradient",
+				colors: ["cebce0", "966dbf", "572985"],
+			},
 		}}
 		menuProps={{
 			items: [

@@ -65,6 +65,12 @@
 		"webpack-cli": "^5.1.4",
 		"webpack-merge": "^5.9.0"
 	},
-	"browserslist": [">0.25%", "not ie 11", "not op_mini all"],
-	"files": ["/dist"]
+	"browserslist": [
+		">0.25%",
+		"not ie 11",
+		"not op_mini all"
+	],
+	"files": [
+		"/dist"
+	]
 }

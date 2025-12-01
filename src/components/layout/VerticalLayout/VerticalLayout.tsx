@@ -12,6 +12,7 @@ import DefaultLogo from "../../../theme/defaultLogo";
 import { Helmet } from "react-helmet";
 import VerticalHeader from "./VerticalHeader";
 import { renderBlackOrWhiteText } from "../../../utils/colors.util";
+import { parseBackgroundColors } from "../../../utils/parseBackgroundColors";
 
 interface LayoutProps {
 	headerBackgroundProps: HeaderBackgroundProps;
@@ -20,13 +21,36 @@ interface LayoutProps {
 	mainTextColor?: string; // main color of the layout
 }
 
+// theme background image props for the header
+type BackgroundImage =
+	| {
+			type: "theme";
+			theme: AcaciaThemes;
+	  }
+	| { type: "custom-image"; src: string };
+
+// background fill
+type BackgroundFill =
+	| {
+			type: "theme";
+			theme: AcaciaThemes;
+	  }
+	| { type: "gradient"; colors: string[] }
+	| { type: "gradient-css"; css: string };
+
 // interface to handle header background - props allowed for users to change picture, change theme or custom gradient entirely
 interface HeaderBackgroundProps {
-	headerBackgroundTheme?: AcaciaThemes;
-	headerBackgroundPicture?: string;
-	headerBackgroundCustomGradientColors?: string[]; // give a array of hex. if given 1, it will create a gradient of color, if given two, it will create the intermediate, if given three, then it will place the three in
-	headerBackgroundCustomGradientCSS?: string; // for customize gradient
+	headerBackgroundImage?: BackgroundImage;
+	headerBackgroundFill?: BackgroundFill;
 }
+
+const getThemedBackgroundPicture = (theme: AcaciaThemes) => {
+	return match(theme)
+		.with("classic", () => HexagonHeader)
+		.with("submarine", () => StripedHeader)
+		.with("mystical", () => MysticalHeader)
+		.exhaustive();
+};
 
 export const VerticalLayoutContext = createContext<{
 	mainTextColor: string;
@@ -35,50 +59,40 @@ export const VerticalLayoutContext = createContext<{
 
 const VerticalLayout = ({
 	headerBackgroundProps: {
-		headerBackgroundTheme = "classic",
-		headerBackgroundPicture,
-		headerBackgroundCustomGradientColors,
-		headerBackgroundCustomGradientCSS,
+		headerBackgroundImage = { type: "theme", theme: "classic" },
+		headerBackgroundFill = { type: "theme", theme: "classic" },
 	},
 	...props
 }: PropsWithChildren<LayoutProps>) => {
-	const firstBackgroundColor = headerBackgroundCustomGradientColors
-		? `#${headerBackgroundCustomGradientColors[0]}`
-		: "#1d4042";
+	// get the first bg color
+	const getFirstBackgroundHexColor = () => {
+		return match(headerBackgroundFill)
+			.with({ type: "theme" }, ({ theme }) => {
+				return "#1d4042";
+			})
+			.with({ type: "gradient" }, ({ colors }) => {
+				return colors[0];
+			})
+			.with({ type: "gradient-css" }, ({ css }) => {
+				// get hte background color
+				console.log("css");
+				const colors = parseBackgroundColors(css);
+				const firstColor = colors.colors[0];
+				if (firstColor.format === "hex" || firstColor.format === "rgb") {
+					return firstColor.value;
+				}
+				console.log("Named colors not allowed, return HEX or RGB");
+				return "#1d4042";
+			})
+			.exhaustive();
+	};
+	const firstBackgroundColor = getFirstBackgroundHexColor();
 
 	const accentColor = adjustBrightness(
 		firstBackgroundColor,
 		isLight(firstBackgroundColor) ? -45 : 45,
 	); // for the accent color - subtitles and tabs. based on the color of the theme background
 	const headerStyles = useMainNavStyles();
-
-	const getThemedBackground = useCallback(
-		() =>
-			match(headerBackgroundTheme)
-				.with("classic", () => HexagonHeader)
-				.with("submarine", () => StripedHeader)
-				.with("mystical", () => MysticalHeader)
-				.exhaustive(),
-		[headerBackgroundTheme],
-	);
-
-	const getBackground = useCallback(() => {
-		if (headerBackgroundCustomGradientCSS) {
-			return headerBackgroundCustomGradientCSS;
-		}
-		if (headerBackgroundCustomGradientColors) {
-			// if its a string array then proceed
-			if (Array.isArray(headerBackgroundCustomGradientColors)) {
-				// if all three
-				return getLinearGradient(headerBackgroundCustomGradientColors);
-			}
-			console.error(
-				"headerBackgroundCustomGradientColors is not a string array",
-			);
-			return null;
-		}
-		return getLinearGradient(["1d4042", "37717c", "418384"]);
-	}, [headerBackgroundCustomGradientCSS, headerBackgroundCustomGradientColors]);
 
 	const getLinearGradient = useCallback((strings: string[]) => {
 		if (strings.length === 3) {
@@ -87,6 +101,35 @@ const VerticalLayout = ({
 		console.error("Need to have 3 strings");
 		return null;
 	}, []);
+
+	// get the correct css
+	const getBackgroundCSS = () => {
+		return match(headerBackgroundFill)
+			.with({ type: "theme" }, () => {
+				return getLinearGradient(["1d4042", "37717c", "418384"]);
+			})
+			.with({ type: "gradient" }, ({ colors }) => {
+				// given a string [], generate the gradient
+				return getLinearGradient(colors);
+			})
+			.with({ type: "gradient-css" }, ({ css }) => {
+				// users write the css straight
+				return css;
+			})
+			.exhaustive();
+	};
+
+	// for each type of header - the way to get background image changes
+	const getBackgroundImage = () => {
+		return match(headerBackgroundImage)
+			.with({ type: "theme" }, ({ theme }) => {
+				return getThemedBackgroundPicture(theme);
+			})
+			.with({ type: "custom-image" }, ({ src }) => {
+				return src;
+			})
+			.exhaustive();
+	};
 
 	return (
 		<VerticalLayoutContext.Provider
@@ -102,7 +145,7 @@ const VerticalLayout = ({
 			<div style={{ flexGrow: 1 }}>
 				<div
 					style={{
-						backgroundImage: `${getBackground()}, url(${headerBackgroundPicture ?? getThemedBackground()})`,
+						backgroundImage: `${getBackgroundCSS()}, url(${getBackgroundImage()})`,
 						backgroundRepeat: "no-repeat",
 						backgroundSize: "cover",
 						backgroundPosition: "center",

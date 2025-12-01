@@ -385,6 +385,7 @@ export const isValidCustomColor = (
 	return AcaciaColorArray.includes(value as any);
 };
 
+// extends the current Tag props and add more colors to the list
 export interface AcaciaTagProps extends TagProps {
 	color?: AcaciaColors;
 	paddingInline?: number;

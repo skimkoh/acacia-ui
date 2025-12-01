@@ -13,7 +13,8 @@
 		"build": "cross-env NODE_ENV=production webpack-cli --progress --color",
 		"semantic-release": "semantic-release",
 		"storybook": "storybook dev -p 6006",
-		"build-storybook": "storybook build"
+		"build-storybook": "storybook build",
+		"serve-storybook": "serve storybook-static"
 	},
 	"peerDependencies": {
 		"@ant-design/colors": "^7.0.2",
@@ -65,12 +66,6 @@
 		"webpack-cli": "^5.1.4",
 		"webpack-merge": "^5.9.0"
 	},
-	"browserslist": [
-		">0.25%",
-		"not ie 11",
-		"not op_mini all"
-	],
-	"files": [
-		"/dist"
-	]
+	"browserslist": [">0.25%", "not ie 11", "not op_mini all"],
+	"files": ["/dist"]
 }

@@ -232,3 +232,101 @@ export const BasicVerticalLayoutWithCustomHeaderGradientLight = () => (
 		/>
 	</VerticalLayout>
 );
+
+export const BasicVerticalLayoutWithCustomHeaderGradientOneStep = () => (
+	<VerticalLayout
+		headerBackgroundProps={{
+			headerBackgroundFill: {
+				type: "gradient",
+				colors: ["cebce0"],
+			},
+		}}
+		menuProps={{
+			items: [
+				{ key: 1, label: "Page One" },
+				{ key: 2, label: "Page Two" },
+				{ key: 3, label: "Page Three" },
+			],
+		}}
+	>
+		<VerticalLayout.VerticalHeader
+			pageTitle="Title"
+			pageSubtitle="testing 123"
+			breadcrumbs={{
+				items: [
+					{
+						title: "Home",
+					},
+					{
+						title: "An Application",
+					},
+				],
+			}}
+			tabs={{
+				items: [
+					{
+						key: "1",
+						label: "Tab 1",
+					},
+					{
+						key: "2",
+						label: "Tab 2",
+					},
+					{
+						key: "3",
+						label: "Tab 3",
+					},
+				],
+			}}
+		/>
+	</VerticalLayout>
+);
+
+export const BasicVerticalLayoutWithCustomHeaderGradientCSS = () => (
+	<VerticalLayout
+		headerBackgroundProps={{
+			headerBackgroundFill: {
+				type: "gradient-css",
+				css: "linear-gradient(0deg, rgba(167, 182, 151, 0.96)14%,rgba(120, 154, 86, 0.96) 51%,rgba(114, 143, 98, 0.95) 81%)",
+			},
+		}}
+		menuProps={{
+			items: [
+				{ key: 1, label: "Page One" },
+				{ key: 2, label: "Page Two" },
+				{ key: 3, label: "Page Three" },
+			],
+		}}
+	>
+		<VerticalLayout.VerticalHeader
+			pageTitle="Title"
+			pageSubtitle="testing 123"
+			breadcrumbs={{
+				items: [
+					{
+						title: "Home",
+					},
+					{
+						title: "An Application",
+					},
+				],
+			}}
+			tabs={{
+				items: [
+					{
+						key: "1",
+						label: "Tab 1",
+					},
+					{
+						key: "2",
+						label: "Tab 2",
+					},
+					{
+						key: "3",
+						label: "Tab 3",
+					},
+				],
+			}}
+		/>
+	</VerticalLayout>
+);

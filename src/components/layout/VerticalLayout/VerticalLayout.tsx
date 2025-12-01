@@ -5,7 +5,11 @@ import type { AcaciaThemes } from "../../ui/interfaces";
 import { match } from "ts-pattern";
 import { createContext, useCallback, type PropsWithChildren } from "react";
 import { Flex, Menu, Space, type MenuProps } from "antd";
-import { adjustBrightness, isLight } from "@mirawision/colorize";
+import {
+	adjustBrightness,
+	generateSteppedGradient,
+	isLight,
+} from "@mirawision/colorize";
 import { useMainNavStyles } from "../styles/useMainNavStyles";
 import ConfigProvider from "../../ui/ConfigProvider/ConfigProvider";
 import DefaultLogo from "../../../theme/defaultLogo";
@@ -75,13 +79,13 @@ const VerticalLayout = ({
 			})
 			.with({ type: "gradient-css" }, ({ css }) => {
 				// get hte background color
-				console.log("css");
+
 				const colors = parseBackgroundColors(css);
 				const firstColor = colors.colors[0];
 				if (firstColor.format === "hex" || firstColor.format === "rgb") {
 					return firstColor.value;
 				}
-				console.log("Named colors not allowed, return HEX or RGB");
+				console.error("Named colors not allowed, return HEX or RGB");
 				return "#1d4042";
 			})
 			.exhaustive();
@@ -96,7 +100,7 @@ const VerticalLayout = ({
 
 	const getLinearGradient = useCallback((strings: string[]) => {
 		if (strings.length === 3) {
-			return `linear-gradient(45deg, #${strings[0]}f2 14%, #${strings[1]}f5 51%, #${strings[2]}f2 81%)`;
+			return `linear-gradient(45deg, ${strings[0]}f2 14%, ${strings[1]}f5 51%, ${strings[2]}f2 81%)`;
 		}
 		console.error("Need to have 3 strings");
 		return null;
@@ -106,11 +110,23 @@ const VerticalLayout = ({
 	const getBackgroundCSS = () => {
 		return match(headerBackgroundFill)
 			.with({ type: "theme" }, () => {
-				return getLinearGradient(["1d4042", "37717c", "418384"]);
+				return getLinearGradient(["#1d4042", "#37717c", "#418384"]);
 			})
 			.with({ type: "gradient" }, ({ colors }) => {
-				// given a string [], generate the gradient
-				return getLinearGradient(colors);
+				// given a string [], generate the gradient. if given two. then generate the inbetween. Do not accept length with 1
+
+				if (colors.length === 2) {
+					const gradient = generateSteppedGradient(colors[0], colors[1], 3);
+					return getLinearGradient(gradient);
+				}
+
+				if (colors.length === 3) {
+					return getLinearGradient(colors);
+				}
+				console.error(
+					"Either give a string[] with 2 HEX colors or 3 HEX colors",
+				);
+				return getLinearGradient(["1d4042", "37717c", "418384"]);
 			})
 			.with({ type: "gradient-css" }, ({ css }) => {
 				// users write the css straight

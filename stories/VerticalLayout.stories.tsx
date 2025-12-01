@@ -131,7 +131,7 @@ export const BasicVerticalLayoutWithCustomHeaderGradient = () => (
 		headerBackgroundProps={{
 			headerBackgroundFill: {
 				type: "gradient",
-				colors: ["7d1b1b", "e37b7b", "e0a4a4"],
+				colors: ["#7d1b1b", "#e37b7b", "#e0a4a4"],
 			},
 		}}
 		menuProps={{
@@ -189,7 +189,7 @@ export const BasicVerticalLayoutWithCustomHeaderGradientLight = () => (
 		headerBackgroundProps={{
 			headerBackgroundFill: {
 				type: "gradient",
-				colors: ["cebce0", "966dbf", "572985"],
+				colors: ["#cebce0", "#966dbf", "#572985"],
 			},
 		}}
 		menuProps={{
@@ -233,12 +233,12 @@ export const BasicVerticalLayoutWithCustomHeaderGradientLight = () => (
 	</VerticalLayout>
 );
 
-export const BasicVerticalLayoutWithCustomHeaderGradientOneStep = () => (
+export const BasicVerticalLayoutWithCustomHeaderAutoGradient = () => (
 	<VerticalLayout
 		headerBackgroundProps={{
 			headerBackgroundFill: {
 				type: "gradient",
-				colors: ["cebce0"],
+				colors: ["#d1bb9d", "#73470b"],
 			},
 		}}
 		menuProps={{

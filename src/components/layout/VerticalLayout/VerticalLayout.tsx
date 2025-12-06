@@ -11,7 +11,6 @@ import {
 	isLight,
 } from "@mirawision/colorize";
 import { useMainNavStyles } from "../styles/useMainNavStyles";
-import ConfigProvider from "../../ui/ConfigProvider/ConfigProvider";
 import DefaultLogo from "../../../theme/defaultLogo";
 import { Helmet } from "react-helmet";
 import VerticalHeader from "./VerticalHeader";
@@ -171,23 +170,25 @@ const VerticalLayout = ({
 						<Flex justify="space-between">
 							<Space>
 								<DefaultLogo />
-								{props.menuProps && (
-									<ConfigProvider
-										menu={{ className: headerStyles.styles }}
-										theme={{
-											components: {
-												Menu: {
-													itemHoverColor: props.mainTextColor ?? "white",
-
-													horizontalItemHoverColor:
-														props.mainTextColor ?? "white",
-												},
-											},
-										}}
-									>
+								{
+									props.menuProps && (
 										<Menu mode="horizontal" {...props.menuProps} />
-									</ConfigProvider>
-								)}
+									)
+									// <ConfigProvider
+									// 	menu={{ className: headerStyles.styles }}
+									// 	theme={{
+									// 		components: {
+									// 			Menu: {
+									// 				itemHoverColor: props.mainTextColor ?? "white",
+									// 				horizontalItemHoverColor:
+									// 					props.mainTextColor ?? "white",
+									// 			},
+									// 		},
+									// 	}}
+									// >
+									// 	<Menu mode="horizontal" {...props.menuProps} />
+									// </ConfigProvider>
+								}
 							</Space>
 						</Flex>
 						{props.children}

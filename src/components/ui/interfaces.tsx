@@ -348,7 +348,10 @@ export interface AcaciaTimeRangePickerProps extends TimeRangePickerProps {}
  * MENU
  */
 export interface AcaciaMenuProps extends MenuProps {
-	borderInline?: "start" | "end" | "none";
+	/**
+	 * @default true
+	 */
+	showRightBorder?: boolean;
 }
 
 /**
@@ -388,7 +391,6 @@ export const isValidCustomColor = (
 // extends the current Tag props and add more colors to the list
 export interface AcaciaTagProps extends TagProps {
 	color?: AcaciaColors;
-	paddingInline?: number;
 }
 
 // custom token for Acacia

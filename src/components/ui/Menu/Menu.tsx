@@ -19,13 +19,13 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 
 	const selectedItemColor = useMemo(() => {
 		if (isNestedInLayout) {
-			const color = shade(context.accentColor, 0.5);
+			const color = shade(context?.accentColor, 0.5);
 			return {
-				menuColor: context.accentColor,
+				menuColor: context?.accentColor,
 				menuBgColor: hexToRGBA(color, 20),
 			};
 		}
-	}, [context.accentColor, isNestedInLayout]);
+	}, [context?.accentColor, isNestedInLayout]);
 
 	const defaultTheme = useGetDefaultTheme(); // get the default, overwritten tokens
 
@@ -53,16 +53,19 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 			<AntdMenu
 				styles={{
 					root: {
+						...(isNestedInLayout && {
+							flex: 1,
+							display: "flex",
+							width: "100%",
+							borderBottom: "none",
+						}),
 						borderRight: showRightBorder ? "" : "none",
-						flex: 1,
-						display: "flex",
-						width: "100%",
-						borderBottom:
-							props.mode === "horizontal" && isNestedInLayout && "none",
 					},
 					item: {
-						padding: isNestedInLayout && "10px 15px",
-						borderBottom: isNestedInLayout && "none",
+						...(isNestedInLayout && {
+							padding: "10px 15px",
+							borderBottom: "none",
+						}),
 					},
 				}}
 				{...props}

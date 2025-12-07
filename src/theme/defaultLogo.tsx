@@ -22,7 +22,7 @@ export default function DefaultLogo() {
 				</Typography.Title>
 			);
 		}
-		return token.logo;
+		return <div style={{ color: "white" }}>{token.logo}</div>;
 	};
 
 	return (

@@ -1,10 +1,10 @@
 import HexagonHeader from "../../../assets/header1.jpg";
 import StripedHeader from "../../../assets/header2.jpg";
 import MysticalHeader from "../../../assets/header3.jpg";
-import type { AcaciaThemes } from "../../ui/interfaces";
+import type { AcaciaMenuProps, AcaciaThemes } from "../../ui/interfaces";
 import { match } from "ts-pattern";
 import { createContext, useCallback, type PropsWithChildren } from "react";
-import { Flex, Menu, Space, type MenuProps } from "antd";
+import { Layout } from "antd";
 import {
 	adjustBrightness,
 	generateSteppedGradient,
@@ -16,10 +16,11 @@ import { Helmet } from "react-helmet";
 import VerticalHeader from "./VerticalHeader";
 import { renderBlackOrWhiteText } from "../../../utils/colors.util";
 import { parseBackgroundColors } from "../../../utils/parseBackgroundColors";
+import Menu from "../../ui/Menu/Menu";
 
 interface LayoutProps {
 	headerBackgroundProps: HeaderBackgroundProps;
-	menuProps?: Omit<MenuProps, "mode">;
+	menuProps?: Omit<AcaciaMenuProps, "mode">;
 	documentHeadLabel?: string;
 	mainTextColor?: string; // main color of the layout
 }
@@ -157,44 +158,38 @@ const VerticalLayout = ({
 			<Helmet>
 				<title>{props.documentHeadLabel}</title>
 			</Helmet>
-			<div style={{ flexGrow: 1 }}>
-				<div
-					style={{
-						backgroundImage: `${getBackgroundCSS()}, url(${getBackgroundImage()})`,
-						backgroundRepeat: "no-repeat",
-						backgroundSize: "cover",
-						backgroundPosition: "center",
-					}}
-				>
-					<div style={{ padding: "1rem 2rem 2rem 2rem" }}>
-						<Flex justify="space-between">
-							<Space>
+
+			<Layout>
+				<div style={{ flexGrow: 1 }}>
+					<div
+						style={{
+							backgroundImage: `${getBackgroundCSS()}, url(${getBackgroundImage()})`,
+							backgroundRepeat: "no-repeat",
+							backgroundSize: "cover",
+							backgroundPosition: "center",
+						}}
+					>
+						<div style={{ padding: "1rem 2rem 2rem 2rem" }}>
+							<Layout.Header style={{ display: "flex", alignItems: "center" }}>
 								<DefaultLogo />
-								{
-									props.menuProps && (
-										<Menu mode="horizontal" {...props.menuProps} />
-									)
-									// <ConfigProvider
-									// 	menu={{ className: headerStyles.styles }}
-									// 	theme={{
-									// 		components: {
-									// 			Menu: {
-									// 				itemHoverColor: props.mainTextColor ?? "white",
-									// 				horizontalItemHoverColor:
-									// 					props.mainTextColor ?? "white",
-									// 			},
-									// 		},
-									// 	}}
-									// >
-									// 	<Menu mode="horizontal" {...props.menuProps} />
-									// </ConfigProvider>
-								}
-							</Space>
-						</Flex>
-						{props.children}
+								{props.menuProps && (
+									<Menu
+										mode="horizontal"
+										{...props.menuProps}
+										style={{ flex: 1, minWidth: 0 }}
+									/>
+								)}
+
+								{/* <Flex justify="space-between">
+									
+								</Flex> */}
+							</Layout.Header>
+
+							{props.children}
+						</div>
 					</div>
 				</div>
-			</div>
+			</Layout>
 		</VerticalLayoutContext.Provider>
 	);
 };

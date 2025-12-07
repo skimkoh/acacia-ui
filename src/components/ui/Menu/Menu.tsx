@@ -21,30 +21,27 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 		<ConfigProvider
 			theme={{
 				token: { ...defaultTheme.token, ...globalToken.token },
-				// components: {
-				// 	Menu: {
-				// 		...defaultTheme.components.Menu,
-				// 		...(isNestedInLayout
-				// 			? {
-				// 					linkColor: context.mainTextColor,
-				// 					itemColor: context.mainTextColor,
-				// 					lastItemColor: context.mainTextColor,
-				// 					separatorColor: context.mainTextColor,
-				// 				}
-				// 			: {}), // only override if its nested in the layout
-				// 	},
-				// },
+				components: {
+					Menu: {
+						...defaultTheme.components.Menu,
+						...(isNestedInLayout
+							? {
+									itemBg: "transparent",
+								}
+							: {}), // only override if its nested in the layout
+					},
+				},
 			}}
 		>
 			<AntdMenu
 				styles={{
 					root: {
 						borderRight: showRightBorder ? "" : "none",
-						width: props.mode === "horizontal" && isNestedInLayout && 300,
-					},
-					item: {
-						background:
-							props.mode === "horizontal" && isNestedInLayout && "pink",
+						flex: 1,
+						display: "flex",
+						width: "100%",
+						borderBottom:
+							props.mode === "horizontal" && isNestedInLayout && "none",
 					},
 				}}
 				{...props}

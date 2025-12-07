@@ -37,6 +37,7 @@ export function useGetDefaultTheme(): ThemeConfig {
 				Layout: {
 					headerBg: "transparent",
 					headerHeight: undefined,
+					headerPadding: "10px 0px 0px 0px",
 				},
 				Checkbox: {
 					lineWidth: 2,

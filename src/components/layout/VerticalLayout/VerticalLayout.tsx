@@ -8,9 +8,9 @@ import { Layout } from "antd";
 import {
 	adjustBrightness,
 	generateSteppedGradient,
+	getLuminance,
 	isLight,
 } from "@mirawision/colorize";
-import { useMainNavStyles } from "../styles/useMainNavStyles";
 import DefaultLogo from "../../../theme/defaultLogo";
 import { Helmet } from "react-helmet";
 import VerticalHeader from "./VerticalHeader";
@@ -59,6 +59,7 @@ const getThemedBackgroundPicture = (theme: AcaciaThemes) => {
 export const VerticalLayoutContext = createContext<{
 	mainTextColor: string;
 	accentColor: string;
+	gradients: string[] | null;
 } | null>(null);
 
 const VerticalLayout = ({
@@ -92,11 +93,13 @@ const VerticalLayout = ({
 	};
 	const firstBackgroundColor = getFirstBackgroundHexColor();
 
-	const accentColor = adjustBrightness(
-		firstBackgroundColor,
-		isLight(firstBackgroundColor) ? -45 : 45,
-	); // for the accent color - subtitles and tabs. based on the color of the theme background
-	const headerStyles = useMainNavStyles();
+	const accentColor =
+		getLuminance(firstBackgroundColor) > 0.4
+			? adjustBrightness(firstBackgroundColor, -45)
+			: adjustBrightness(
+					firstBackgroundColor,
+					isLight(firstBackgroundColor) ? -45 : 45,
+				); // for the accent color - subtitles and tabs. based on the color of the theme background
 
 	const getLinearGradient = useCallback((strings: string[]) => {
 		if (strings.length === 3) {
@@ -110,30 +113,50 @@ const VerticalLayout = ({
 	const getBackgroundCSS = () => {
 		return match(headerBackgroundFill)
 			.with({ type: "theme" }, () => {
-				return getLinearGradient(["#1d4042", "#37717c", "#418384"]);
+				return {
+					css: getLinearGradient(["#1d4042", "#37717c", "#418384"]),
+					stops: ["#1d4042", "#37717c", "#418384"],
+				};
 			})
 			.with({ type: "gradient" }, ({ colors }) => {
 				// given a string [], generate the gradient. if given two. then generate the inbetween. Do not accept length with 1
 
 				if (colors.length === 2) {
 					const gradient = generateSteppedGradient(colors[0], colors[1], 3);
-					return getLinearGradient(gradient);
+
+					return {
+						css: getLinearGradient(gradient),
+						stops: gradient,
+					};
 				}
 
 				if (colors.length === 3) {
-					return getLinearGradient(colors);
+					return {
+						css: getLinearGradient(colors),
+						stops: colors,
+					};
 				}
 				console.error(
 					"Either give a string[] with 2 HEX colors or 3 HEX colors",
 				);
-				return getLinearGradient(["1d4042", "37717c", "418384"]);
+				return {
+					css: getLinearGradient(["1d4042", "37717c", "418384"]),
+					stops: ["#1d4042", "#37717c", "#418384"],
+				};
 			})
 			.with({ type: "gradient-css" }, ({ css }) => {
 				// users write the css straight
-				return css;
+				const colors = parseBackgroundColors(css);
+
+				return {
+					css: css,
+					stops: colors.colors.map((item) => item.value),
+				};
 			})
 			.exhaustive();
 	};
+
+	const { css, stops } = getBackgroundCSS();
 
 	// for each type of header - the way to get background image changes
 	const getBackgroundImage = () => {
@@ -153,6 +176,7 @@ const VerticalLayout = ({
 				mainTextColor:
 					props.mainTextColor ?? renderBlackOrWhiteText(firstBackgroundColor), // by default it will try to render white/black text for content
 				accentColor: accentColor,
+				gradients: stops,
 			}}
 		>
 			<Helmet>
@@ -163,7 +187,7 @@ const VerticalLayout = ({
 				<div style={{ flexGrow: 1 }}>
 					<div
 						style={{
-							backgroundImage: `${getBackgroundCSS()}, url(${getBackgroundImage()})`,
+							backgroundImage: `${css}, url(${getBackgroundImage()})`,
 							backgroundRepeat: "no-repeat",
 							backgroundSize: "cover",
 							backgroundPosition: "center",
@@ -171,18 +195,22 @@ const VerticalLayout = ({
 					>
 						<div style={{ padding: "1rem 2rem 2rem 2rem" }}>
 							<Layout.Header style={{ display: "flex", alignItems: "center" }}>
-								<DefaultLogo />
+								<div style={{ marginRight: 20 }}>
+									<DefaultLogo />
+								</div>
 								{props.menuProps && (
 									<Menu
 										mode="horizontal"
 										{...props.menuProps}
-										style={{ flex: 1, minWidth: 0 }}
+										style={{
+											flex: 1,
+											minWidth: 0,
+											fontSize: 16,
+											fontWeight: 700,
+											...props.menuProps.style,
+										}}
 									/>
 								)}
-
-								{/* <Flex justify="space-between">
-									
-								</Flex> */}
 							</Layout.Header>
 
 							{props.children}

@@ -24,10 +24,11 @@ export const BasicVerticalLayout = () => (
 		}}
 		menuProps={{
 			items: [
-				{ key: 1, label: "Page One" },
-				{ key: 2, label: "Page Two" },
-				{ key: 3, label: "Page Three" },
+				{ key: "1", label: "Page One" },
+				{ key: "2", label: "Page Two" },
+				{ key: "3", label: "Page Three" },
 			],
+			defaultSelectedKeys: ["1"],
 		}}
 	>
 		<VerticalLayout.VerticalHeader

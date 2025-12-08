@@ -7,7 +7,7 @@ import type { AcaciaMenuProps } from "../interfaces";
 import { useContext, useMemo } from "react";
 import { VerticalLayoutContext } from "../../layout/VerticalLayout/VerticalLayout";
 import { useGetDefaultTheme } from "../ConfigProvider/defaultTheme";
-import { shade } from "@mirawision/colorize";
+import { adjustBrightness, shade } from "@mirawision/colorize";
 import { hexToRGBA } from "../../../utils/colors.util";
 
 const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
@@ -29,6 +29,7 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 
 	const defaultTheme = useGetDefaultTheme(); // get the default, overwritten tokens
 
+	console.log(selectedItemColor.menuColor);
 	return (
 		<ConfigProvider
 			theme={{
@@ -44,6 +45,10 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 									activeBarBorderWidth: 0,
 									itemColor: context.mainTextColor,
 									horizontalItemBorderRadius: 3,
+									itemHoverColor: adjustBrightness(
+										selectedItemColor.menuColor,
+										10,
+									),
 								}
 							: {}), // only override if its nested in the layout
 					},

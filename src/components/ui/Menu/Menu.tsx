@@ -72,7 +72,6 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 
 	const defaultTheme = useGetDefaultTheme(); // get the default, overwritten tokens
 
-	console.log(selectedItemColor.menuColor);
 	return (
 		<ConfigProvider
 			theme={{

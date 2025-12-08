@@ -5,6 +5,45 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTree } from "@fortawesome/free-solid-svg-icons";
 import { Space, Typography } from "antd";
+import { MINIMAL_VIEWPORTS } from "storybook/viewport";
+
+const desktopViewports = {
+	desktopLarge: {
+		name: "Desktop Large",
+		styles: {
+			width: "1920px",
+			height: "1080px",
+		},
+	},
+	desktopMedium: {
+		name: "Desktop Medium",
+		styles: {
+			width: "1440px",
+			height: "900px",
+		},
+	},
+	desktopHalfLarge: {
+		name: "Desktop Half (1920)",
+		styles: {
+			width: "960px",
+			height: "1080px",
+		},
+	},
+	desktopHalfMedium: {
+		name: "Desktop Half (1440)",
+		styles: {
+			width: "720px",
+			height: "900px",
+		},
+	},
+	desktopHalf2k: {
+		name: "Desktop Half (2560)",
+		styles: {
+			width: "1280px",
+			height: "1440px",
+		},
+	},
+};
 
 const preview: Preview = {
 	decorators: [
@@ -34,15 +73,25 @@ const preview: Preview = {
 	],
 	tags: ["autodocs"], // Enables auto-generated docs globally
 	parameters: {
+		viewport: {
+			options: {
+				...MINIMAL_VIEWPORTS,
+				...desktopViewports,
+			},
+		},
 		controls: {
 			matchers: {
 				color: /(background|color)$/i,
 				date: /Date$/i,
 			},
 		},
+
 		docs: {
 			autodocs: "tag", // Activate autodocs
 		},
+	},
+	initialGlobals: {
+		viewport: { value: "desktop", isRotated: false },
 	},
 };
 

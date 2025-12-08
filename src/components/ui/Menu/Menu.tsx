@@ -7,7 +7,14 @@ import type { AcaciaMenuProps } from "../interfaces";
 import { useContext, useMemo } from "react";
 import { VerticalLayoutContext } from "../../layout/VerticalLayout/VerticalLayout";
 import { useGetDefaultTheme } from "../ConfigProvider/defaultTheme";
-import { adjustBrightness, shade } from "@mirawision/colorize";
+import {
+	adjustBrightness,
+	blendMultipleColors,
+	changeOpacity,
+	isValidHEXColor,
+	shade,
+} from "@mirawision/colorize";
+import { match } from "ts-pattern";
 import { hexToRGBA } from "../../../utils/colors.util";
 
 const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
@@ -17,12 +24,36 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 	const { useToken } = theme;
 	const globalToken = useToken(); // get the default, antd tokens
 
+	const editOpacity = (type: "hex" | "rgba", color: string) => {
+		return match(type)
+			.with("hex", () => {
+				return hexToRGBA(color, 30);
+			})
+			.with("rgba", () => {
+				return changeOpacity(color, 0.3);
+			})
+			.exhaustive();
+	};
+
 	const selectedItemColor = useMemo(() => {
 		if (isNestedInLayout) {
-			const color = shade(context?.accentColor, 0.5);
+			const blended = blendMultipleColors(
+				context.gradients.map((item) => {
+					return {
+						color: item,
+						weight: 1,
+					};
+				}),
+			);
+			const color = shade(blended, 0.5);
+
 			return {
 				menuColor: context?.accentColor,
-				menuBgColor: hexToRGBA(color, 20),
+				menuBgColor: isValidHEXColor(color)
+					? editOpacity("hex", color)
+					: editOpacity("rgba", color),
+
+				// menuBgColor: hexToRGBA(color, 30),
 			};
 		}
 	}, [context?.accentColor, isNestedInLayout]);
@@ -39,6 +70,7 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 						...defaultTheme.components.Menu,
 						...(isNestedInLayout
 							? {
+									activeBarHeight: 0,
 									itemBg: "transparent",
 									horizontalItemSelectedColor: selectedItemColor.menuColor,
 									horizontalItemSelectedBg: selectedItemColor.menuBgColor,
@@ -68,8 +100,9 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 					},
 					item: {
 						...(isNestedInLayout && {
-							padding: "10px 15px",
+							padding: "8px 10px",
 							borderBottom: "none",
+							marginInline: "3px",
 						}),
 					},
 				}}

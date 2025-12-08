@@ -16,6 +16,17 @@ import {
 } from "@mirawision/colorize";
 import { match } from "ts-pattern";
 import { hexToRGBA } from "../../../utils/colors.util";
+import { createStyles } from "antd-style";
+
+const useStyle = createStyles(({ css, prefixCls }) => ({
+	item: css`
+		&.${prefixCls}-menu-submenu {
+			padding: 10px,
+			borderBottom:none,	
+			marginInline: 3px,
+		}
+  `,
+}));
 
 const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 	const context = useContext(VerticalLayoutContext); // context to check if its nested - its possible that the user can use the header without the VerticalLayout
@@ -23,6 +34,7 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 
 	const { useToken } = theme;
 	const globalToken = useToken(); // get the default, antd tokens
+	const { styles: menuStyles } = useStyle();
 
 	const editOpacity = (type: "hex" | "rgba", color: string) => {
 		return match(type)
@@ -81,6 +93,8 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 										selectedItemColor.menuColor,
 										10,
 									),
+									subMenuItemBg: selectedItemColor.menuBgColor,
+									subMenuItemSelectedColor: selectedItemColor.menuColor,
 								}
 							: {}), // only override if its nested in the layout
 					},
@@ -88,12 +102,16 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 			}}
 		>
 			<AntdMenu
+				classNames={{
+					item: menuStyles.item,
+				}}
 				styles={{
 					root: {
 						...(isNestedInLayout && {
 							flex: 1,
 							display: "flex",
 							width: "100%",
+							alignItems: "center",
 							borderBottom: "none",
 						}),
 						borderRight: showRightBorder ? "" : "none",

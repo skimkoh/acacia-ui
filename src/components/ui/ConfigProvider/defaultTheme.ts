@@ -96,6 +96,9 @@ export function useGetDefaultTheme(): ThemeConfig {
 					borderRadiusSM: borderRadius.primary,
 					borderRadiusXS: borderRadius.primary,
 				},
+				Menu: {
+					popupBg: "grey",
+				},
 			},
 		};
 	}, [colors, borderRadius, padding]);

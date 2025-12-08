@@ -141,6 +141,7 @@ export const BasicVerticalLayoutWithCustomHeaderGradient = () => (
 				{ key: 2, label: "Page Two" },
 				{ key: 3, label: "Page Three" },
 			],
+			defaultSelectedKeys: ["1"],
 		}}
 	>
 		<VerticalLayout.VerticalHeader
@@ -199,6 +200,7 @@ export const BasicVerticalLayoutWithCustomHeaderGradientLight = () => (
 				{ key: 2, label: "Page Two" },
 				{ key: 3, label: "Page Three" },
 			],
+			defaultSelectedKeys: ["1"],
 		}}
 	>
 		<VerticalLayout.VerticalHeader
@@ -248,6 +250,7 @@ export const BasicVerticalLayoutWithCustomHeaderAutoGradient = () => (
 				{ key: 2, label: "Page Two" },
 				{ key: 3, label: "Page Three" },
 			],
+			defaultSelectedKeys: ["1"],
 		}}
 	>
 		<VerticalLayout.VerticalHeader
@@ -297,6 +300,58 @@ export const BasicVerticalLayoutWithCustomHeaderGradientCSS = () => (
 				{ key: 2, label: "Page Two" },
 				{ key: 3, label: "Page Three" },
 			],
+			defaultSelectedKeys: ["1"],
+		}}
+	>
+		<VerticalLayout.VerticalHeader
+			pageTitle="Title"
+			pageSubtitle="testing 123"
+			breadcrumbs={{
+				items: [
+					{
+						title: "Home",
+					},
+					{
+						title: "An Application",
+					},
+				],
+			}}
+			tabs={{
+				items: [
+					{
+						key: "1",
+						label: "Tab 1",
+					},
+					{
+						key: "2",
+						label: "Tab 2",
+					},
+					{
+						key: "3",
+						label: "Tab 3",
+					},
+				],
+			}}
+		/>
+	</VerticalLayout>
+);
+
+export const VerticalLayoutWithComplexMenu = () => (
+	<VerticalLayout
+		headerBackgroundProps={{
+			headerBackgroundImage: { type: "theme", theme: "classic" },
+		}}
+		menuProps={{
+			items: [
+				{ key: "1", label: "Page One" },
+				{
+					key: "2",
+					label: "Page Two",
+					children: [{ key: "2-1", label: "Nested Page One" }],
+				},
+				{ key: "3", label: "Page Three" },
+			],
+			defaultSelectedKeys: ["1"],
 		}}
 	>
 		<VerticalLayout.VerticalHeader

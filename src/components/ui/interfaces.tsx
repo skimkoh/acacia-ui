@@ -42,6 +42,7 @@ import type {
 	BreadcrumbItemType,
 	BreadcrumbSeparatorType,
 } from "antd/es/breadcrumb/Breadcrumb";
+import type { DropdownButtonProps, DropdownProps } from "antd/es/dropdown";
 
 /**
  * props for the acacia themes
@@ -226,7 +227,12 @@ export interface AcaciaSpaceProps extends SpaceProps {}
  * @see https://ant.design/components/pagination
  *
  */
-export interface AcaciaPaginationProps extends PaginationProps {}
+export interface AcaciaPaginationProps extends PaginationProps {
+	/**
+	 * @default "solid"
+	 */
+	selectedStyle?: "solid" | "outline";
+}
 
 /**
  * Props for Acacia Input component
@@ -333,6 +339,12 @@ export interface AcaciaFormItemProps extends FormItemProps {
 	children: React.ReactNode;
 	infoCopy?: string | React.ReactNode;
 }
+
+/**
+ * dropdown
+ */
+export interface AcaciaDropdownProps extends DropdownProps {}
+export interface AcaciaDropdownButtonProps extends DropdownButtonProps {}
 
 /**
  * DATEPICKER

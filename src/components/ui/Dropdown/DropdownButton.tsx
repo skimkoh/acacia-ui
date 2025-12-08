@@ -1,8 +1,7 @@
-import { Dropdown as AntdDropdown, type GetProps } from "antd";
+import { Dropdown as AntdDropdown } from "antd";
+import type { AcaciaDropdownButtonProps } from "../interfaces";
 
-type DropdownButtonProps = GetProps<typeof AntdDropdown.Button>;
-
-const DropdownButton = ({ children, ...props }: DropdownButtonProps) => {
+const DropdownButton = ({ children, ...props }: AcaciaDropdownButtonProps) => {
 	return <AntdDropdown.Button {...props}>{children}</AntdDropdown.Button>;
 };
 

@@ -2,10 +2,11 @@
  * @description A dropdown list
  */
 
-import { Dropdown as AntdDropdown, type DropDownProps } from "antd";
+import { Dropdown as AntdDropdown } from "antd";
 import DropdownButton from "./DropdownButton";
+import type { AcaciaDropdownProps } from "../interfaces";
 
-const Dropdown = ({ ...props }: DropDownProps) => {
+const Dropdown = ({ ...props }: AcaciaDropdownProps) => {
 	return <AntdDropdown {...props} />;
 };
 

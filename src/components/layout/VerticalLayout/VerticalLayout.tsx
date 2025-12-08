@@ -11,12 +11,12 @@ import {
 	getLuminance,
 	isLight,
 } from "@mirawision/colorize";
-import DefaultLogo from "../../../theme/defaultLogo";
 import { Helmet } from "react-helmet";
-import VerticalHeader from "./VerticalHeader";
 import { renderBlackOrWhiteText } from "../../../utils/colors.util";
 import { parseBackgroundColors } from "../../../utils/parseBackgroundColors";
 import Menu from "../../ui/Menu/Menu";
+import DefaultLogo from "../../../theme/defaultLogo";
+import VerticalHeader from "./VerticalHeader";
 
 interface LayoutProps {
 	headerBackgroundProps: HeaderBackgroundProps;
@@ -79,7 +79,7 @@ const VerticalLayout = ({
 				return colors[0];
 			})
 			.with({ type: "gradient-css" }, ({ css }) => {
-				// get hte background color
+				// get the background color
 
 				const colors = parseBackgroundColors(css);
 				const firstColor = colors.colors[0];
@@ -195,9 +195,7 @@ const VerticalLayout = ({
 					>
 						<div style={{ padding: "1rem 2rem 2rem 2rem" }}>
 							<Layout.Header style={{ display: "flex", alignItems: "center" }}>
-								<div style={{ marginRight: 20 }}>
-									<DefaultLogo />
-								</div>
+								<DefaultLogo />
 								{props.menuProps && (
 									<Menu
 										mode="horizontal"

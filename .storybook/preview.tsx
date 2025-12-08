@@ -51,14 +51,13 @@ const preview: Preview = {
 			<ConfigProvider
 				customToken={{
 					logo: (
-						<Space size={0}>
+						<Space size={3}>
 							<FontAwesomeIcon icon={faTree} />
 							<Typography.Text
 								style={{
 									fontSize: 12,
 									wordSpacing: 1.2,
 									fontWeight: 700,
-									color: "white",
 								}}
 							>
 								ACACIA

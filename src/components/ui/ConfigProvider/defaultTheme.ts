@@ -90,6 +90,12 @@ export function useGetDefaultTheme(): ThemeConfig {
 					horizontalItemPaddingSM: padding.tabs,
 					colorBorderSecondary: grey[1],
 				},
+				Dropdown: {
+					borderRadius: borderRadius.primary,
+					borderRadiusLG: borderRadius.primary,
+					borderRadiusSM: borderRadius.primary,
+					borderRadiusXS: borderRadius.primary,
+				},
 			},
 		};
 	}, [colors, borderRadius, padding]);

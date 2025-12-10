@@ -20,6 +20,10 @@ export function useGetDefaultTheme(): ThemeConfig {
 				colorTextTertiary: "#757C7C",
 				fontFamily:
 					'"InterVariable", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+				borderRadius: borderRadius.primary,
+				borderRadiusLG: borderRadius.primary,
+				borderRadiusSM: borderRadius.primary,
+				borderRadiusXS: borderRadius.primary,
 			},
 			components: {
 				Button: {

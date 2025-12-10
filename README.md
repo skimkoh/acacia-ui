@@ -8,4 +8,4 @@ Acacia UI is a work-in-progress design system, meant for developers to scale up 
 
 Acacia UI wraps around Ant Design, with further capabilities and complex components, using Ant Design's components as the base.
 
-UI components are deployed [here](https://acacia-ui-git-main-kims-projects-85b2b7df.vercel.app/) for testing purposes.
+UI components are deployed [here](https://acacia-ui.vercel.app) for testing purposes.

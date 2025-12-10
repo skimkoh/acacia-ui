@@ -54,5 +54,4 @@ export type {
 	AcaciaSelectProps,
 	AcaciaRadioProps,
 	AcaciaBasicPanelProps,
-	AcaciaCustomToken,
 } from "./components/ui/interfaces";

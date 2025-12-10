@@ -1,7 +1,5 @@
 import { generate } from "../utils/colors.util";
-import theme from "../theme/theme";
 export const useAcaciaColors = () => {
-	// const { token } = usePaletteToken()
 	const colors = {
 		primaryGreen: "#334F4E",
 		mystiqueBlack: "#000",
@@ -16,7 +14,6 @@ export const useAcaciaColors = () => {
 			page: "#B3B3B3",
 		},
 		link: {
-			primary: theme.colors.primary,
 			hover: "#E5FAF6",
 		},
 		success: {

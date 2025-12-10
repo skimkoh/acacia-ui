@@ -29,7 +29,6 @@ export function useGetDefaultTheme(): ThemeConfig {
 					colorWarning: colors.warning.primary,
 					colorError: colors.error.primary,
 					colorErrorBg: colors.error.fill,
-					colorLink: colors.link.primary,
 					borderRadiusLG: borderRadius.primary,
 					borderRadiusSM: borderRadius.primary,
 					borderRadiusXS: borderRadius.primary,
@@ -55,7 +54,6 @@ export function useGetDefaultTheme(): ThemeConfig {
 					borderRadiusXS: borderRadius.primary,
 					colorWarning: colors.warning.primary,
 					colorError: colors.error.primary,
-					colorLink: colors.link.primary,
 					colorBgTextHover: colors.link.hover,
 				},
 				Pagination: {

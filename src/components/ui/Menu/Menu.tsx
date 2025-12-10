@@ -64,8 +64,6 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 				menuBgColor: isValidHEXColor(color)
 					? editOpacity("hex", color)
 					: editOpacity("rgba", color),
-
-				// menuBgColor: hexToRGBA(color, 30),
 			};
 		}
 	}, [context?.accentColor, isNestedInLayout]);

@@ -12,11 +12,6 @@ const ConfigProvider = ({ ...props }: AcaciaConfigProviderProps) => {
 	const { colors, generate } = useAcaciaColors();
 	const { borderRadius, padding } = useAcaciaConfig();
 
-	const { neutral } = generate(
-		CustomTheme.theme.accent,
-		!CustomTheme.theme.lightOnDark,
-	);
-
 	const defaultTheme = useGetDefaultTheme();
 
 	const mergedToken = {

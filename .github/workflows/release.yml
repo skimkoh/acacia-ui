@@ -61,10 +61,7 @@ jobs:
 
       - name: Install
         run: npm ci
-      - run: npm whoami
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
+  
       - name: Run semantic release
         run: npx semantic-release
         env:

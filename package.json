@@ -5,6 +5,7 @@
 	"main": "dist/main.js",
 	"typings": "dist/index.d.ts",
 	"sideEffects": true,
+
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"repackage": "rm -rf dist && rm -rf package && rm acacia-design-1.0.1.tgz && cross-env NODE_ENV=production webpack-cli --progress --color && npm pack && tar -xvzf *.tgz",

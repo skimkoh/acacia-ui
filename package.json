@@ -1,6 +1,6 @@
 {
-	"name": "acacia-design",
-	"version": "1.0.1",
+	"name": "acacia-ui",
+	"version": "1.0.0",
 	"description": "Acacia Design UI Library",
 	"main": "dist/main.js",
 	"typings": "dist/index.d.ts",

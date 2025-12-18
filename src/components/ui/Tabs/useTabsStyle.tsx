@@ -9,8 +9,10 @@ export const useTabsStyles = (inkBarColor: string) => {
 	const token = useTheme();
 	const { colors, generate } = useAcaciaColors();
 	const { borderRadius } = useAcaciaConfig();
-	const { colors: accentColors } = generate(token.theme.accent);
-
+	// const { colors: accentColors } = generate(token.theme.accent);
+	// & .${prefixCls}-tabs-tab.${prefixCls}-tabs-tab-active {
+	//           background: ${accentColors[0]};
+	//         }
 	return createStyles(({ css, prefixCls }) => ({
 		tabs: css`
       & > .${prefixCls}-tabs-nav {
@@ -51,9 +53,7 @@ export const useTabsStyles = (inkBarColor: string) => {
           border-radius: ${borderRadius.panel}px ${borderRadius.panel}px 0 0;
         }
 
-        & .${prefixCls}-tabs-tab.${prefixCls}-tabs-tab-active {
-          background: ${accentColors[0]};
-        }
+        
       }
     `,
 	}))();

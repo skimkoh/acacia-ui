@@ -6,6 +6,6 @@ import type { AcaciaSpaceProps } from "../interfaces";
  */
 
 const Space = ({ ...props }: AcaciaSpaceProps) => {
-	return <AntdSpace {...props} />;
+	return <AntdSpace {...props} style={{ display: "flex", ...props.styles }} />;
 };
 export default Space;

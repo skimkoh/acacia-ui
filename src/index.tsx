@@ -20,6 +20,8 @@ export { default as Tag } from "./components/ui/Tag/Tag";
 export { default as Tabs } from "./components/ui/Tabs/Tabs";
 export { default as Avatar } from "./components/ui/Avatar/Avatar";
 export { default as Menu } from "./components/ui/Menu/Menu";
+export { default as Space } from "./components/ui/Space/Space";
+export { default as Panel } from "./components/ui/Panel/Panel";
 
 export { default as VerticalLayout } from "./components/layout/VerticalLayout/VerticalLayout";
 export { default as VerticalHeader } from "./components/layout/VerticalLayout/VerticalHeader";

@@ -6,7 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTree } from "@fortawesome/free-solid-svg-icons";
 import { Space, Typography } from "antd";
 import { MINIMAL_VIEWPORTS } from "storybook/viewport";
-
+import "@fontsource-variable/inter";
+import "@fontsource-variable/roboto-flex";
 const desktopViewports = {
 	desktopLarge: {
 		name: "Desktop Large",

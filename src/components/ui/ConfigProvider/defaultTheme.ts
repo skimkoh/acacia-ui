@@ -19,7 +19,7 @@ export function useGetDefaultTheme(): ThemeConfig {
 				colorText: "#080808",
 				colorTextTertiary: "#757C7C",
 				fontFamily:
-					'"InterVariable", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+					"'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
 				borderRadius: borderRadius.primary,
 				borderRadiusLG: borderRadius.primary,
 				borderRadiusSM: borderRadius.primary,

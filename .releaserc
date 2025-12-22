@@ -36,7 +36,8 @@
 					{ "type": "fix", "section": "Bug Fixes" },
 					{ "type": "perf", "section": "Performance Improvements" },
 					{ "type": "docs", "section": "Documentation" },
-					{ "type": "deps", "section": "Dependencies Patch Upgrade" }
+					{ "type": "deps", "section": "Dependencies Patch Upgrade" },
+					{ "type": "ci", "release": "Workflow Changes" }
 				]
 			}
 		],

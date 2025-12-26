@@ -1,9 +1,18 @@
 import HexagonHeader from "../../../assets/header1.jpg";
 import StripedHeader from "../../../assets/header2.jpg";
 import MysticalHeader from "../../../assets/header3.jpg";
+import ClassicBody from "../../../assets/body.png";
+import MysticalBody from "../../../assets/body3.png";
+import SubmarineBody from "../../../assets/body2.png";
+
 import type { AcaciaMenuProps, AcaciaThemes } from "../../ui/interfaces";
 import { match } from "ts-pattern";
-import { createContext, useCallback, type PropsWithChildren } from "react";
+import {
+	Children,
+	createContext,
+	useCallback,
+	type PropsWithChildren,
+} from "react";
 import { Layout } from "antd";
 import {
 	adjustBrightness,
@@ -17,12 +26,20 @@ import { parseBackgroundColors } from "../../../utils/parseBackgroundColors";
 import Menu from "../../ui/Menu/Menu";
 import DefaultLogo from "../../../theme/defaultLogo";
 import VerticalHeader from "./VerticalHeader";
+import VerticalContent from "./VerticalContent";
+import {
+	getThemeGradients,
+	isVerticalContent,
+	isVerticalHeader,
+} from "../utils";
+import { useTheme } from "antd-style";
 
 interface LayoutProps {
-	headerBackgroundProps: HeaderBackgroundProps;
+	headerBackgroundProps?: HeaderBackgroundProps;
 	menuProps?: Omit<AcaciaMenuProps, "mode">;
 	documentHeadLabel?: string;
 	mainTextColor?: string; // main color of the layout
+	contentBackgroundProps?: ContentBackgroundProps;
 }
 
 // theme background image props for the header
@@ -48,11 +65,40 @@ interface HeaderBackgroundProps {
 	headerBackgroundFill?: BackgroundFill;
 }
 
+// theme background image props for the content bg
+type ContentBackgroundImage =
+	| {
+			type: "theme";
+			theme: AcaciaThemes;
+	  }
+	| { type: "custom-image"; src: string };
+
+// background fill for
+type ContentBackgroundFill =
+	| {
+			type: "theme";
+			theme: AcaciaThemes;
+	  }
+	| { type: "solid"; color: string };
+
+interface ContentBackgroundProps {
+	contentBackgroundImage?: ContentBackgroundImage;
+	contentBackgroundFill?: ContentBackgroundFill;
+}
+
 const getThemedBackgroundPicture = (theme: AcaciaThemes) => {
 	return match(theme)
 		.with("classic", () => HexagonHeader)
 		.with("submarine", () => StripedHeader)
 		.with("mystical", () => MysticalHeader)
+		.exhaustive();
+};
+
+const getThemedContentBackgroundPicture = (theme: AcaciaThemes) => {
+	return match(theme)
+		.with("classic", () => ClassicBody)
+		.with("submarine", () => SubmarineBody)
+		.with("mystical", () => MysticalBody)
 		.exhaustive();
 };
 
@@ -66,14 +112,20 @@ const VerticalLayout = ({
 	headerBackgroundProps: {
 		headerBackgroundImage = { type: "theme", theme: "classic" },
 		headerBackgroundFill = { type: "theme", theme: "classic" },
-	},
+	} = {},
 	...props
 }: PropsWithChildren<LayoutProps>) => {
+	const defaultTheme = useTheme().appTheme; // get the app theme
+
 	// get the first bg color
 	const getFirstBackgroundHexColor = () => {
 		return match(headerBackgroundFill)
 			.with({ type: "theme" }, ({ theme }) => {
-				return "#1d4042";
+				if (theme !== "classic") {
+					return getThemeGradients[theme][0];
+				}
+
+				return getThemeGradients[defaultTheme][0];
 			})
 			.with({ type: "gradient" }, ({ colors }) => {
 				return colors[0];
@@ -91,6 +143,7 @@ const VerticalLayout = ({
 			})
 			.exhaustive();
 	};
+
 	const firstBackgroundColor = getFirstBackgroundHexColor();
 
 	const accentColor =
@@ -112,10 +165,16 @@ const VerticalLayout = ({
 	// get the correct css
 	const getBackgroundCSS = () => {
 		return match(headerBackgroundFill)
-			.with({ type: "theme" }, () => {
+			.with({ type: "theme" }, ({ theme }) => {
+				if (theme !== "classic") {
+					return {
+						css: getLinearGradient(getThemeGradients[theme]),
+						stops: getThemeGradients[theme],
+					};
+				}
 				return {
-					css: getLinearGradient(["#1d4042", "#37717c", "#418384"]),
-					stops: ["#1d4042", "#37717c", "#418384"],
+					css: getLinearGradient(getThemeGradients[defaultTheme]),
+					stops: getThemeGradients.classic,
 				};
 			})
 			.with({ type: "gradient" }, ({ colors }) => {
@@ -162,13 +221,40 @@ const VerticalLayout = ({
 	const getBackgroundImage = () => {
 		return match(headerBackgroundImage)
 			.with({ type: "theme" }, ({ theme }) => {
-				return getThemedBackgroundPicture(theme);
+				if (theme !== "classic") {
+					return getThemedBackgroundPicture(theme);
+				}
+				return getThemedBackgroundPicture(defaultTheme);
 			})
 			.with({ type: "custom-image" }, ({ src }) => {
 				return src;
 			})
 			.exhaustive();
 	};
+
+	// for each type of header - the way to get background image changes
+	const getContentBackgroundImage = () => {
+		return match(headerBackgroundImage)
+			.with({ type: "theme" }, ({ theme }) => {
+				if (theme !== "classic") {
+					return getThemedContentBackgroundPicture(theme);
+				}
+				return getThemedContentBackgroundPicture(defaultTheme);
+			})
+			.with({ type: "custom-image" }, ({ src }) => {
+				return src;
+			})
+			.exhaustive();
+	};
+
+	// get children under VerticalLayout
+	const allChildren = Children.toArray(props.children);
+
+	// get the header children, so can apply the correct CSS to it
+	const headerChildren = allChildren.filter(isVerticalHeader);
+
+	// get the content children as this needs to be overlapped with the bg
+	const contentChildren = allChildren.filter(isVerticalContent);
 
 	return (
 		<VerticalLayoutContext.Provider
@@ -183,42 +269,50 @@ const VerticalLayout = ({
 				<title>{props.documentHeadLabel}</title>
 			</Helmet>
 
-			<Layout>
-				<div style={{ flexGrow: 1 }}>
-					<div
-						style={{
-							backgroundImage: `${css}, url(${getBackgroundImage()})`,
-							backgroundRepeat: "no-repeat",
-							backgroundSize: "cover",
-							backgroundPosition: "center",
-						}}
-					>
-						<div style={{ padding: "1rem 2rem 2rem 2rem" }}>
-							<Layout.Header style={{ display: "flex", alignItems: "center" }}>
-								<DefaultLogo />
-								{props.menuProps && (
-									<Menu
-										mode="horizontal"
-										{...props.menuProps}
-										style={{
-											flex: 1,
-											minWidth: 0,
-											fontSize: 16,
-											fontWeight: 700,
-											...props.menuProps.style,
-										}}
-									/>
-								)}
-							</Layout.Header>
-
-							{props.children}
-						</div>
+			<Layout style={{ minHeight: "100vh" }}>
+				<div
+					style={{
+						backgroundImage: `${css}, url(${getBackgroundImage()})`,
+						backgroundRepeat: "no-repeat",
+						backgroundSize: "cover",
+						backgroundPosition: "center",
+					}}
+				>
+					<div style={{ padding: "1rem 2rem 3rem 2rem" }}>
+						<Layout.Header style={{ display: "flex", alignItems: "center" }}>
+							<DefaultLogo />
+							{props.menuProps && (
+								<Menu
+									mode="horizontal"
+									{...props.menuProps}
+									style={{
+										flex: 1,
+										minWidth: 0,
+										fontSize: 16,
+										fontWeight: 700,
+										...props.menuProps.style,
+									}}
+								/>
+							)}
+						</Layout.Header>
+						{headerChildren}
 					</div>
 				</div>
+				<Layout.Content
+					style={{
+						background: `#f3f3f3 url(${getContentBackgroundImage()}) top left`,
+						padding: "2rem",
+						flex: 1,
+						zIndex: 1,
+					}}
+				>
+					{contentChildren}
+				</Layout.Content>
 			</Layout>
 		</VerticalLayoutContext.Provider>
 	);
 };
 
 VerticalLayout.VerticalHeader = VerticalHeader;
+VerticalLayout.VerticalContent = VerticalContent;
 export default VerticalLayout;

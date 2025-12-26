@@ -17,7 +17,7 @@ export function useGetDefaultTheme(): ThemeConfig {
 	return useMemo<ThemeConfig>(() => {
 		return {
 			token: {
-				colorPrimary: "#427e7b", // your custom default
+				colorPrimary: "#685389", // your custom default
 				colorText: "#080808",
 				colorTextTertiary: "#757C7C",
 				fontFamily:

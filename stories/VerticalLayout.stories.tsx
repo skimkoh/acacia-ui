@@ -28,9 +28,6 @@ export const BasicVerticalLayout = () => (
 			],
 			defaultSelectedKeys: ["1"],
 		}}
-		contentBackgroundProps={{
-			contentBackgroundImage: { type: "theme", theme: "submarine" },
-		}}
 	>
 		<VerticalLayout.VerticalHeader
 			pageTitle="Title"
@@ -175,6 +172,9 @@ export const BasicVerticalLayoutWithCustomHeaderGradient = () => (
 				],
 			}}
 		/>
+		<VerticalLayout.VerticalContent>
+			<Panel>test</Panel>
+		</VerticalLayout.VerticalContent>
 	</VerticalLayout>
 );
 
@@ -234,6 +234,9 @@ export const BasicVerticalLayoutWithCustomHeaderGradientLight = () => (
 				],
 			}}
 		/>
+		<VerticalLayout.VerticalContent>
+			<Panel>test</Panel>
+		</VerticalLayout.VerticalContent>
 	</VerticalLayout>
 );
 
@@ -284,6 +287,9 @@ export const BasicVerticalLayoutWithCustomHeaderAutoGradient = () => (
 				],
 			}}
 		/>
+		<VerticalLayout.VerticalContent>
+			<Panel>test</Panel>
+		</VerticalLayout.VerticalContent>
 	</VerticalLayout>
 );
 
@@ -334,6 +340,9 @@ export const BasicVerticalLayoutWithCustomHeaderGradientCSS = () => (
 				],
 			}}
 		/>
+		<VerticalLayout.VerticalContent>
+			<Panel>test</Panel>
+		</VerticalLayout.VerticalContent>
 	</VerticalLayout>
 );
 

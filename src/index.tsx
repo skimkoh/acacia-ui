@@ -25,6 +25,7 @@ export { default as Panel } from "./components/ui/Panel/Panel";
 
 export { default as VerticalLayout } from "./components/layout/VerticalLayout/VerticalLayout";
 export { default as VerticalHeader } from "./components/layout/VerticalLayout/VerticalHeader";
+export { default as VerticalContent } from "./components/layout/VerticalLayout/VerticalContent";
 
 export type { NewToken } from "./theme/customTheme";
 // hooks

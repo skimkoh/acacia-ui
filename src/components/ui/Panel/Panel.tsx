@@ -1,7 +1,9 @@
 import Space from "../Space/Space";
 import type React from "react";
 import { usePanelStyles } from "./usePanelStyles";
-import type { CSSProperties } from "react";
+import { useContext, type CSSProperties } from "react";
+import { VerticalLayoutContext } from "../../layout/VerticalLayout/VerticalLayout";
+import { adjustSaturation } from "@mirawision/colorize";
 
 interface PanelProps {
 	children: React.ReactNode;
@@ -25,7 +27,19 @@ export default function Panel({
 	position = "left",
 	...props
 }: Readonly<PanelProps>) {
-	const { styles, cx } = usePanelStyles();
+	const context = useContext(VerticalLayoutContext); // context to check if its nested - its possible that the user can use the header without the VerticalLayout
+	const isNestedInLayout = Boolean(context); // check if nested or not to handle colors
+
+	const getSteppedDownAccentColor = () => {
+		if (isNestedInLayout) {
+			return adjustSaturation(context.accentColor, -10);
+		}
+		return null;
+	};
+
+	const { styles, cx } = usePanelStyles({
+		color: getSteppedDownAccentColor(),
+	});
 
 	return (
 		<div

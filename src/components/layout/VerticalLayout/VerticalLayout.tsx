@@ -113,6 +113,10 @@ const VerticalLayout = ({
 		headerBackgroundImage = { type: "theme", theme: "classic" },
 		headerBackgroundFill = { type: "theme", theme: "classic" },
 	} = {},
+	contentBackgroundProps: {
+		contentBackgroundFill = { type: "theme", theme: "classic" },
+		contentBackgroundImage = { type: "theme", theme: "classic" },
+	} = {},
 	...props
 }: PropsWithChildren<LayoutProps>) => {
 	const defaultTheme = useTheme().appTheme; // get the app theme
@@ -234,7 +238,7 @@ const VerticalLayout = ({
 
 	// for each type of header - the way to get background image changes
 	const getContentBackgroundImage = () => {
-		return match(headerBackgroundImage)
+		return match(contentBackgroundImage)
 			.with({ type: "theme" }, ({ theme }) => {
 				if (theme !== "classic") {
 					return getThemedContentBackgroundPicture(theme);
@@ -255,6 +259,15 @@ const VerticalLayout = ({
 
 	// get the content children as this needs to be overlapped with the bg
 	const contentChildren = allChildren.filter(isVerticalContent);
+
+	// get the layout padding
+	// if there is content children, then increase the padding
+	const getLayoutPadding = () => {
+		if (contentChildren.length > 0) {
+			return "1rem 2rem 3rem 2rem";
+		}
+		return "1rem 2rem 0rem 2rem";
+	};
 
 	return (
 		<VerticalLayoutContext.Provider
@@ -278,7 +291,7 @@ const VerticalLayout = ({
 						backgroundPosition: "center",
 					}}
 				>
-					<div style={{ padding: "1rem 2rem 3rem 2rem" }}>
+					<div style={{ padding: getLayoutPadding() }}>
 						<Layout.Header style={{ display: "flex", alignItems: "center" }}>
 							<DefaultLogo />
 							{props.menuProps && (
@@ -301,7 +314,7 @@ const VerticalLayout = ({
 				<Layout.Content
 					style={{
 						background: `#f3f3f3 url(${getContentBackgroundImage()}) top left`,
-						padding: "2rem",
+						padding: contentChildren && "2rem",
 						flex: 1,
 						zIndex: 1,
 					}}

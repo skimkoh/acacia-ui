@@ -10,7 +10,9 @@ import "@fontsource-variable/roboto-flex";
 
 // classic theme
 
-export function useGetDefaultTheme(): ThemeConfig {
+export function useGetDefaultTheme(
+	appThemeMode: "light" | "dark",
+): ThemeConfig {
 	const { colors } = useAcaciaColors();
 	const { borderRadius, padding } = useAcaciaConfig();
 
@@ -18,8 +20,8 @@ export function useGetDefaultTheme(): ThemeConfig {
 		return {
 			token: {
 				colorPrimary: "#427e7b", // your custom default
-				colorText: "#080808",
-				colorTextTertiary: "#757C7C",
+				colorText: appThemeMode === "light" ? "#080808" : "#eaeaea",
+				colorTextTertiary: appThemeMode === "light" ? "#757C7C" : "#cecece",
 				fontFamily:
 					"'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
 				borderRadius: borderRadius.primary,

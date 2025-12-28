@@ -65,6 +65,7 @@ const preview: Preview = {
 							</Typography.Text>
 						</Space>
 					),
+					darkPopover: false,
 				}}
 			>
 				<Story />

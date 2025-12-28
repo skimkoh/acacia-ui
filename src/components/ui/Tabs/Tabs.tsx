@@ -4,14 +4,16 @@ import { adjustBrightness, isLight } from "@mirawision/colorize";
 import { useContext } from "react";
 import { VerticalLayoutContext } from "../../layout/VerticalLayout/VerticalLayout";
 import { useGetDefaultTheme } from "../ConfigProvider/defaultTheme";
+import { useTheme } from "antd-style";
 export default function Tabs({ type = "line", ...props }: AcaciaTabsProps) {
 	const context = useContext(VerticalLayoutContext);
 	const isNestedInLayout = Boolean(context); // for when tabs are nested in Layout
 
 	const { useToken } = theme;
 	const globalToken = useToken(); // get the default, antd tokens
+	const token = useTheme();
 
-	const defaultTheme = useGetDefaultTheme(); // get the default, overwritten tokens
+	const defaultTheme = useGetDefaultTheme(token.appThemeMode); // get the default, overwritten tokens
 
 	return (
 		<ConfigProvider

@@ -4,7 +4,9 @@ import type { AcaciaThemes } from "../components/ui/interfaces";
 export interface NewToken {
 	headingFontFamily: string;
 	appTheme: AcaciaThemes;
+	appThemeMode: "light" | "dark";
 	logo: React.ReactNode | string;
+	darkPopover: boolean; // allowing for dark popover for light mode
 }
 
 // By extending the type definition of the `CustomToken` interface for `antd-style`, you can add corresponding token type definitions to the `useTheme` hooks
@@ -18,4 +20,6 @@ export const CustomTheme: NewToken = {
 		'"Roboto Flex Variable", "Roboto Flex", "Segoe UI", sans-serif',
 	appTheme: "classic",
 	logo: "TEST LOGO",
+	appThemeMode: "light",
+	darkPopover: false,
 };

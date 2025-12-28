@@ -3,6 +3,7 @@ import type { AcaciaBreadcrumbProps } from "../interfaces";
 import { VerticalLayoutContext } from "../../layout/VerticalLayout/VerticalLayout";
 import { useContext } from "react";
 import { useGetDefaultTheme } from "../ConfigProvider/defaultTheme";
+import { useTheme } from "antd-style";
 
 /**
  * A breadcrumb displays the current location within a hierarchy. It allows going back to states higher up in the hierarchy.
@@ -12,10 +13,10 @@ const Breadcrumb = ({ ...props }: AcaciaBreadcrumbProps) => {
 	const context = useContext(VerticalLayoutContext); // context to check if its nested - its possible that the user can use the header without the VerticalLayout
 	const isNestedInLayout = Boolean(context); // check if nested or not to handle colors
 
-	const { useToken } = theme;
-	const globalToken = useToken(); // get the default, antd tokens
+	const globalToken = theme.useToken(); // get the default, antd tokens
+	const token = useTheme();
 
-	const defaultTheme = useGetDefaultTheme(); // get the default, overwritten tokens
+	const defaultTheme = useGetDefaultTheme(token.appThemeMode); // get the default, overwritten tokens
 
 	return (
 		<ConfigProvider

@@ -8,6 +8,7 @@ import type {
 	AcaciaTextProps,
 	AcaciaTitleProps,
 } from "../interfaces";
+import Space from "../Space/Space";
 
 const TypographyToken = {
 	fontSizeHeading1: typographyUtil.fontSize.h1,
@@ -22,22 +23,29 @@ const Title = ({
 	children,
 	level = 1,
 	color,
-	...antdProps
+	showPointer = true,
+	iconPosition = "start",
+	...props
 }: AcaciaTitleProps) => {
 	const typoStyles = useTypographyStyles(color).styles;
 
 	return (
-		<AntdTypography.Title
-			className={`
+		<Space orientation="horizontal">
+			{iconPosition === "start" && props.icon}
+			<AntdTypography.Title
+				className={`
 					${typoStyles.common}
 					${typoStyles.title}
 					${typoStyles[`titleH${level}`]}
+					${showPointer ? "pointer" : ""}
 				`}
-			level={level}
-			{...antdProps}
-		>
-			{children}
-		</AntdTypography.Title>
+				level={level}
+				{...props}
+			>
+				{children}
+			</AntdTypography.Title>
+			{iconPosition === "end" && props.icon}
+		</Space>
 	);
 };
 
@@ -70,7 +78,7 @@ const Emphasis = ({ children, color, ...props }: AcaciaTextProps) => {
 		<Text
 			className={`
 				${typoStyles.common}
-				${typoStyles.emphasis} 
+				${typoStyles.emphasis}
 			`}
 			color={color}
 			{...props}
@@ -91,7 +99,7 @@ const Caption = ({
 		<AntdTypography.Text
 			className={`
 				${typoStyles.common}
-				${typoStyles.caption} 
+				${typoStyles.caption}
 			`}
 			{...antdProps}
 		>
@@ -111,7 +119,7 @@ const Overline = ({
 		<AntdTypography.Text
 			className={`
 				${typoStyles.common}
-				${typoStyles.overline} 
+				${typoStyles.overline}
 			`}
 			{...antdProps}
 		>
@@ -127,7 +135,7 @@ const Paragraph = ({ children, color, ...antdProps }: AcaciaParagraphProps) => {
 		<AntdTypography.Text
 			className={`
 				${typoStyles.common}
-				${typoStyles.textBody2} 
+				${typoStyles.textBody2}
 				${typoStyles.paragraph}
 			`}
 			{...antdProps}

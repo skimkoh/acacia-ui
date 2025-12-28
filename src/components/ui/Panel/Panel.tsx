@@ -1,9 +1,16 @@
 import Space from "../Space/Space";
 import type React from "react";
 import { usePanelStyles } from "./usePanelStyles";
-import { useContext, type CSSProperties } from "react";
+import { useContext, useMemo, type CSSProperties } from "react";
 import { VerticalLayoutContext } from "../../layout/VerticalLayout/VerticalLayout";
-import { adjustSaturation } from "@mirawision/colorize";
+import {
+	adjustSaturation,
+	blendMultipleColors,
+	isLight,
+	isValidHEXColor,
+	shade,
+} from "@mirawision/colorize";
+import { editOpacity } from "../../../utils/colors.util";
 
 interface PanelProps {
 	children: React.ReactNode;
@@ -15,6 +22,7 @@ interface PanelProps {
 		panelBodyClassName?: string;
 		panelFooterClassName?: string;
 	};
+	panelTitle?: string;
 	styles?: {
 		outerContainerStyles?: CSSProperties;
 		panelBaseStyles?: CSSProperties;
@@ -32,13 +40,37 @@ export default function Panel({
 
 	const getSteppedDownAccentColor = () => {
 		if (isNestedInLayout) {
+			if (isLight(context.accentColor)) {
+				return adjustSaturation(context.accentColor, 10);
+			}
 			return adjustSaturation(context.accentColor, -10);
 		}
 		return null;
 	};
 
+	const selectedItemColor = useMemo(() => {
+		if (isNestedInLayout) {
+			const blended = blendMultipleColors(
+				context.gradients.map((item) => {
+					return {
+						color: item,
+						weight: 1,
+					};
+				}),
+			);
+			const color = shade(blended, 0.5);
+
+			return {
+				menuColor: context?.accentColor,
+				menuBgColor: isValidHEXColor(color)
+					? editOpacity("hex", color)
+					: editOpacity("rgba", color),
+			};
+		}
+	}, [context?.accentColor, isNestedInLayout]);
+
 	const { styles, cx } = usePanelStyles({
-		color: getSteppedDownAccentColor(),
+		color: selectedItemColor.menuBgColor,
 	});
 
 	return (

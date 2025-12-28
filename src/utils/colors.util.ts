@@ -1,5 +1,6 @@
 import { generate as antdGenerate, grey } from "@ant-design/colors";
-import { isLight } from "@mirawision/colorize";
+import { changeOpacity, isLight } from "@mirawision/colorize";
+import { match } from "ts-pattern";
 
 export const generate = (color?: string, darken?: boolean) => {
 	const colors = color
@@ -36,3 +37,14 @@ export function hexToRGBA(hex: string, opacityPercent: number) {
 	const b = Number.parseInt(hex.slice(5, 7), 16);
 	return `rgba(${r}, ${g}, ${b}, ${alpha})`;
 }
+
+export const editOpacity = (type: "hex" | "rgba", color: string) => {
+	return match(type)
+		.with("hex", () => {
+			return hexToRGBA(color, 30);
+		})
+		.with("rgba", () => {
+			return changeOpacity(color, 0.3);
+		})
+		.exhaustive();
+};

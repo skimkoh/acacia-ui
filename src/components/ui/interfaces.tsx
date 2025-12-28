@@ -168,6 +168,9 @@ export interface AcaciaTypographyProps extends TypographyProps {}
 export interface AcaciaTitleProps extends TitleProps {
 	children: React.ReactNode;
 	color?: string;
+	showPointer?: boolean;
+	icon?: React.ReactNode;
+	iconPosition?: "start" | "end";
 }
 
 /**

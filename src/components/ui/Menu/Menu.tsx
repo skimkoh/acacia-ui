@@ -10,12 +10,10 @@ import { useGetDefaultTheme } from "../ConfigProvider/defaultTheme";
 import {
 	adjustBrightness,
 	blendMultipleColors,
-	changeOpacity,
 	isValidHEXColor,
 	shade,
 } from "@mirawision/colorize";
-import { match } from "ts-pattern";
-import { hexToRGBA } from "../../../utils/colors.util";
+import { editOpacity } from "../../../utils/colors.util";
 import { createStyles } from "antd-style";
 
 const useStyle = createStyles(({ css, prefixCls }) => ({
@@ -35,17 +33,6 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 	const { useToken } = theme;
 	const globalToken = useToken(); // get the default, antd tokens
 	const { styles: menuStyles } = useStyle();
-
-	const editOpacity = (type: "hex" | "rgba", color: string) => {
-		return match(type)
-			.with("hex", () => {
-				return hexToRGBA(color, 30);
-			})
-			.with("rgba", () => {
-				return changeOpacity(color, 0.3);
-			})
-			.exhaustive();
-	};
 
 	const selectedItemColor = useMemo(() => {
 		if (isNestedInLayout) {

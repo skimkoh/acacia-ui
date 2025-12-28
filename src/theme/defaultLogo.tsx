@@ -16,7 +16,7 @@ export default function DefaultLogo() {
 	const { useToken } = theme;
 	const globalToken = useToken(); // get the default, antd tokens
 
-	const defaultTheme = useGetDefaultTheme(); // get the default, overwritten tokens
+	const defaultTheme = useGetDefaultTheme(token.appThemeMode); // get the default, overwritten tokens
 
 	const getLogo = () => {
 		if (typeof token.logo === "string") {

@@ -22,6 +22,7 @@ import type {
 	TagProps,
 	ConfigProviderProps,
 	SpaceProps,
+	PopconfirmProps,
 } from "antd";
 
 import type { TextProps } from "antd/es/typography/Text";
@@ -407,6 +408,9 @@ export const isValidCustomColor = (
 export interface AcaciaTagProps extends TagProps {
 	color?: AcaciaColors;
 }
+
+// POPCONFIRM
+export interface AcaciaPopconfirmProps extends PopconfirmProps {}
 
 // custom token for Acacia
 export interface AcaciaCustomToken {

@@ -7,6 +7,7 @@ import type { AcaciaPaginationProps } from "../interfaces";
 import { useGetDefaultTheme } from "../ConfigProvider/defaultTheme";
 import { renderBlackOrWhiteText } from "../../../utils/colors.util";
 import { tint } from "@mirawision/colorize";
+import { useTheme } from "antd-style";
 
 const Pagination = ({
 	selectedStyle = "solid",
@@ -14,8 +15,9 @@ const Pagination = ({
 }: AcaciaPaginationProps) => {
 	const { useToken } = theme;
 	const globalToken = useToken(); // get the default, antd tokens
+	const token = useTheme();
 
-	const defaultTheme = useGetDefaultTheme(); // get the default, overwritten tokens
+	const defaultTheme = useGetDefaultTheme(token.appThemeMode); // get the default, overwritten tokens
 
 	return (
 		<ConfigProvider
@@ -27,9 +29,10 @@ const Pagination = ({
 						...(selectedStyle === "solid"
 							? {
 									itemActiveBg: globalToken.token.colorPrimary,
-									itemActiveColor: renderBlackOrWhiteText(
-										globalToken.token.colorPrimary,
-									),
+									itemActiveColor:
+										token.appThemeMode === "light"
+											? renderBlackOrWhiteText(globalToken.token.colorPrimary)
+											: "white",
 									itemActiveColorHover: tint(
 										renderBlackOrWhiteText(globalToken.token.colorPrimary),
 										0.3,

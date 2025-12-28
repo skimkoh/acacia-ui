@@ -14,7 +14,7 @@ import {
 	shade,
 } from "@mirawision/colorize";
 import { editOpacity } from "../../../utils/colors.util";
-import { createStyles } from "antd-style";
+import { createStyles, useTheme } from "antd-style";
 
 const useStyle = createStyles(({ css, prefixCls }) => ({
 	item: css`
@@ -33,6 +33,7 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 	const { useToken } = theme;
 	const globalToken = useToken(); // get the default, antd tokens
 	const { styles: menuStyles } = useStyle();
+	const token = useTheme();
 
 	const selectedItemColor = useMemo(() => {
 		if (isNestedInLayout) {
@@ -55,7 +56,7 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 		}
 	}, [context?.accentColor, isNestedInLayout]);
 
-	const defaultTheme = useGetDefaultTheme(); // get the default, overwritten tokens
+	const defaultTheme = useGetDefaultTheme(token.appThemeMode); // get the default, overwritten tokens
 
 	return (
 		<ConfigProvider

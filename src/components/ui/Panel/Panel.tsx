@@ -4,9 +4,7 @@ import { usePanelStyles } from "./usePanelStyles";
 import { useContext, useMemo, type CSSProperties } from "react";
 import { VerticalLayoutContext } from "../../layout/VerticalLayout/VerticalLayout";
 import {
-	adjustSaturation,
 	blendMultipleColors,
-	isLight,
 	isValidHEXColor,
 	shade,
 } from "@mirawision/colorize";
@@ -38,16 +36,6 @@ export default function Panel({
 	const context = useContext(VerticalLayoutContext); // context to check if its nested - its possible that the user can use the header without the VerticalLayout
 	const isNestedInLayout = Boolean(context); // check if nested or not to handle colors
 
-	const getSteppedDownAccentColor = () => {
-		if (isNestedInLayout) {
-			if (isLight(context.accentColor)) {
-				return adjustSaturation(context.accentColor, 10);
-			}
-			return adjustSaturation(context.accentColor, -10);
-		}
-		return null;
-	};
-
 	const selectedItemColor = useMemo(() => {
 		if (isNestedInLayout) {
 			const blended = blendMultipleColors(
@@ -67,6 +55,10 @@ export default function Panel({
 					: editOpacity("rgba", color),
 			};
 		}
+		return {
+			menuColor: null,
+			menuBgColor: null,
+		};
 	}, [context?.accentColor, isNestedInLayout]);
 
 	const { styles, cx } = usePanelStyles({

@@ -30,8 +30,7 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 	const context = useContext(VerticalLayoutContext); // context to check if its nested - its possible that the user can use the header without the VerticalLayout
 	const isNestedInLayout = Boolean(context); // check if nested or not to handle colors
 
-	const { useToken } = theme;
-	const globalToken = useToken(); // get the default, antd tokens
+	const globalToken = theme.useToken(); // get the default, antd tokens
 	const { styles: menuStyles } = useStyle();
 	const token = useTheme();
 

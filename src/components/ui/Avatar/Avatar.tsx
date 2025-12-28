@@ -6,13 +6,26 @@ import type { AcaciaAvatarProps } from "../interfaces";
 import { Avatar as AntdAvatar } from "antd";
 import Typography from "../Typography/Typography";
 import Space from "../Space/Space";
+import { useTheme } from "antd-style";
 
 const Avatar = ({ ...props }: AcaciaAvatarProps) => {
+	const token = useTheme();
+
+	const getBackgroundColor = () => {
+		if (token.appThemeMode === "light") {
+			return "#bbbbbb57";
+		}
+		return "#8e8e8e57";
+	};
+
 	return (
 		<Space size={0}>
 			<div
 				style={{
-					...(props.userId && { background: "#ebe8e8", borderRadius: 20 }),
+					...(props.userId && {
+						background: getBackgroundColor(),
+						borderRadius: 20,
+					}),
 				}}
 			>
 				<AntdAvatar
@@ -23,7 +36,7 @@ const Avatar = ({ ...props }: AcaciaAvatarProps) => {
 				</AntdAvatar>
 
 				{props.userId && (
-					<Typography.Text strong style={{ paddingInline: 8 }}>
+					<Typography.Text strong style={{ paddingInline: "10px" }}>
 						{props.userId.toUpperCase()}
 					</Typography.Text>
 				)}

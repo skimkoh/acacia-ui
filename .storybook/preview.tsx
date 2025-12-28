@@ -8,6 +8,7 @@ import { Space, Typography } from "antd";
 import { MINIMAL_VIEWPORTS } from "storybook/viewport";
 import "@fontsource-variable/inter";
 import "@fontsource-variable/roboto-flex";
+import { themes } from "storybook/internal/theming";
 const desktopViewports = {
 	desktopLarge: {
 		name: "Desktop Large",
@@ -65,6 +66,7 @@ const preview: Preview = {
 							</Typography.Text>
 						</Space>
 					),
+					appThemeMode: "light",
 					darkPopover: false,
 				}}
 			>
@@ -89,6 +91,7 @@ const preview: Preview = {
 
 		docs: {
 			autodocs: "tag", // Activate autodocs
+			theme: themes.light,
 		},
 	},
 	initialGlobals: {

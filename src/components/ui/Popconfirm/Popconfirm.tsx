@@ -1,13 +1,24 @@
 import { useTheme } from "antd-style";
 import type { AcaciaPopconfirmProps } from "../interfaces";
-import { Popconfirm as AntdPopconfirm, ConfigProvider } from "antd";
+import { Popconfirm as AntdPopconfirm, ConfigProvider, theme } from "antd";
 import { useGetDefaultTheme } from "../ConfigProvider/defaultTheme";
 
 const Popconfirm = ({ ...props }: AcaciaPopconfirmProps) => {
 	const token = useTheme();
+	const defaultTheme = useGetDefaultTheme(token.appThemeMode); // get the default, overwritten tokens
+	const globalToken = theme.useToken(); // get the default, antd tokens
 
 	return (
-		<ConfigProvider>
+		<ConfigProvider
+			theme={{
+				token: { ...defaultTheme.token, ...globalToken.token },
+				components: {
+					Popconfirm: {
+						colorBgElevated: token.darkPopover && "#161616c4",
+					},
+				},
+			}}
+		>
 			<AntdPopconfirm
 				cancelButtonProps={{
 					type: "text",
@@ -24,10 +35,7 @@ const Popconfirm = ({ ...props }: AcaciaPopconfirmProps) => {
 						backgroundColor: token.darkPopover && "#161616c4",
 						backdropFilter: token.darkPopover && "blur(3px)",
 					},
-					arrow: {
-						backgroundColor: token.darkPopover && "#161616c4",
-						backdropFilter: token.darkPopover && "blur(3px)",
-					},
+
 					title: {
 						color:
 							token.darkPopover && useGetDefaultTheme("dark").token.colorText,

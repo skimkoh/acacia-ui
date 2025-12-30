@@ -23,6 +23,7 @@ import type {
 	ConfigProviderProps,
 	SpaceProps,
 	PopconfirmProps,
+	ModalProps,
 } from "antd";
 
 import type { TextProps } from "antd/es/typography/Text";
@@ -418,58 +419,11 @@ export interface AcaciaTagProps extends TagProps {
 // POPCONFIRM
 export interface AcaciaPopconfirmProps extends PopconfirmProps {}
 
-// custom token for Acacia
-export interface AcaciaCustomToken {
-	/**
-	 * @nameEN Main font for the entire app
-	 * @descEN Font used for most elements in the app
-	 */
-	fontFamily: string;
-	/**
-	 * @nameEN Heading font for the entire app
-	 * @descEN Font used for headings in the app
-	 */
-	headingFontFamily: string;
-	colors: {
-		/**
-		 * @nameEN Main primary color of the app
-		 * @descEN Controls the primary color of all elements
-		 */
-		primary: string;
-		/**
-		 * @nameEN Main color for the text
-		 * @descEN Controls the main color for the text elements
-		 */
-		primaryText: string;
-		/**
-		 * @nameEN Main color for the caption text
-		 * @descEN Controls the color for the caption text elements
-		 */
-		caption: string;
-	};
-	theme: {
-		lightOnDark: boolean;
-		brand: string;
-		gradient1: string;
-		gradient2: string;
-		gradient3: string;
-		gradient4: string;
-		cove: string;
-		accent: string;
-		body: string;
-	};
-	header: {
-		imgUrl: string;
-	};
-	sidepanel: {
-		imgUrl: string;
-	};
-	panel: {
-		bgColor: string;
-	};
-	card: {
-		bgcolor: string;
-		contentbg: string;
-		headerbg: string;
-	};
+// MODAL
+
+export interface AcaciaModalProps extends ModalProps {
+	headerBgTheme?: AcaciaThemes;
+	icon?: React.ReactNode;
+	iconPosition?: "start" | "end";
+	subtitle?: React.ReactNode | string;
 }

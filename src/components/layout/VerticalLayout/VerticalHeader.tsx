@@ -18,7 +18,7 @@ export interface VerticalHeaderProps {
 	rightSideItems?: React.ReactNode;
 	leftSideItems?: React.ReactNode;
 	breadcrumbs?: AcaciaBreadcrumbProps;
-	tabs?: Omit<AcaciaTabsProps, "type">;
+	tabs?: AcaciaTabsProps;
 }
 
 const VerticalHeader = ({ ...props }: VerticalHeaderProps) => {
@@ -28,13 +28,7 @@ const VerticalHeader = ({ ...props }: VerticalHeaderProps) => {
 	const token = useAcaciaToken();
 	// render tabs
 	const renderTabs = () => {
-		return (
-			<Tabs
-				{...props.tabs}
-				style={{ marginTop: "0.5rem" }}
-				type={isNestedInLayout ? "header" : "page"}
-			/>
-		);
+		return <Tabs {...props.tabs} style={{ marginTop: "0.5rem" }} />;
 	};
 
 	return (

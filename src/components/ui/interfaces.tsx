@@ -269,9 +269,7 @@ export interface AcaciaInputTextAreaProps extends TextAreaProps {}
 
 type AcaciaTabsType = TabsType | "page" | "header";
 
-export interface AcaciaTabsProps extends Omit<TabsProps, "type"> {
-	type: TabsType | "page" | "header";
-}
+export interface AcaciaTabsProps extends TabsProps {}
 
 /**
  * Props for Palette Radio component

@@ -4,6 +4,7 @@ import { useTypographyStyles } from "./useTypographyStyles";
 import { typographyUtil } from "../../../theme/typographyUtil";
 import type {
 	AcaciaBasicTypographyProps,
+	AcaciaLinkProps,
 	AcaciaParagraphProps,
 	AcaciaTextProps,
 	AcaciaTitleProps,
@@ -51,7 +52,7 @@ const Title = ({
 
 const Text = ({
 	children,
-	level = 2,
+	level = 1,
 	color,
 	...antdProps
 }: AcaciaTextProps) => {
@@ -145,6 +146,23 @@ const Paragraph = ({ children, color, ...antdProps }: AcaciaParagraphProps) => {
 	);
 };
 
+const Link = ({ children, color, ...antdProps }: AcaciaLinkProps) => {
+	const typoStyles = useTypographyStyles(color).styles;
+
+	return (
+		<AntdTypography.Link
+			className={`
+				${typoStyles.common}
+				${typoStyles.textBody1}
+				${typoStyles.link}
+			`}
+			{...antdProps}
+		>
+			{children}
+		</AntdTypography.Link>
+	);
+};
+
 /**
  * Basic text writing, including headings, body text, lists, and more.
  *
@@ -163,5 +181,6 @@ Typography.Caption = Caption;
 Typography.Overline = Overline;
 Typography.Paragraph = Paragraph;
 Typography.Emphasis = Emphasis;
+Typography.Link = Link;
 
 export default Typography;

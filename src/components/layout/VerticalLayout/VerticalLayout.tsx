@@ -1,10 +1,3 @@
-import HexagonHeader from "../../../assets/header1.jpg";
-import StripedHeader from "../../../assets/header2.jpg";
-import MysticalHeader from "../../../assets/header3.jpg";
-import ClassicBody from "../../../assets/body.png";
-import MysticalBody from "../../../assets/body3.png";
-import SubmarineBody from "../../../assets/body2.png";
-
 import type { AcaciaMenuProps, AcaciaThemes } from "../../ui/interfaces";
 import { match } from "ts-pattern";
 import {
@@ -33,6 +26,10 @@ import {
 	isVerticalHeader,
 } from "../utils";
 import { useTheme } from "antd-style";
+import {
+	getThemedBackgroundPicture,
+	getThemedContentBackgroundPicture,
+} from "../../../utils/theming.util";
 
 interface LayoutProps {
 	headerBackgroundProps?: HeaderBackgroundProps;
@@ -85,22 +82,6 @@ interface ContentBackgroundProps {
 	contentBackgroundImage?: ContentBackgroundImage;
 	contentBackgroundFill?: ContentBackgroundFill;
 }
-
-const getThemedBackgroundPicture = (theme: AcaciaThemes) => {
-	return match(theme)
-		.with("classic", () => HexagonHeader)
-		.with("submarine", () => StripedHeader)
-		.with("mystical", () => MysticalHeader)
-		.exhaustive();
-};
-
-const getThemedContentBackgroundPicture = (theme: AcaciaThemes) => {
-	return match(theme)
-		.with("classic", () => ClassicBody)
-		.with("submarine", () => SubmarineBody)
-		.with("mystical", () => MysticalBody)
-		.exhaustive();
-};
 
 export const VerticalLayoutContext = createContext<{
 	mainTextColor: string;

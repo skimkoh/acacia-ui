@@ -90,5 +90,13 @@ export const useTypographyStyles = (color?: string) => {
           margin-bottom: 0;
         }
       `,
+		link: css`
+        text-decoration: underline !important;
+        text-underline-offset: 3px;
+  
+        &&.${prefixCls}-typography {
+          margin-bottom: 0;
+        }
+      `,
 	}))();
 };

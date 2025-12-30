@@ -50,6 +50,7 @@ export const AllVariants = () => (
 		<Typography.Overline>Typography Overline</Typography.Overline>
 		<Typography.Emphasis>Typography Emphasis</Typography.Emphasis>
 		<Typography.Paragraph>Typography Paragraph</Typography.Paragraph>
+		<Typography.Link>Typography Link</Typography.Link>
 	</Space>
 );
 

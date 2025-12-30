@@ -44,6 +44,7 @@ import type {
 	BreadcrumbSeparatorType,
 } from "antd/es/breadcrumb/Breadcrumb";
 import type { DropdownButtonProps, DropdownProps } from "antd/es/dropdown";
+import type { LinkProps } from "antd/es/typography/Link";
 
 /**
  * props for the acacia themes
@@ -194,6 +195,11 @@ export interface AcaciaTextProps extends TextProps {
  *
  */
 export interface AcaciaEmphasisProps extends AcaciaTextProps {}
+
+export interface AcaciaLinkProps extends LinkProps {
+	children: React.ReactNode;
+	color?: string;
+}
 
 /**
  * Props for Acacia Typography component

@@ -46,6 +46,8 @@ import type {
 } from "antd/es/breadcrumb/Breadcrumb";
 import type { DropdownButtonProps, DropdownProps } from "antd/es/dropdown";
 import type { LinkProps } from "antd/es/typography/Link";
+import type { CSSProperties } from "react";
+import type { CheckboxGroupProps, CheckboxOptionType } from "antd/es/checkbox";
 
 /**
  * props for the acacia themes
@@ -321,11 +323,24 @@ export interface AcaciaSelectProps extends SelectProps {}
 /**
  * Props for Acacia Panel component
  *
- * custom props:
- * @property {React.ReactNode} children - content in the panel
  */
 export interface AcaciaPanelProps {
 	children: React.ReactNode;
+	position?: "left" | "right" | "none";
+	footer?: React.ReactNode;
+	classNames?: {
+		outerContainerClassName?: string;
+		panelBaseClassName?: string;
+		panelBodyClassName?: string;
+		panelFooterClassName?: string;
+	};
+	panelTitle?: string;
+	styles?: {
+		outerContainerStyles?: CSSProperties;
+		panelBaseStyles?: CSSProperties;
+		panelBodyStyles?: CSSProperties;
+		panelFooterStyles?: CSSProperties;
+	};
 }
 
 /**
@@ -424,4 +439,22 @@ export interface AcaciaModalProps extends ModalProps {
 	icon?: React.ReactNode;
 	iconPosition?: "start" | "end";
 	subtitle?: React.ReactNode | string;
+}
+
+// custom option select
+export interface AcaciaOptionSelectProps extends CheckboxProps {
+	mode?: "single" | "multiple";
+	label?: string | React.ReactNode;
+	description?: string | React.ReactNode;
+}
+
+interface AcaciaOptionsList extends CheckboxOptionType {
+	description?: string;
+}
+
+export interface AcaciaOptionSelectGroupProps<T = any>
+	extends Omit<CheckboxGroupProps<T>, "options"> {
+	orientation?: "vertical" | "horizontal";
+	span?: number | string; // max 24,
+	options: AcaciaOptionsList[];
 }

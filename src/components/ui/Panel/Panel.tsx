@@ -1,7 +1,6 @@
 import Space from "../Space/Space";
-import type React from "react";
 import { usePanelStyles } from "./usePanelStyles";
-import { useContext, useMemo, type CSSProperties } from "react";
+import { useContext, useMemo } from "react";
 import { VerticalLayoutContext } from "../../layout/VerticalLayout/VerticalLayout";
 import {
 	blendMultipleColors,
@@ -9,30 +8,12 @@ import {
 	shade,
 } from "@mirawision/colorize";
 import { editOpacity } from "../../../utils/colors.util";
-
-interface PanelProps {
-	children: React.ReactNode;
-	position?: "left" | "right" | "none";
-	footer?: React.ReactNode;
-	classNames?: {
-		outerContainerClassName?: string;
-		panelBaseClassName?: string;
-		panelBodyClassName?: string;
-		panelFooterClassName?: string;
-	};
-	panelTitle?: string;
-	styles?: {
-		outerContainerStyles?: CSSProperties;
-		panelBaseStyles?: CSSProperties;
-		panelBodyStyles?: CSSProperties;
-		panelFooterStyles?: CSSProperties;
-	};
-}
+import type { AcaciaPanelProps } from "../interfaces";
 
 export default function Panel({
 	position = "left",
 	...props
-}: Readonly<PanelProps>) {
+}: Readonly<AcaciaPanelProps>) {
 	const context = useContext(VerticalLayoutContext); // context to check if its nested - its possible that the user can use the header without the VerticalLayout
 	const isNestedInLayout = Boolean(context); // check if nested or not to handle colors
 

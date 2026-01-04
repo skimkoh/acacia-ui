@@ -9,10 +9,7 @@ export const useTabsStyles = (inkBarColor: string) => {
 	const token = useTheme();
 	const { colors, generate } = useAcaciaColors();
 	const { borderRadius } = useAcaciaConfig();
-	// const { colors: accentColors } = generate(token.theme.accent);
-	// & .${prefixCls}-tabs-tab.${prefixCls}-tabs-tab-active {
-	//           background: ${accentColors[0]};
-	//         }
+
 	return createStyles(({ css, prefixCls }) => ({
 		tabs: css`
       & > .${prefixCls}-tabs-nav {

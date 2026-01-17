@@ -9,6 +9,9 @@ import Space from "../Space/Space";
 
 const OptionSelect = ({
 	mode = "single",
+	label,
+	description,
+	descriptionRows = 2,
 	...props
 }: Readonly<AcaciaOptionSelectProps>) => {
 	const { useToken } = theme;
@@ -16,25 +19,49 @@ const OptionSelect = ({
 		colorPrimary: useToken().token.colorPrimary,
 		disabledColor: useToken().token.colorTextDisabled,
 	});
+
 	return (
 		<Checkbox
 			classNames={{
 				root: cx(styles.rootBase, styles.checkedOption),
 				icon: styles.iconBase,
+				label: styles.labelBase,
 			}}
 			{...props}
 		>
-			<Space orientation="vertical" size={0}>
-				<Typography.Text disabled={props.disabled} strong>
-					{props.label}
-				</Typography.Text>
-				<Typography.Text disabled={props.disabled} type="secondary">
-					{props.description}
-				</Typography.Text>
-			</Space>
+			{/* Container ensures flex works and width is measurable */}
+			<div
+				style={{
+					display: "flex",
+					flexDirection: "column",
+					width: "100%",
+					minWidth: 0,
+					gap: 4,
+				}}
+			>
+				{label && (
+					<Space orientation="horizontal">
+						{props.labelIcon}
+						<Typography.Text disabled={props.disabled} strong>
+							{label}
+						</Typography.Text>
+					</Space>
+				)}
+
+				{description && (
+					<Typography.Paragraph
+						type="secondary"
+						disabled={props.disabled}
+						ellipsis={{ rows: descriptionRows }}
+					>
+						{description}
+					</Typography.Paragraph>
+				)}
+			</div>
 		</Checkbox>
 	);
 };
 
 OptionSelect.Group = OptionSelectGroup;
+
 export default OptionSelect;

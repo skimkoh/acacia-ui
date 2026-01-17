@@ -446,10 +446,13 @@ export interface AcaciaOptionSelectProps extends CheckboxProps {
 	mode?: "single" | "multiple";
 	label?: string | React.ReactNode;
 	description?: string | React.ReactNode;
+	descriptionRows?: number;
+	labelIcon?: React.ReactNode;
 }
 
 interface AcaciaOptionsList extends CheckboxOptionType {
 	description?: string;
+	labelIcon?: React.ReactNode;
 }
 
 export interface AcaciaOptionSelectGroupProps<T = any>

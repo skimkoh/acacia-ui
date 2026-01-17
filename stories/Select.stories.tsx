@@ -21,18 +21,18 @@ export default meta;
 
 type Story = StoryObj<typeof Select>;
 
-export const BasicUsage: Story = {
-	args: {
-		defaultValue: "jack",
-		style: { width: 200 },
-		options: [
+export const Basic = () => (
+	<Select
+		defaultValue="jack"
+		style={{ width: 200 }}
+		options={[
 			{ value: "jack", label: "Jack" },
 			{ value: "lucy", label: "Lucy" },
 			{ value: "Yiminghe", label: "yiminghe" },
 			{ value: "disabled", label: "Disabled", disabled: true },
-		],
-	},
-};
+		]}
+	/>
+);
 
 export const SelectTagMode: Story = {
 	args: {

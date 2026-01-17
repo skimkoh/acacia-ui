@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 // biome-ignore lint/correctness/noUnusedImports: <explanation>
 import React from "react";
 import OptionSelect from "../src/components/ui/OptionSelect/OptionSelect";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
 
 const meta = {
 	component: OptionSelect,
@@ -51,7 +53,7 @@ export const OptionSelectGroupHorizontal = () => (
 			{
 				value: "3",
 				label: "Three",
-				description: "this is a test adaisjdla asd saasasdsaa asdads asda",
+				description: "this is a test adaisjdla asd saasa sdsaa asdads asda",
 			},
 		]}
 	/>
@@ -59,12 +61,24 @@ export const OptionSelectGroupHorizontal = () => (
 
 export const OptionSelectGroupVertical = () => (
 	<OptionSelect.Group
-		orientation="vertical"
-		span={"300px"}
+		span={24}
 		options={[
-			{ value: "one", label: "One" },
-			{ value: "two", label: "Two" },
-			{ value: "3", label: "Three" },
+			{
+				value: "one",
+				label: "One",
+				labelIcon: <FontAwesomeIcon icon={faHome} />,
+				description: "this is a test adaisjdla asd sa",
+			},
+			{
+				value: "two",
+				label: "Two",
+				description: "this is a test adaisjdla asd sa",
+			},
+			{
+				value: "3",
+				label: "Three",
+				description: "this is a test adaisjdla asd saasa sdsaa asdads asda",
+			},
 		]}
 	/>
 );

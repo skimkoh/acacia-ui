@@ -51,6 +51,11 @@ const preview: Preview = {
 	decorators: [
 		(Story) => (
 			<ConfigProvider
+				theme={{
+					token: {
+						fontFamily: "Inter Variable, Inter, system-ui, sans-serif",
+					},
+				}}
 				customToken={{
 					logo: (
 						<Space size={3}>
@@ -70,7 +75,11 @@ const preview: Preview = {
 					darkPopover: false,
 				}}
 			>
-				<Story />
+				<div
+					style={{ fontFamily: "Inter Variable, Inter, system-ui, sans-serif" }}
+				>
+					<Story />
+				</div>
 			</ConfigProvider>
 		),
 	],

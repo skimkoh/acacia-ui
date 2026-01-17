@@ -16,7 +16,7 @@ export const typographyUtil = {
 		h3: ".025em",
 		h4: ".025em",
 		h5: ".03em",
-		body1: ".05em",
+		body1: ".01em",
 		default: ".01em",
 		caption: ".05em",
 		overline: ".1em",

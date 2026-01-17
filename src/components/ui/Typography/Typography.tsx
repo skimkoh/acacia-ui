@@ -130,19 +130,10 @@ const Overline = ({
 };
 
 const Paragraph = ({ children, color, ...antdProps }: AcaciaParagraphProps) => {
-	const typoStyles = useTypographyStyles(color).styles;
-
 	return (
-		<AntdTypography.Text
-			className={`
-				${typoStyles.common}
-				${typoStyles.textBody2}
-				${typoStyles.paragraph}
-			`}
-			{...antdProps}
-		>
+		<AntdTypography.Paragraph {...antdProps}>
 			{children}
-		</AntdTypography.Text>
+		</AntdTypography.Paragraph>
 	);
 };
 

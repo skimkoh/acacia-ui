@@ -37,6 +37,7 @@ const OptionSelectGroup = ({
 											style={{ width: "100%" }}
 											label={option.label}
 											description={option.description}
+											labelIcon={option.labelIcon}
 										/>
 									</Col>
 								);
@@ -59,9 +60,10 @@ const OptionSelectGroup = ({
 											<OptionSelect
 												value={option.value}
 												style={{ width: "100%" }}
-											>
-												{option.label}
-											</OptionSelect>
+												label={option.label}
+												description={option.description}
+												labelIcon={option.labelIcon}
+											/>
 										</Col>
 										<Col
 											key={option.value}

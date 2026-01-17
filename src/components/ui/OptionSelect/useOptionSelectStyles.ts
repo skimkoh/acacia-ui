@@ -11,7 +11,8 @@ export const useOptionSelectStyles = createStyles(
             padding: 10px;
             border-radius: 2px;
             transition: background-color 200ms ease-in-out;
-
+            min-height: 88px;
+            overflow: hidden;
             &:has(.${prefixCls}-checkbox-checked) {
                 background-color: ${chroma(props.colorPrimary).luminance(0.7).hex()};
             }
@@ -20,6 +21,10 @@ export const useOptionSelectStyles = createStyles(
                 border: 1px solid ${props.disabledColor};
             }
         
+        `;
+
+		const labelBase = css`
+            width: 100%;
         `;
 
 		const iconBase = css`
@@ -35,6 +40,7 @@ export const useOptionSelectStyles = createStyles(
 			rootBase: rootBase,
 			iconBase,
 			checkedOption,
+			labelBase,
 		};
 	},
 );

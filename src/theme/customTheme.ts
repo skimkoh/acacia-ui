@@ -6,7 +6,17 @@ export interface NewToken {
 	appTheme: AcaciaThemes;
 	appThemeMode: "light" | "dark";
 	logo: React.ReactNode | string;
-	darkPopover: boolean; // allowing for dark popover for light mode
+	overlayDarkMode: Partial<DarkModeTokens>;
+}
+
+interface DarkModeTokens {
+	overlayColor: string;
+	// allowing for dark mode for all overlay components (modal, popovers, etc)
+	popover: boolean;
+	popconfirm: boolean;
+	modal: boolean;
+	tooltip: boolean;
+	statusModal: boolean;
 }
 
 // By extending the type definition of the `CustomToken` interface for `antd-style`, you can add corresponding token type definitions to the `useTheme` hooks
@@ -21,5 +31,12 @@ export const CustomTheme: NewToken = {
 	appTheme: "classic",
 	logo: "TEST LOGO",
 	appThemeMode: "light",
-	darkPopover: false,
+	overlayDarkMode: {
+		overlayColor: "#161616c4",
+		popover: false,
+		popconfirm: false,
+		modal: false,
+		tooltip: false,
+		statusModal: false,
+	},
 };

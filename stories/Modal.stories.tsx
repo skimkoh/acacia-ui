@@ -6,6 +6,7 @@ import Button from "../src/components/ui/Button/Button";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
+import { Space } from "antd";
 
 const meta = {
 	component: Modal,
@@ -40,9 +41,11 @@ export const BasicUsage = () => {
 				onOk={() => setIsModalOpen(false)}
 				onCancel={() => setIsModalOpen(false)}
 			>
-				<p>Some contents...</p>
-				<p>Some contents...</p>
-				<p>Some contents...</p>
+				<Space orientation="vertical">
+					<p>Some contents...</p>
+					<p>Some contents...</p>
+					<p>Some contents...</p>
+				</Space>
 			</Modal>
 		</>
 	);

@@ -14,7 +14,9 @@ const Popconfirm = ({ ...props }: AcaciaPopconfirmProps) => {
 				token: { ...defaultTheme.token, ...globalToken.token },
 				components: {
 					Popconfirm: {
-						colorBgElevated: token.darkPopover && "#161616c4",
+						colorBgElevated:
+							token.overlayDarkMode.popconfirm &&
+							token.overlayDarkMode.overlayColor,
 					},
 				},
 			}}
@@ -25,24 +27,29 @@ const Popconfirm = ({ ...props }: AcaciaPopconfirmProps) => {
 					styles: {
 						content: {
 							color:
-								token.darkPopover && useGetDefaultTheme("dark").token.colorText,
+								token.overlayDarkMode.popconfirm &&
+								useGetDefaultTheme("dark").token.colorText,
 						},
 					},
 				}}
 				{...props}
 				styles={{
 					container: {
-						backgroundColor: token.darkPopover && "#161616c4",
-						backdropFilter: token.darkPopover && "blur(3px)",
+						backgroundColor:
+							token.overlayDarkMode.popconfirm &&
+							token.overlayDarkMode.overlayColor,
+						backdropFilter: token.overlayDarkMode.popconfirm && "blur(3px)",
 					},
 
 					title: {
 						color:
-							token.darkPopover && useGetDefaultTheme("dark").token.colorText,
+							token.overlayDarkMode.popconfirm &&
+							useGetDefaultTheme("dark").token.colorText,
 					},
 					content: {
 						color:
-							token.darkPopover && useGetDefaultTheme("dark").token.colorText,
+							token.overlayDarkMode.popconfirm &&
+							useGetDefaultTheme("dark").token.colorText,
 					},
 				}}
 			/>

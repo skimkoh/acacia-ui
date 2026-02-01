@@ -15,6 +15,10 @@ const ConfigProvider = ({ ...props }: AcaciaConfigProviderProps) => {
 	const mergedToken = {
 		...CustomTheme,
 		...props.customToken,
+		overlayDarkMode: {
+			...CustomTheme.overlayDarkMode,
+			...props.customToken?.overlayDarkMode,
+		},
 	};
 
 	const defaultTheme = useGetDefaultTheme(mergedToken.appThemeMode);

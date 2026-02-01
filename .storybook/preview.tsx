@@ -67,7 +67,10 @@ const preview: Preview = {
 						</Space>
 					),
 					appThemeMode: "light",
-					darkPopover: false,
+					overlayDarkMode: {
+						popconfirm: false,
+						modal: true,
+					},
 				}}
 			>
 				<Story />

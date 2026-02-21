@@ -7,12 +7,7 @@ import {
 	type PropsWithChildren,
 } from "react";
 import { Layout } from "antd";
-import {
-	adjustBrightness,
-	generateSteppedGradient,
-	getLuminance,
-	isLight,
-} from "@mirawision/colorize";
+import { generateSteppedGradient } from "@mirawision/colorize";
 import { Helmet } from "react-helmet";
 import { renderBlackOrWhiteText } from "../../../utils/colors.util";
 import { parseBackgroundColors } from "../../../utils/parseBackgroundColors";
@@ -21,6 +16,7 @@ import DefaultLogo from "../../../theme/defaultLogo";
 import VerticalHeader from "./VerticalHeader";
 import VerticalContent from "./VerticalContent";
 import {
+	getAccentColor,
 	getThemeGradients,
 	isVerticalContent,
 	isVerticalHeader,
@@ -131,13 +127,7 @@ const VerticalLayout = ({
 
 	const firstBackgroundColor = getFirstBackgroundHexColor();
 
-	const accentColor =
-		getLuminance(firstBackgroundColor) > 0.4
-			? adjustBrightness(firstBackgroundColor, -45)
-			: adjustBrightness(
-					firstBackgroundColor,
-					isLight(firstBackgroundColor) ? -45 : 45,
-				); // for the accent color - subtitles and tabs. based on the color of the theme background
+	const accentColor = getAccentColor(firstBackgroundColor);
 
 	const getLinearGradient = useCallback((strings: string[]) => {
 		if (strings.length === 3) {

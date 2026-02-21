@@ -8,7 +8,7 @@ import { Space, Typography } from "antd";
 import { MINIMAL_VIEWPORTS } from "storybook/viewport";
 import "@fontsource-variable/inter";
 import "@fontsource-variable/roboto-flex";
-import { themes } from "storybook/internal/theming";
+import { themes } from "storybook/theming";
 const desktopViewports = {
 	desktopLarge: {
 		name: "Desktop Large",
@@ -72,7 +72,10 @@ const preview: Preview = {
 						</Space>
 					),
 					appThemeMode: "light",
-					darkPopover: false,
+					overlayDarkMode: {
+						popconfirm: false,
+						modal: true,
+					},
 				}}
 			>
 				<div

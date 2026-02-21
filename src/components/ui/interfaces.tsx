@@ -439,6 +439,11 @@ export interface AcaciaModalProps extends ModalProps {
 	icon?: React.ReactNode;
 	iconPosition?: "start" | "end";
 	subtitle?: React.ReactNode | string;
+	/**
+	 * @default light
+	 * @description modal can be set with dark mode independently
+	 */
+	themeMode?: "light" | "dark";
 }
 
 // custom option select

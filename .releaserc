@@ -13,7 +13,9 @@
 					{ "type": "ci", "release": "patch" },
 					{ "type": "deps", "release": "patch" },
 					{ "type": "chore", "release": "patch" },
+					{ "type": "build", "release": "patch" },
 					{ "type": "perf", "release": "patch" },
+					{ "type": "test", "release": "patch" },
 					{ "type": "feat", "release": "minor" }
 				],
 				"parserOpts": {
@@ -35,9 +37,13 @@
 					{ "type": "feat", "section": "Features" },
 					{ "type": "fix", "section": "Bug Fixes" },
 					{ "type": "perf", "section": "Performance Improvements" },
+					{ "type": "refactor", "section": "Performance Improvements" },
 					{ "type": "docs", "section": "Documentation" },
 					{ "type": "deps", "section": "Dependencies Patch Upgrade" },
-					{ "type": "ci", "release": "Workflow Changes" }
+					{ "type": "ci", "section": "Workflow Changes" },
+					{ "type": "build", "section": "Build Changes" },
+					{ "type": "style", "section": "Styles Changes" },
+					{ "type": "test", "section": "Tests" }
 				]
 			}
 		],

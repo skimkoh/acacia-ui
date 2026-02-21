@@ -1,3 +1,6 @@
+import "@fontsource-variable/inter";
+import "@fontsource-variable/roboto-flex";
+
 // components
 
 export { default as Button } from "./components/ui/Button/Button";

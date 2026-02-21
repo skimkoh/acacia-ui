@@ -1,9 +1,9 @@
 import Space from "../Space/Space";
-import type React from "react";
 import { usePanelStyles } from "./usePanelStyles";
 import { useContext, type CSSProperties } from "react";
 import { VerticalLayoutContext } from "../../layout/VerticalLayout/VerticalLayout";
 import chroma from "chroma-js";
+import type { AcaciaPanelProps } from "../interfaces";
 interface PanelProps {
 	children: React.ReactNode;
 	position?: "left" | "right" | "none";
@@ -26,7 +26,7 @@ interface PanelProps {
 export default function Panel({
 	position = "left",
 	...props
-}: Readonly<PanelProps>) {
+}: Readonly<AcaciaPanelProps>) {
 	const context = useContext(VerticalLayoutContext); // context to check if its nested - its possible that the user can use the header without the VerticalLayout
 	const isNestedInLayout = Boolean(context);
 

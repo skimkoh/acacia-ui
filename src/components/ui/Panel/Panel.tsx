@@ -1,15 +1,9 @@
 import Space from "../Space/Space";
 import type React from "react";
 import { usePanelStyles } from "./usePanelStyles";
-import { useContext, useMemo, type CSSProperties } from "react";
+import { useContext, type CSSProperties } from "react";
 import { VerticalLayoutContext } from "../../layout/VerticalLayout/VerticalLayout";
-import {
-	blendMultipleColors,
-	isValidHEXColor,
-	shade,
-} from "@mirawision/colorize";
-import { editOpacity } from "../../../utils/colors.util";
-
+import chroma from "chroma-js";
 interface PanelProps {
 	children: React.ReactNode;
 	position?: "left" | "right" | "none";
@@ -34,35 +28,17 @@ export default function Panel({
 	...props
 }: Readonly<PanelProps>) {
 	const context = useContext(VerticalLayoutContext); // context to check if its nested - its possible that the user can use the header without the VerticalLayout
-	const isNestedInLayout = Boolean(context); // check if nested or not to handle colors
+	const isNestedInLayout = Boolean(context);
 
-	const selectedItemColor = useMemo(() => {
-		if (isNestedInLayout) {
-			const blended = blendMultipleColors(
-				context.gradients.map((item) => {
-					return {
-						color: item,
-						weight: 1,
-					};
-				}),
-			);
-			const color = shade(blended, 0.5);
-
-			return {
-				menuColor: context?.accentColor,
-				menuBgColor: isValidHEXColor(color)
-					? editOpacity("hex", color)
-					: editOpacity("rgba", color),
-			};
+	const getPanelColor = () => {
+		if (isNestedInLayout && context) {
+			return chroma(context.accentColor).alpha(0.6).hex();
 		}
-		return {
-			menuColor: null,
-			menuBgColor: null,
-		};
-	}, [context?.accentColor, isNestedInLayout]);
+		return "rgba(0, 0, 0, 0.1)"; // default panel color when not nested in layout
+	};
 
 	const { styles, cx } = usePanelStyles({
-		color: selectedItemColor.menuBgColor,
+		color: getPanelColor(),
 	});
 
 	return (

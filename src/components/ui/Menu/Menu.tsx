@@ -20,6 +20,8 @@ import type {
 	MenuItemType,
 	SubMenuType,
 } from "antd/es/menu/interface";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 const useStyle = createStyles(({ css, prefixCls }) => ({
 	item: css`
@@ -52,7 +54,9 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 				label: (
 					<span>
 						{item.label}
-						<span style={{ marginLeft: 4 }}>▸</span>
+						<span style={{ marginLeft: 4 }}>
+							<FontAwesomeIcon icon={faChevronDown} />
+						</span>
 					</span>
 				),
 			};

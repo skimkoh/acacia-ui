@@ -19,6 +19,10 @@
 	},
 	"peerDependencies": {
 		"@ant-design/colors": "^7.0.2",
+		"@fortawesome/fontawesome-svg-core": "^7.1.0",
+		"@fortawesome/free-regular-svg-icons": "^7.1.0",
+		"@fortawesome/free-solid-svg-icons": "^7.1.0",
+		"@fortawesome/react-fontawesome": "^3.1.0",
 		"@fontsource-variable/inter": "^5.0.17",
 		"@fontsource-variable/outfit": "^5.0.12",
 		"@fontsource-variable/roboto-flex": "^5.2.8",
@@ -70,12 +74,6 @@
 		"webpack-cli": "^5.1.4",
 		"webpack-merge": "^5.9.0"
 	},
-	"browserslist": [
-		">0.25%",
-		"not ie 11",
-		"not op_mini all"
-	],
-	"files": [
-		"/dist"
-	]
+	"browserslist": [">0.25%", "not ie 11", "not op_mini all"],
+	"files": ["/dist"]
 }

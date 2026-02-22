@@ -2,18 +2,18 @@
 	"compilerOptions": {
 		"declaration": true,
 		"declarationDir": "dist",
-		"module": "node16",
-		"target": "es5",
+		"module": "esnext",
+		"target": "es2019",
 		"lib": ["ES2020", "dom"],
 		"sourceMap": true,
 		"jsx": "react-jsx",
-		"moduleResolution": "node16",
+		"moduleResolution": "bundler",
 		"allowSyntheticDefaultImports": true,
 		"esModuleInterop": true,
 		"allowJs": true,
 		"declarationMap": true,
-		
-		"noEmit": false,
+
+		"noEmit": false
 	},
 	"include": ["src", "src/utils/images.d.ts"],
 	"exclude": ["node_modules", "dist", "stories"]

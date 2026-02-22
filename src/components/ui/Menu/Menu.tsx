@@ -15,6 +15,11 @@ import {
 } from "@mirawision/colorize";
 import { editOpacity } from "../../../utils/colors.util";
 import { createStyles, useTheme } from "antd-style";
+import type {
+	ItemType,
+	MenuItemType,
+	SubMenuType,
+} from "antd/es/menu/interface";
 
 const useStyle = createStyles(({ css, prefixCls }) => ({
 	item: css`
@@ -26,6 +31,12 @@ const useStyle = createStyles(({ css, prefixCls }) => ({
   `,
 }));
 
+// type guard to check if the menu item is a submenu
+export function isSubMenu<T extends MenuItemType>(
+	item: ItemType<T>,
+): item is SubMenuType<T> {
+	return !!item && "children" in item && Array.isArray(item.children);
+}
 const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 	const context = useContext(VerticalLayoutContext); // context to check if its nested - its possible that the user can use the header without the VerticalLayout
 	const isNestedInLayout = Boolean(context); // check if nested or not to handle colors
@@ -33,6 +44,21 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 	const globalToken = theme.useToken(); // get the default, antd tokens
 	const { styles: menuStyles } = useStyle();
 	const token = useTheme();
+
+	const itemsWithDropdownArrows = props.items.map((item) => {
+		if (isSubMenu(item)) {
+			return {
+				...item,
+				label: (
+					<span>
+						{item.label}
+						<span style={{ marginLeft: 4 }}>▸</span>
+					</span>
+				),
+			};
+		}
+		return item;
+	});
 
 	const selectedItemColor = useMemo(() => {
 		if (isNestedInLayout) {
@@ -109,6 +135,7 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 					},
 				}}
 				{...props}
+				items={itemsWithDropdownArrows}
 			/>
 		</ConfigProvider>
 	);

@@ -25,12 +25,13 @@ export function parseBackgroundColors(css: string): ParsedBackgroundColors {
 	const results: ParsedColor[] = [];
 
 	const push = (matches: RegExpMatchArray | null) => {
-		matches?.forEach((value) => {
+		if (!matches) return;
+		for (const value of matches) {
 			results.push({
 				format: classifyColor(value),
 				value,
 			});
-		});
+		}
 	};
 
 	push(css.match(HEX_REGEX));

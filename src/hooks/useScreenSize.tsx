@@ -12,7 +12,7 @@ export const useScreenSize = (debounceTime = 200) => {
 			}
 
 			timeout = setTimeout(() => {
-				if (typeof globalThis.window !== "undefined") {
+				if (globalThis.window !== undefined) {
 					setScreenSize({
 						width: globalThis.innerWidth,
 						height: globalThis.innerHeight,
@@ -21,13 +21,13 @@ export const useScreenSize = (debounceTime = 200) => {
 			}, debounceTime);
 		};
 
-		if (typeof globalThis.window !== "undefined") {
+		if (globalThis.window !== undefined) {
 			globalThis.addEventListener("resize", handleResize);
 		}
 
 		// Clean up the event listener when the component unmounts
 		return () => {
-			if (typeof globalThis.window !== "undefined") {
+			if (globalThis.window !== undefined) {
 				globalThis.removeEventListener("resize", handleResize);
 			}
 		};

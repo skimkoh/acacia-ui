@@ -48,7 +48,6 @@ import type { DropdownButtonProps, DropdownProps } from "antd/es/dropdown";
 import type { LinkProps } from "antd/es/typography/Link";
 import type { CSSProperties } from "react";
 import type { CheckboxGroupProps, CheckboxOptionType } from "antd/es/checkbox";
-import type {} from "antd/es/menu/interface";
 
 /**
  * props for the acacia themes

@@ -102,9 +102,6 @@ export function useGetDefaultTheme(
 					borderRadiusSM: borderRadius.primary,
 					borderRadiusXS: borderRadius.primary,
 				},
-				Menu: {
-					popupBg: "grey",
-				},
 			},
 		};
 	}, [colors, borderRadius, padding]);

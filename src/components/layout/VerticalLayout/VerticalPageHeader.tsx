@@ -11,7 +11,9 @@ import Breadcrumb from "../../ui/Breadcrumb/Breadcrumb";
 import { useAcaciaToken } from "../../../tokens/useAcaciaToken";
 import Tabs from "../../ui/Tabs/Tabs";
 
-export interface VerticalHeaderProps {
+// this component is meant to be used in the VerticalLayout, but can also be used on its own for simple pages that just need a header. It is made up of many individual components that can be customized through props. When used without the VerticalLayout, it creates a simple header meant for minimalistic UI.
+
+export interface VerticalPageHeaderProps {
 	pageTitle: string | React.ReactNode;
 	pageSubtitle: string | React.ReactNode;
 	pageIcon?: React.ReactNode;
@@ -21,7 +23,7 @@ export interface VerticalHeaderProps {
 	tabs?: AcaciaTabsProps;
 }
 
-const VerticalHeader = ({ ...props }: VerticalHeaderProps) => {
+const VerticalPageHeader = ({ ...props }: VerticalPageHeaderProps) => {
 	const context = useContext(VerticalLayoutContext); // context to check if its nested - its possible that the user can use the header without the VerticalLayout
 	const isNestedInLayout = Boolean(context); // check if nested or not to handle colors
 
@@ -71,4 +73,4 @@ const VerticalHeader = ({ ...props }: VerticalHeaderProps) => {
 	);
 };
 
-export default VerticalHeader;
+export default VerticalPageHeader;

@@ -22,13 +22,14 @@ import type {
 } from "antd/es/menu/interface";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import "@fontsource-variable/roboto-flex";
 
 const useStyle = createStyles(({ css, prefixCls }) => ({
 	item: css`
-		&.${prefixCls}-menu-submenu {
-			padding: 10px,
-			borderBottom:none,	
-			marginInline: 3px,
+		&.${prefixCls}-menu-horizontal > .${prefixCls}-menu-submenu {
+			padding: 8px 10px;
+			border-bottom: none;
+			margin-inline: 3px;
 		}
   `,
 }));
@@ -58,8 +59,9 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 				label: (
 					<span>
 						{item.label}
+						{/* <span>{item.description}</span> */}
 						<span style={{ marginLeft: 4 }}>
-							<FontAwesomeIcon icon={faChevronDown} />
+							<FontAwesomeIcon icon={faChevronDown} size="xs" />
 						</span>
 					</span>
 				),
@@ -67,6 +69,8 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 		}
 		return item;
 	});
+
+	console.log(props.items);
 
 	const selectedItemColor = useMemo(() => {
 		if (isNestedInLayout) {
@@ -98,6 +102,7 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 				components: {
 					Menu: {
 						...defaultTheme.components.Menu,
+						itemSelectedColor: "black",
 						...(isNestedInLayout
 							? {
 									activeBarHeight: 0,
@@ -113,6 +118,10 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 									),
 									subMenuItemBg: selectedItemColor.menuBgColor,
 									subMenuItemSelectedColor: selectedItemColor.menuColor,
+									itemSelectedBg: adjustBrightness(
+										selectedItemColor.menuColor,
+										10,
+									),
 								}
 							: {}), // only override if its nested in the layout
 					},
@@ -120,9 +129,7 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 			}}
 		>
 			<AntdMenu
-				classNames={{
-					item: menuStyles.item,
-				}}
+				className={menuStyles.item}
 				styles={{
 					root: {
 						...(isNestedInLayout && {
@@ -139,7 +146,16 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 							padding: "8px 10px",
 							borderBottom: "none",
 							marginInline: "3px",
+							fontFamily: "Roboto Flex Variable, sans-serif",
 						}),
+					},
+					subMenu: {
+						item: {
+							color: "black",
+							...(isNestedInLayout && {
+								fontFamily: "Roboto Flex Variable, sans-serif",
+							}),
+						},
 					},
 				}}
 				{...props}

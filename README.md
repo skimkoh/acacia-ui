@@ -17,10 +17,11 @@ UI components are deployed [here](https://acacia-ui.vercel.app) for testing purp
 
 Features that will be worked on:
 
-- Moving from webpack to Rollup for bundling
+- Moving from webpack to Rollup or vite for bundling
 - Integration of all Ant Design's components into Acacia UI
 - AI-native components meant for AI development
 - Responsive layout templates with color token support for theming
+- Documentation website to document the components (and probably moving to a monorepo)
 
 ## Security
 Acacia UI is continuously scanned for vulnerabilities using Aikido Security. This includes dependency vulnerability scanning and static code analysis.

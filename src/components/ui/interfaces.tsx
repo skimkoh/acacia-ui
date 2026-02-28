@@ -383,6 +383,35 @@ export interface AcaciaTimeRangePickerProps extends TimeRangePickerProps {}
 /**
  * MENU
  */
+
+// export type AcaciaMenuType =
+// 	| AcaciaMenuItemType
+// 	| AcaciaSubMenuType
+// 	| AcaciaMenuItemGroupType
+// 	| MenuDividerType
+// 	| null;
+// export interface AcaciaMenuItemType extends MenuItemType {
+// 	description?: React.ReactNode;
+// }
+
+// export type AcaciaSubMenuType<T extends AcaciaMenuType = AcaciaMenuType> = Omit<
+// 	SubMenuType,
+// 	"children"
+// > & {
+// 	children?: AcaciaMenuItemType<T>[];
+// };
+
+// export type AcaciaMenuItemGroupType = Omit<MenuItemGroupType, "children"> & {
+// 	children?: AcaciaMenuItemType[];
+// };
+
+// export type AcaciaMenuType1<T extends AcaciaMenuType = AcaciaMenuType> =
+// 	| T
+// 	| AcaciaSubMenuType
+// 	| AcaciaMenuItemGroupType
+// 	| MenuDividerType
+// 	| null;
+
 export interface AcaciaMenuProps extends MenuProps {
 	/**
 	 * @default true

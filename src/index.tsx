@@ -52,7 +52,7 @@ export { default as Skeleton } from "./components/ui/Skeleton/Skeleton";
 export { default as Affix } from "./components/ui/Affix/Affix";
 
 export { default as VerticalLayout } from "./components/layout/VerticalLayout/VerticalLayout";
-export { default as VerticalHeader } from "./components/layout/VerticalLayout/VerticalHeader";
+export { default as VerticalHeader } from "./components/layout/VerticalLayout/VerticalPageHeader";
 export { default as VerticalContent } from "./components/layout/VerticalLayout/VerticalContent";
 
 export type { NewToken } from "./theme/customTheme";

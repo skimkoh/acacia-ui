@@ -13,7 +13,7 @@ import { renderBlackOrWhiteText } from "../../../utils/colors.util";
 import { parseBackgroundColors } from "../../../utils/parseBackgroundColors";
 import Menu from "../../ui/Menu/Menu";
 import DefaultLogo from "../../../theme/defaultLogo";
-import VerticalHeader from "./VerticalHeader";
+import VerticalPageHeader from "./VerticalPageHeader";
 import VerticalContent from "./VerticalContent";
 import {
 	getAccentColor,
@@ -298,6 +298,6 @@ const VerticalLayout = ({
 	);
 };
 
-VerticalLayout.VerticalHeader = VerticalHeader;
+VerticalLayout.VerticalHeader = VerticalPageHeader;
 VerticalLayout.VerticalContent = VerticalContent;
 export default VerticalLayout;

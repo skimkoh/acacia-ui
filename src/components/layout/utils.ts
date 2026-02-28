@@ -1,5 +1,5 @@
 import { isValidElement } from "react";
-import VerticalHeader from "./VerticalLayout/VerticalHeader";
+import VerticalHeader from "./VerticalLayout/VerticalPageHeader";
 import VerticalContent from "./VerticalLayout/VerticalContent";
 import type { AcaciaThemes } from "../ui/interfaces";
 import chroma from "chroma-js";

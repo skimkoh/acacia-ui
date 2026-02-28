@@ -47,8 +47,12 @@ const Menu = ({ showRightBorder = true, ...props }: AcaciaMenuProps) => {
 	const { styles: menuStyles } = useStyle();
 	const token = useTheme();
 
+	// for inline / horizontal menu with submenus, add a dropdown arrow to indicate its a submenu
 	const itemsWithDropdownArrows = props.items.map((item) => {
-		if (isSubMenu(item)) {
+		if (
+			isSubMenu(item) &&
+			(props.mode === "horizontal" || props.mode === "inline")
+		) {
 			return {
 				...item,
 				label: (

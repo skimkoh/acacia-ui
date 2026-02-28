@@ -25,4 +25,10 @@ Features that will be worked on:
 ## Security
 Acacia UI is continuously scanned for vulnerabilities using Aikido Security. This includes dependency vulnerability scanning and static code analysis.
 
+Acacia UI is also scanned through Sonarqube Cloud for code quality and SAST. You can view the dashboard [here](https://sonarcloud.io/project/overview?id=skimkoh_acacia-ui).
+
 We aim to address identified issues promptly and keep the dependency tree secure for downstream applications.
+
+## Credits
+
+Background images used in Acacia UI are from stock websites such as Unsplash and Pexels.

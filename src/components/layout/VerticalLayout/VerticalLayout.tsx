@@ -272,6 +272,7 @@ const VerticalLayout = ({
 									style={{
 										flex: 1,
 										minWidth: 0,
+										marginInlineStart: 10,
 										fontSize: 16,
 										fontWeight: 700,
 										...props.menuProps.style,

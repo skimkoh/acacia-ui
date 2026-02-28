@@ -1,11 +1,11 @@
 const commonPaths = require("./paths");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const path = require("path");
+const path = require("node:path");
 
 module.exports = {
   entry: commonPaths.entryPath,
   output: {
-    filename: "[name].js",
+  filename: "[name].js",
     libraryTarget: "umd",
     globalObject: "this",
     path: commonPaths.outputPath,
@@ -14,7 +14,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js|jsx$/,
+        test: /\.(js|jsx)$/,
         loader: "babel-loader",
         exclude: /node_modules/,
       },

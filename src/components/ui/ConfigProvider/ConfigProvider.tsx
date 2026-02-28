@@ -1,7 +1,5 @@
 import { ConfigProvider as AntdConfigProvider, theme } from "antd";
 import { ConfigContext } from "antd/es/config-provider/context";
-import { useAcaciaColors } from "../../../hooks/useAcaciaColors";
-import { useAcaciaConfig } from "../../../hooks/useAcaciaConfig";
 
 import { ThemeProvider } from "antd-style";
 import { CustomTheme, type NewToken } from "../../../theme/customTheme";
@@ -9,9 +7,6 @@ import type { AcaciaConfigProviderProps } from "../interfaces";
 import { useGetDefaultTheme } from "./defaultTheme";
 
 const ConfigProvider = ({ ...props }: AcaciaConfigProviderProps) => {
-	const { colors, generate } = useAcaciaColors();
-	const { borderRadius, padding } = useAcaciaConfig();
-
 	const mergedToken = {
 		...CustomTheme,
 		...props.customToken,

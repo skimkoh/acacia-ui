@@ -61,7 +61,6 @@ export { useAcaciaColors } from "./hooks/useAcaciaColors";
 export { useFoucHandler } from "./hooks/useFoucHandler";
 export { useAcaciaConfig } from "./hooks/useAcaciaConfig";
 export { useScreenSize } from "./hooks/useScreenSize";
-// export { usePaletteToken } from "./tokens/usePaletteToken";
 
 // interfaces
 export type {

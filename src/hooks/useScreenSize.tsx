@@ -1,39 +1,39 @@
 import { useState, useEffect } from "react";
 
 export const useScreenSize = (debounceTime = 200) => {
-  let timeout: ReturnType<typeof setTimeout> | null;
+	let timeout: ReturnType<typeof setTimeout> | null;
 
-  const [screenSize, setScreenSize] = useState({});
+	const [screenSize, setScreenSize] = useState({});
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (timeout) {
-        clearTimeout(timeout);
-      }
+	useEffect(() => {
+		const handleResize = () => {
+			if (timeout) {
+				clearTimeout(timeout);
+			}
 
-      timeout = setTimeout(() => {
-        if (typeof window !== "undefined") {
-          setScreenSize({
-            width: window.innerWidth,
-            height: window.innerHeight,
-          });
-        }
-      }, debounceTime);
-    };
+			timeout = setTimeout(() => {
+				if (typeof globalThis.window !== "undefined") {
+					setScreenSize({
+						width: globalThis.innerWidth,
+						height: globalThis.innerHeight,
+					});
+				}
+			}, debounceTime);
+		};
 
-    if (typeof window !== "undefined") {
-      window.addEventListener("resize", handleResize);
-    }
+		if (typeof globalThis.window !== "undefined") {
+			globalThis.addEventListener("resize", handleResize);
+		}
 
-    // Clean up the event listener when the component unmounts
-    return () => {
-      if (typeof window !== "undefined") {
-        window.removeEventListener("resize", handleResize);
-      }
-    };
-  }, []);
+		// Clean up the event listener when the component unmounts
+		return () => {
+			if (typeof globalThis.window !== "undefined") {
+				globalThis.removeEventListener("resize", handleResize);
+			}
+		};
+	}, []);
 
-  return screenSize;
+	return screenSize;
 };
 
 export default useScreenSize;

@@ -63,6 +63,7 @@
 		"react-docgen-typescript": "^2.2.2",
 		"react-docgen-typescript-plugin": "^1.0.8",
 		"react-helmet": "^6.1.0",
+		"remark-gfm": "^4.0.1",
 		"semantic-release": "^25.0.2",
 		"storybook": "^10.2.10",
 		"style-loader": "^3.3.3",

@@ -13,7 +13,7 @@ import { renderBlackOrWhiteText } from "../../../utils/colors.util";
 import { parseBackgroundColors } from "../../../utils/parseBackgroundColors";
 import Menu from "../../ui/Menu/Menu";
 import DefaultLogo from "../../../theme/defaultLogo";
-import VerticalHeader from "./VerticalHeader";
+import VerticalPageHeader from "./VerticalPageHeader";
 import VerticalContent from "./VerticalContent";
 import {
 	getAccentColor,
@@ -53,7 +53,7 @@ type BackgroundFill =
 	| { type: "gradient-css"; css: string };
 
 // interface to handle header background - props allowed for users to change picture, change theme or custom gradient entirely
-interface HeaderBackgroundProps {
+export interface HeaderBackgroundProps {
 	headerBackgroundImage?: BackgroundImage;
 	headerBackgroundFill?: BackgroundFill;
 }
@@ -127,7 +127,7 @@ const VerticalLayout = ({
 
 	const firstBackgroundColor = getFirstBackgroundHexColor();
 
-	const accentColor = getAccentColor(firstBackgroundColor);
+	const accentColor = getAccentColor(firstBackgroundColor, 0.9);
 
 	const getLinearGradient = useCallback((strings: string[]) => {
 		if (strings.length === 3) {
@@ -298,6 +298,6 @@ const VerticalLayout = ({
 	);
 };
 
-VerticalLayout.VerticalHeader = VerticalHeader;
+VerticalLayout.VerticalHeader = VerticalPageHeader;
 VerticalLayout.VerticalContent = VerticalContent;
 export default VerticalLayout;

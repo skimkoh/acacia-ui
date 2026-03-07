@@ -6,7 +6,13 @@ import RangePicker from "./RangePicker";
  * @description To select or input a date.
  */
 
-const DatePicker = ({ ...props }: AcaciaDatePickerProps) => {
+type DatePickerComponent = React.FC<AcaciaDatePickerProps> & {
+	RangePicker: typeof RangePicker;
+};
+
+const DatePicker: DatePickerComponent = ({
+	...props
+}: AcaciaDatePickerProps) => {
 	return <AntdDatePicker {...props} />;
 };
 

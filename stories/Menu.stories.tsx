@@ -124,3 +124,42 @@ export const BasicUsageHorizontal: Story = {
 		],
 	},
 };
+
+export const MenuSubMenu: Story = {
+	args: {
+		mode: "horizontal",
+		items: [
+			{
+				label: "Submenu with groups",
+				key: "3",
+				children: [
+					{
+						type: "group",
+						label: "Item 1",
+						children: [
+							{ label: "Option 1", key: "setting:1" },
+							{ label: "Option 2", key: "setting:2" },
+						],
+					},
+					{
+						type: "group",
+						label: "Item 2",
+						children: [
+							{ label: "Option 3", key: "setting:3" },
+							{ label: "Option 4", key: "setting:4" },
+						],
+					},
+				],
+			},
+			{
+				label: "Submenu with items",
+				key: "1",
+				children: [
+					{ label: "Option 1", key: "setting:1" },
+					{ label: "Option 2", key: "setting:2" },
+					{ label: "Option 3", key: "setting:3" },
+				],
+			},
+		],
+	},
+};

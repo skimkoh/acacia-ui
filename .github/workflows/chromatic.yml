@@ -5,8 +5,12 @@ on:
     branches:
         - 'main'
   pull_request:
-  branches:
+    branches:
         - 'dev'
+
+permissions:
+  contents: read
+
 
 jobs:
   chromatic:

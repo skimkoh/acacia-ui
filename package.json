@@ -2,8 +2,16 @@
 	"name": "acacia-ui",
 	"version": "1.0.0",
 	"description": "Acacia Design UI Library",
-	"main": "dist/main.js",
-	"typings": "dist/index.d.ts",
+	"main": "dist/index.umd.js",
+	"module": "dist/index.es.js",
+	"types": "dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/index.es.js",
+			"require": "./dist/index.umd.js",
+			"types": "./dist/index.d.ts"
+		}
+	},
 	"sideEffects": true,
 	"repository": "https://github.com/skimkoh/acacia-ui.git",
 	"scripts": {

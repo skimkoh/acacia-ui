@@ -14,6 +14,7 @@ export const getThemeGradients: Record<AcaciaThemes, string[]> = {
 	classic: ["#1d4042", "#37717c", "#418384"],
 	mystical: ["#bb8c97", "#9287a9", "#262144"],
 	submarine: ["#1d4042", "#37717c", "#418384"],
+	custom: [],
 };
 
 // get the accent color for the layout based on the background color - if background is light, darken the accent, if background is dark, lighten the accent

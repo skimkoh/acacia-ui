@@ -17,7 +17,7 @@ UI components are deployed [here](https://acacia-ui.vercel.app) for testing purp
 
 Features that will be worked on:
 
-- Moving from webpack to Rollup or vite for bundling
+- [x] Moving from webpack to Rollup or vite for bundling
 - Integration of all Ant Design's components into Acacia UI
 - AI-native components meant for AI development
 - Responsive layout templates with color token support for theming

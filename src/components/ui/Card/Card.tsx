@@ -57,6 +57,7 @@ const Card = ({
 			.with("classic", () => HexagonBackground)
 			.with("submarine", () => StripedBackground)
 			.with("mystical", () => MysticalBackground)
+			.with("custom", () => headerBackgroundTheme)
 			.exhaustive();
 	};
 

@@ -17,6 +17,7 @@ export const getThemedBackgroundPicture = (theme: AcaciaThemes) => {
 		.with("classic", () => HexagonHeader)
 		.with("submarine", () => StripedHeader)
 		.with("mystical", () => MysticalHeader)
+		.with("custom", () => HexagonHeader)
 		.exhaustive();
 };
 
@@ -25,6 +26,8 @@ export const getThemedContentBackgroundPicture = (theme: AcaciaThemes) => {
 		.with("classic", () => ClassicBody)
 		.with("submarine", () => SubmarineBody)
 		.with("mystical", () => MysticalBody)
+		.with("custom", () => ClassicBody)
+
 		.exhaustive();
 };
 
@@ -34,5 +37,6 @@ export const getThemedTitleHeaderBackgroundPicture = (theme: AcaciaThemes) => {
 		.with("classic", () => ClassicTitleHeader)
 		.with("submarine", () => SubmarineTitleHeader)
 		.with("mystical", () => MysticalTitleHeader)
+		.with("custom", () => ClassicTitleHeader)
 		.exhaustive();
 };

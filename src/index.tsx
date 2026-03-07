@@ -50,6 +50,8 @@ export { default as Alert } from "./components/ui/Alert/Alert";
 export { default as Drawer } from "./components/ui/Drawer/Drawer";
 export { default as Skeleton } from "./components/ui/Skeleton/Skeleton";
 export { default as Affix } from "./components/ui/Affix/Affix";
+export { default as Rate } from "./components/ui/Rate/Rate";
+export { default as Statistic } from "./components/ui/Statistic/Statistic";
 
 export { default as VerticalLayout } from "./components/layout/VerticalLayout/VerticalLayout";
 export { default as VerticalHeader } from "./components/layout/VerticalLayout/VerticalPageHeader";

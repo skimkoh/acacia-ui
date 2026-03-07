@@ -19,20 +19,22 @@ export const getThemeGradients: Record<AcaciaThemes, string[]> = {
 // get the accent color for the layout based on the background color - if background is light, darken the accent, if background is dark, lighten the accent
 export const getAccentColor = (hex: string, strength = 0.8) => {
 	const color = chroma(hex);
-	const luminance = color.luminance(); // 0 (black) → 1 (white)
-	const [l, a, b] = color.lab();
-	const ceiling = 85;
-	const floor = 15;
+	const luminance = color.luminance();
+
+	const [l, c, h] = color.oklch();
+
+	const ceiling = 0.85;
+	const floor = 0.35;
 
 	let newL: number;
 
 	if (luminance > 0.5) {
-		// background is light - darken accent
+		// light background → darker accent
 		newL = l - (l - floor) * strength;
 	} else {
-		// background is dark - lighten accent
+		// dark background → lighter accent
 		newL = l + (ceiling - l) * strength;
 	}
 
-	return chroma.lab(newL, a, b).hex();
+	return chroma.oklch(newL, c, h).hex();
 };

@@ -26,6 +26,7 @@
 		"@fortawesome/free-regular-svg-icons": "^7.1.0",
 		"@fortawesome/free-solid-svg-icons": "^7.1.0",
 		"@fortawesome/react-fontawesome": "^3.1.0",
+		"@types/react": "^19.2.14",
 		"antd": "^6.3.1",
 		"antd-style": "^3.5.2",
 		"prop-types": "^15.8.1",
@@ -65,7 +66,7 @@
 		"react-helmet": "^6.1.0",
 		"remark-gfm": "^4.0.1",
 		"semantic-release": "^25.0.2",
-		"storybook": "^10.2.10",
+		"storybook": "^10.2.16",
 		"style-loader": "^3.3.3",
 		"ts-loader": "^9.5.0",
 		"ts-pattern": "^5.7.1",
@@ -76,5 +77,6 @@
 		"webpack-merge": "^5.9.0"
 	},
 	"browserslist": [">0.25%", "not ie 11", "not op_mini all"],
-	"files": ["/dist"]
+	"files": ["/dist"],
+	"packageManager": "pnpm@10.30.3"
 }

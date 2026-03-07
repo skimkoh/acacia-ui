@@ -5,7 +5,6 @@ import { useMemo } from "react";
 import { grey } from "@ant-design/colors";
 import { typographyUtil } from "../../../theme/typographyUtil";
 import "@fontsource-variable/inter";
-import "@fontsource-variable/outfit";
 import "@fontsource-variable/roboto-flex";
 
 // classic theme

@@ -22,8 +22,7 @@ export default defineConfig({
 		},
 
 		rollupOptions: {
-			// equivalent to webpack `externals`
-			external: ["react", "react-dom", "prop-types", "antd", "antd-style"],
+			external: ["react", "react-dom", "antd", "antd-style"],
 			output: {
 				globals: {
 					react: "React",

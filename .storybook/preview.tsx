@@ -1,4 +1,4 @@
-import type { Preview } from "@storybook/react-webpack5";
+import type { Preview } from "@storybook/react-vite";
 import { ConfigProvider } from "../src/index";
 // biome-ignore lint/correctness/noUnusedImports: <explanation>
 import React from "react";

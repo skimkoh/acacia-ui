@@ -52,7 +52,7 @@ import type { CheckboxGroupProps, CheckboxOptionType } from "antd/es/checkbox";
 /**
  * props for the acacia themes
  */
-export type AcaciaThemes = "classic" | "submarine" | "mystical";
+export type AcaciaThemes = "classic" | "submarine" | "mystical" | "custom";
 
 /**
  * Props for Acacia Breadcrumb component

@@ -1,5 +1,6 @@
 import "@fontsource-variable/roboto-flex";
 import type { AcaciaThemes } from "../components/ui/interfaces";
+import type { HeaderBackgroundProps } from "../components/layout/VerticalLayout/VerticalLayout";
 
 export interface NewToken {
 	headingFontFamily: string;
@@ -7,6 +8,9 @@ export interface NewToken {
 	appThemeMode: "light" | "dark";
 	logo: React.ReactNode | string;
 	overlayDarkMode: Partial<DarkModeTokens>;
+	verticalLayout: {
+		headerBackgroundProps: HeaderBackgroundProps;
+	};
 }
 
 interface DarkModeTokens {
@@ -25,10 +29,12 @@ declare module "antd-style" {
 	export interface CustomToken extends NewToken {}
 }
 
+const appTheme = "classic";
+
 export const CustomTheme: NewToken = {
 	headingFontFamily:
 		'"Roboto Flex Variable", "Roboto Flex", "Segoe UI", sans-serif',
-	appTheme: "classic",
+	appTheme,
 	logo: "TEST LOGO",
 	appThemeMode: "light",
 	overlayDarkMode: {
@@ -38,5 +44,17 @@ export const CustomTheme: NewToken = {
 		modal: false,
 		tooltip: false,
 		statusModal: false,
+	},
+	verticalLayout: {
+		headerBackgroundProps: {
+			headerBackgroundImage: {
+				type: "theme",
+				theme: appTheme,
+			},
+			headerBackgroundFill: {
+				type: "theme",
+				theme: appTheme,
+			},
+		},
 	},
 };

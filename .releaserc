@@ -33,30 +33,31 @@
 				"writerOpts": {
 					"commitsSort": ["subject", "scope"]
 				},
-				"presetConfig": [
-					{ "type": "feat", "section": "Features" },
-					{ "type": "fix", "section": "Bug Fixes" },
-					{ "type": "perf", "section": "Performance Improvements" },
-					{ "type": "refactor", "section": "Performance Improvements" },
-					{ "type": "docs", "section": "Documentation" },
-					{ "type": "deps", "section": "Dependencies Patch Upgrade" },
-					{ "type": "ci", "section": "Workflow Changes" },
-					{ "type": "build", "section": "Build Changes" },
-					{ "type": "style", "section": "Styles Changes" },
-					{ "type": "test", "section": "Tests" }
-				]
-			}
-		],
-		[
-			"@semantic-release/git",
-			{
-				"assets": ["package.json"],
-				"message": "chore(release): ${nextRelease.version} [skip ci]"
+				"presetConfig": {
+					"types": [
+						{ "type": "feat", "section": "Features" },
+						{ "type": "fix", "section": "Bug Fixes" },
+						{ "type": "perf", "section": "Performance Improvements" },
+						{ "type": "refactor", "section": "Performance Improvements" },
+						{ "type": "docs", "section": "Documentation" },
+						{ "type": "deps", "section": "Dependencies Patch Upgrade" },
+						{ "type": "ci", "section": "Workflow Changes" },
+						{ "type": "build", "section": "Build Changes" },
+						{ "type": "style", "section": "Styles Changes" },
+						{ "type": "test", "section": "Tests" }
+					]
+				}
 			}
 		],
 		"@semantic-release/changelog",
 		"@semantic-release/npm",
+		[
+			"@semantic-release/git",
+			{
+				"assets": ["CHANGELOG.md", "package.json"],
+				"message": "chore(release): ${nextRelease.version} [skip ci]"
+			}
+		],
 		"@semantic-release/github"
-	],
-	"verifyConditions": ["@semantic-release/git", "@semantic-release/github"]
+	]
 }

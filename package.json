@@ -1,6 +1,6 @@
 {
 	"name": "acacia-ui",
-	"version": "1.0.0",
+	"version": "1.6.5",
 	"description": "Acacia Design UI Library",
 	"main": "dist/index.umd.js",
 	"module": "dist/index.es.js",
@@ -18,7 +18,6 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"repackage": "rm -rf dist && rm -rf package && rm acacia-ui-1.0.0.tgz && vite build && npm pack && tar -xvzf *.tgz",
 		"package": "cross-env NODE_ENV=production webpack-cli --progress --color && npm pack && tar -xvzf *.tgz",
-		"prepublishOnly": "npm run build",
 		"build": "vite build",
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "storybook build",
@@ -71,7 +70,13 @@
 		"vite": "^7.3.1",
 		"vite-plugin-dts": "^4.5.4"
 	},
-	"browserslist": [">0.25%", "not ie 11", "not op_mini all"],
-	"files": ["/dist"],
+	"browserslist": [
+		">0.25%",
+		"not ie 11",
+		"not op_mini all"
+	],
+	"files": [
+		"/dist"
+	],
 	"packageManager": "pnpm@10.30.3"
 }

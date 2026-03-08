@@ -22,8 +22,11 @@ jobs:
           node-version: "22"
           registry-url: "https://registry.npmjs.org/"
 
+      - name: Enable corepack
+        run: corepack enable
+
       - name: Install dependencies
-        run: npm ci --ignore-scripts
+        run: pnpm install --frozen-lockfile
 
       - name: Build the project
         run: npm run build --if-present
@@ -61,7 +64,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
-          node-version: 22.x
+          node-version: 24.x
           registry-url: https://registry.npmjs.org/
 
       - name: Semantic Release
@@ -70,6 +73,7 @@ jobs:
           extra_plugins: |
             @semantic-release/changelog
             @semantic-release/git
+            @semantic-release/release-notes-generator
+          semantic_version: 25          
         env:
           GITHUB_TOKEN: ${{ secrets.SEMANTIC_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

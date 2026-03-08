@@ -1,6 +1,6 @@
 {
 	"name": "acacia-ui",
-	"version": "1.6.4",
+	"version": "1.6.5",
 	"description": "Acacia Design UI Library",
 	"main": "dist/index.umd.js",
 	"module": "dist/index.es.js",

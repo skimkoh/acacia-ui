@@ -9,9 +9,9 @@ It wraps around Ant Design, with further capabilities and complex components, us
 - Fully TypeScript
 - Storybook for interactive component documentation
 - Chromatic integration for visual regression testing
-- Automated dependency scanning for security and updates
+- SAST scanning and security analysis via Aikido Security and SonarQube
 
-UI components are deployed [here](https://acacia-ui.vercel.app) for testing purposes.
+UI components are deployed [here](https://acacia-ui.vercel.app) in a Storybook.
 
 ## Roadmap
 

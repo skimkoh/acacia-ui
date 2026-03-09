@@ -24,6 +24,7 @@ import type {
 	SpaceProps,
 	PopconfirmProps,
 	ModalProps,
+	ColorPickerProps,
 } from "antd";
 
 import type { TextProps } from "antd/es/typography/Text";
@@ -496,3 +497,6 @@ export interface AcaciaOptionSelectGroupProps<T = any>
 	span?: number | string; // max 24,
 	options: AcaciaOptionsList[];
 }
+
+// COLORPICKER
+export interface AcaciaColorPickerProps extends ColorPickerProps {}

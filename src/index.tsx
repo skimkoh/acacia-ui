@@ -52,6 +52,7 @@ export { default as Skeleton } from "./components/ui/Skeleton/Skeleton";
 export { default as Affix } from "./components/ui/Affix/Affix";
 export { default as Rate } from "./components/ui/Rate/Rate";
 export { default as Statistic } from "./components/ui/Statistic/Statistic";
+export { default as ColorPicker } from "./components/ui/ColorPicker/ColorPicker";
 
 export { default as VerticalLayout } from "./components/layout/VerticalLayout/VerticalLayout";
 export { default as VerticalHeader } from "./components/layout/VerticalLayout/VerticalPageHeader";

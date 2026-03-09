@@ -89,4 +89,5 @@ export type {
 	AcaciaSelectProps,
 	AcaciaRadioProps,
 	AcaciaBasicPanelProps,
+	AcaciaColorPickerProps,
 } from "./components/ui/interfaces";

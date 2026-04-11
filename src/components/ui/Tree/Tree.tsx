@@ -1,8 +1,13 @@
 import { Tree as AntdTree } from "antd";
 import type { AcaciaTreeProps } from "../interfaces";
 import DirectoryTree from "./DirectoryTree";
+import type { FC } from "react";
 
-const Tree = ({ ...props }: AcaciaTreeProps) => {
+type AcaciaTreeComponent = FC<AcaciaTreeProps> & {
+	DirectoryTree: typeof DirectoryTree;
+};
+
+const Tree: AcaciaTreeComponent = ({ ...props }: AcaciaTreeProps) => {
 	return <AntdTree {...props} />;
 };
 

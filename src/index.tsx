@@ -92,4 +92,8 @@ export type {
 	AcaciaRadioProps,
 	AcaciaBasicPanelProps,
 	AcaciaColorPickerProps,
+	AcaciaEmptyProps,
+	AcaciaDirectoryTreeProps,
+	AcaciaTreeProps,
+	AcaciaTreeNodeProps,
 } from "./components/ui/interfaces";

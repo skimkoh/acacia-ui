@@ -25,6 +25,9 @@ import type {
 	PopconfirmProps,
 	ModalProps,
 	ColorPickerProps,
+	EmptyProps,
+	TreeProps,
+	TreeNodeProps,
 } from "antd";
 
 import type { TextProps } from "antd/es/typography/Text";
@@ -49,6 +52,7 @@ import type { DropdownButtonProps, DropdownProps } from "antd/es/dropdown";
 import type { LinkProps } from "antd/es/typography/Link";
 import type { CSSProperties } from "react";
 import type { CheckboxGroupProps, CheckboxOptionType } from "antd/es/checkbox";
+import type { DirectoryTreeProps } from "antd/es/tree";
 
 /**
  * props for the acacia themes
@@ -500,3 +504,11 @@ export interface AcaciaOptionSelectGroupProps<T = any>
 
 // COLORPICKER
 export interface AcaciaColorPickerProps extends ColorPickerProps {}
+
+// EMPTY
+export interface AcaciaEmptyProps extends EmptyProps {}
+
+// TREE
+export interface AcaciaTreeProps extends TreeProps {}
+export interface AcaciaDirectoryTreeProps extends DirectoryTreeProps {}
+export interface AcaciaTreeNodeProps extends TreeNodeProps {}

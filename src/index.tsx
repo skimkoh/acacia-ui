@@ -55,6 +55,9 @@ export { default as Statistic } from "./components/ui/Statistic/Statistic";
 export { default as ColorPicker } from "./components/ui/ColorPicker/ColorPicker";
 export { default as Empty } from "./components/ui/Empty/Empty";
 export { default as Tree } from "./components/ui/Tree/Tree";
+export { default as Transfer } from "./components/ui/Transfer/Transfer";
+export { default as Mentions } from "./components/ui/Mentions/Mentions";
+export { default as Tour } from "./components/ui/Tour/Tour";
 
 export { default as VerticalLayout } from "./components/layout/VerticalLayout/VerticalLayout";
 export { default as VerticalHeader } from "./components/layout/VerticalLayout/VerticalPageHeader";
@@ -96,4 +99,8 @@ export type {
 	AcaciaDirectoryTreeProps,
 	AcaciaTreeProps,
 	AcaciaTreeNodeProps,
+	AcaciaTransferProps,
+	AcaciaMentionsProps,
+	AcaciaTourProps,
+	AcaciaTourStepProps,
 } from "./components/ui/interfaces";

@@ -28,6 +28,10 @@ import type {
 	EmptyProps,
 	TreeProps,
 	TreeNodeProps,
+	TourProps,
+	TourStepProps,
+	TransferProps,
+	MentionProps,
 } from "antd";
 
 import type { TextProps } from "antd/es/typography/Text";
@@ -512,3 +516,13 @@ export interface AcaciaEmptyProps extends EmptyProps {}
 export interface AcaciaTreeProps extends TreeProps {}
 export interface AcaciaDirectoryTreeProps extends DirectoryTreeProps {}
 export interface AcaciaTreeNodeProps extends TreeNodeProps {}
+
+// TOUR
+export interface AcaciaTourProps extends TourProps {}
+export interface AcaciaTourStepProps extends TourStepProps {}
+
+// TRANSFER
+export interface AcaciaTransferProps extends TransferProps {}
+
+// MENTIONS
+export interface AcaciaMentionsProps extends MentionProps {}

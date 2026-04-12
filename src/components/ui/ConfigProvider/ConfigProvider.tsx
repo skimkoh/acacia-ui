@@ -44,4 +44,5 @@ const ConfigProvider: FC<AcaciaConfigProviderProps> & {
 };
 
 ConfigProvider.ConfigContext = ConfigContext;
+ConfigProvider.displayName = "ConfigProvider";
 export default ConfigProvider;

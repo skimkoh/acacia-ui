@@ -32,6 +32,7 @@ import type {
 	TourStepProps,
 	TransferProps,
 	MentionProps,
+	FlexProps,
 } from "antd";
 
 import type { TextProps } from "antd/es/typography/Text";
@@ -526,3 +527,6 @@ export interface AcaciaTransferProps extends TransferProps {}
 
 // MENTIONS
 export interface AcaciaMentionsProps extends MentionProps {}
+
+// FLEX
+export interface AcaciaFlexProps extends FlexProps {}

@@ -3,6 +3,7 @@ import Mentions from "../src/components/ui/Mentions/Mentions";
 
 // biome-ignore lint/correctness/noUnusedImports: <explanation>
 import React from "react";
+import Flex from "../src/components/ui/Flex/Flex";
 
 const meta = {
 	component: Mentions,
@@ -44,4 +45,25 @@ export const BasicUsage: Story = {
 		defaultValue: "@afc163",
 		autoSize: false,
 	},
+};
+
+export const Variants = () => {
+	return (
+		<Flex vertical gap={12}>
+			<Mentions placeholder="Outlined" />
+			<Mentions placeholder="Filled" variant="filled" />
+			<Mentions placeholder="Borderless" variant="borderless" />
+			<Mentions placeholder="Underlined" variant="underlined" />
+		</Flex>
+	);
+};
+
+export const Sizes = () => {
+	return (
+		<Flex vertical gap={12}>
+			<Mentions size="large" placeholder="large size" />
+			<Mentions placeholder="default size" />
+			<Mentions size="small" placeholder="small size" />
+		</Flex>
+	);
 };

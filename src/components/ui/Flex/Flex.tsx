@@ -1,6 +1,7 @@
-import { Flex as AntdFlex, type FlexProps } from "antd";
+import { Flex as AntdFlex } from "antd";
+import type { AcaciaFlexProps } from "../interfaces";
 
-const Flex = ({ ...props }: FlexProps) => {
+const Flex = ({ ...props }: AcaciaFlexProps) => {
 	return <AntdFlex {...props} />;
 };
 

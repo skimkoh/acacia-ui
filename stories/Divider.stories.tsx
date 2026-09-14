@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import Divider from "../src/components/ui/Divider/Divider";
 // biome-ignore lint/correctness/noUnusedImports: <explanation>
 import React from "react";

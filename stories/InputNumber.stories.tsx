@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 // biome-ignore lint/correctness/noUnusedImports: <explanation>
 import React from "react";

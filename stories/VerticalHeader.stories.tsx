@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import VerticalPageHeader from "../src/components/layout/VerticalLayout/VerticalPageHeader";
 import Button from "../src/components/ui/Button/Button";
 const meta = {

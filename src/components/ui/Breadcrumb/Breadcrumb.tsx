@@ -24,13 +24,13 @@ const Breadcrumb = ({ ...props }: AcaciaBreadcrumbProps) => {
 				token: { ...defaultTheme.token, ...globalToken.token },
 				components: {
 					Breadcrumb: {
-						...defaultTheme.components.Breadcrumb,
+						...defaultTheme.components?.Breadcrumb,
 						...(isNestedInLayout
 							? {
-									linkColor: context.mainTextColor,
-									itemColor: context.mainTextColor,
-									lastItemColor: context.mainTextColor,
-									separatorColor: context.mainTextColor,
+									linkColor: context?.mainTextColor,
+									itemColor: context?.mainTextColor,
+									lastItemColor: context?.mainTextColor,
+									separatorColor: context?.mainTextColor,
 								}
 							: {}), // only override if its nested in the layout
 					},

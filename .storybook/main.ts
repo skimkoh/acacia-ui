@@ -20,9 +20,5 @@ const config: StorybookConfig = {
 		name: "@storybook/react-vite",
 		options: {},
 	},
-
-	typescript: {
-		reactDocgen: "react-docgen-typescript", // better TS support
-	},
 };
 export default config;

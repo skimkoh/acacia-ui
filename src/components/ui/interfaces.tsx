@@ -33,6 +33,8 @@ import type {
 	TransferProps,
 	MentionProps,
 	FlexProps,
+	CalendarProps,
+	TimelineProps,
 } from "antd";
 
 import type { TextProps } from "antd/es/typography/Text";
@@ -43,6 +45,9 @@ import type { PaginationProps } from "antd/es/pagination/Pagination";
 import type { TextAreaProps } from "antd/es/input";
 import type { RibbonProps } from "antd/es/badge/Ribbon";
 import type { NewToken } from "../../theme/customTheme";
+
+import type { Dayjs } from "dayjs";
+
 import type {
 	PresetColorType,
 	PresetStatusColorType,
@@ -530,3 +535,9 @@ export interface AcaciaMentionsProps extends MentionProps {}
 
 // FLEX
 export interface AcaciaFlexProps extends FlexProps {}
+
+// CALENDAR
+export interface AcaciaCalendarProps extends CalendarProps<Dayjs> {}
+
+// TIMELINE
+export interface AcaciaTimelineProps extends TimelineProps {}

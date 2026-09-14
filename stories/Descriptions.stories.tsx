@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import Descriptions from "../src/components/ui/Descriptions/Descriptions";
 
 // biome-ignore lint/correctness/noUnusedImports: <explanation>

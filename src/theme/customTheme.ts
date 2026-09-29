@@ -34,7 +34,7 @@ const appTheme = "classic";
 export const CustomTheme: NewToken = {
 	headingFontFamily:
 		'"Roboto Flex Variable", "Roboto Flex", "Segoe UI", sans-serif',
-	appTheme,
+	appTheme: "classic",
 	logo: "TEST LOGO",
 	appThemeMode: "light",
 	overlayDarkMode: {

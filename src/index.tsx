@@ -37,7 +37,7 @@ export { default as Anchor } from "./components/ui/Anchor/Anchor";
 export { default as Steps } from "./components/ui/Steps/Steps";
 export { default as AutoComplete } from "./components/ui/AutoComplete/AutoComplete";
 export { default as Cascader } from "./components/ui/Cascader/Cascader";
-export { default as Form } from "./components/ui/Form/Form";
+export { default as Form, useForm } from "./components/ui/Form/Form";
 export { default as InputNumber } from "./components/ui/InputNumber/InputNumber";
 export { default as Slider } from "./components/ui/Slider/Slider";
 export { default as Collapse } from "./components/ui/Collapse/Collapse";

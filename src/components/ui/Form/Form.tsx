@@ -4,11 +4,16 @@ import FormItem from "./FormItem";
 import FormErrorList from "./FormErrorList";
 import FormProvider from "./FormProvider";
 
-const Form = ({ ...props }: AcaciaFormProps) => {
-	return <AntdForm {...props} />;
-};
+export const useForm = AntdForm.useForm;
 
-Form.Item = FormItem;
-Form.ErrorList = FormErrorList;
-Form.Provider = FormProvider;
+const Form = Object.assign(
+	({ ...props }: AcaciaFormProps) => <AntdForm {...props} />,
+	{
+		Item: FormItem,
+		ErrorList: FormErrorList,
+		Provider: FormProvider,
+		useForm: AntdForm.useForm,
+	},
+);
+
 export default Form;

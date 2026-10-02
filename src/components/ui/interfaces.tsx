@@ -545,4 +545,6 @@ export interface AcaciaCalendarProps extends CalendarProps<Dayjs> {}
 export interface AcaciaTimelineProps extends TimelineProps {}
 
 // SPLITTER
-export interface AcaciaSplitterProps extends SplitterProps {}
+export interface AcaciaSplitterProps extends SplitterProps {
+	children?: React.ReactNode;
+}

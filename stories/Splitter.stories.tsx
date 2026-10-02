@@ -1,4 +1,3 @@
-import { ArrowRightOutlined } from "@ant-design/icons";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 import Splitter from "../src/components/ui/Splitter/Splitter";
@@ -118,29 +117,6 @@ export const Collapsible: Story = {
 };
 
 /**
- * Control collapsible icons
- */
-export const ControlCollapsibleIcons: Story = {
-	render: () => (
-		<div style={{ height: 300 }}>
-			<Splitter
-				collapsible={{
-					showCollapsibleIcon: true,
-				}}
-			>
-				<Splitter.Panel defaultSize="30%" min="20%" collapsible>
-					<PanelContent>First</PanelContent>
-				</Splitter.Panel>
-
-				<Splitter.Panel>
-					<PanelContent>Second</PanelContent>
-				</Splitter.Panel>
-			</Splitter>
-		</div>
-	),
-};
-
-/**
  * Multiple panels
  */
 export const MultiplePanels: Story = {
@@ -215,7 +191,6 @@ export const Lazy: Story = {
 	),
 };
 
-
 /**
  * Custom semantic DOM styling
  */
@@ -231,7 +206,9 @@ export const CustomSemanticDOMStyling: Story = {
 						padding: 8,
 					},
 					dragger: {
-						background: "#f0f0f0",
+						default: {
+							backgroundColor: "#f0f0f0",
+						},
 					},
 				}}
 			>

@@ -35,6 +35,7 @@ import type {
 	FlexProps,
 	CalendarProps,
 	TimelineProps,
+	SplitterProps,
 } from "antd";
 
 import type { TextProps } from "antd/es/typography/Text";
@@ -542,3 +543,6 @@ export interface AcaciaCalendarProps extends CalendarProps<Dayjs> {}
 
 // TIMELINE
 export interface AcaciaTimelineProps extends TimelineProps {}
+
+// SPLITTER
+export interface AcaciaSplitterProps extends SplitterProps {}

@@ -11,7 +11,12 @@ const meta = {
 	title: "Components/Drawer",
 	component: Drawer,
 	parameters: {
-		layout: "padded",
+		docs: {
+			description: {
+				component:
+					"This Drawer wraps [Ant Design Drawer](https://ant.design/components/drawer/) and supports all the same props.",
+			},
+		},
 	},
 	tags: ["autodocs"],
 } satisfies Meta<typeof Drawer>;

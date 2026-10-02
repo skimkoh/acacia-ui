@@ -27,6 +27,10 @@ export { default as Space } from "./components/ui/Space/Space";
 export { default as Panel } from "./components/ui/Panel/Panel";
 export { default as Popconfirm } from "./components/ui/Popconfirm/Popconfirm";
 export { default as Modal } from "./components/ui/Modal/Modal";
+export {
+	default as Notification,
+	notification,
+} from "./components/ui/Notification/Notification";
 export { default as FloatButton } from "./components/ui/FloatButton/FloatButton";
 export { default as Divider } from "./components/ui/Divider/Divider";
 export { default as Flex } from "./components/ui/Flex/Flex";

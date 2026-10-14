@@ -41,19 +41,18 @@ jobs:
     name: Publish to npm
     runs-on: ubuntu-latest
     needs: [build]
+
     permissions:
       contents: write
       issues: write
       pull-requests: write
       id-token: write
-      
+
     steps:
       - name: Checkout
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
-          persist-credentials: true
-          token: ${{ secrets.SEMANTIC_TOKEN }}
 
       - name: Download build artifact
         uses: actions/download-artifact@v4
@@ -74,6 +73,6 @@ jobs:
             @semantic-release/changelog
             @semantic-release/git
             @semantic-release/release-notes-generator
-          semantic_version: 25          
+          semantic_version: 25
         env:
-          GITHUB_TOKEN: ${{ secrets.SEMANTIC_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

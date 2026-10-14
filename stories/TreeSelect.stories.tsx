@@ -37,7 +37,7 @@ const meta = {
 		disabled: { control: "boolean" },
 		multiple: { control: "boolean" },
 		placeholder: { control: "text" },
-		size: { control: "select", options: ["small", "middle", "large"] },
+		size: { control: "select", options: ["small", "medium", "large"] },
 	},
 } satisfies Meta<typeof TreeSelect>;
 
@@ -68,6 +68,7 @@ export const Checkable: Story = {
 	args: {
 		placeholder: "Select teams",
 		treeCheckable: true,
+		showCheckedStrategy: TreeSelect.SHOW_CHILD,
 		treeData,
 		treeDefaultExpandAll: true,
 		style: { width: "100%" },
@@ -95,6 +96,16 @@ export const WithTreeLines: Story = {
 
 		treeLine: true,
 	},
+};
+
+export const Sizes: Story = {
+	render: () => (
+		<div style={{ display: "grid", gap: 12, width: 280 }}>
+			<TreeSelect placeholder="Small" size="small" treeData={treeData} />
+			<TreeSelect placeholder="Medium" size="medium" treeData={treeData} />
+			<TreeSelect placeholder="Large" size="large" treeData={treeData} />
+		</div>
+	),
 };
 
 export const Variants: Story = {

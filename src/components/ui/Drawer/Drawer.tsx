@@ -1,6 +1,7 @@
-import { Drawer as AntdDrawer, type DrawerProps } from "antd";
+import { Drawer as AntdDrawer } from "antd";
+import type { AcaciaDrawerProps } from "../interfaces";
 
-const Drawer = ({ ...props }: DrawerProps) => {
+const Drawer = ({ ...props }: AcaciaDrawerProps) => {
 	return <AntdDrawer {...props} />;
 };
 

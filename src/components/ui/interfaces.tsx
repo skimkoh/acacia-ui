@@ -38,6 +38,7 @@ import type {
 	SplitterProps,
 	UploadProps,
 	ProgressProps,
+	TreeSelectProps,
 } from "antd";
 
 import type { TextProps } from "antd/es/typography/Text";
@@ -526,6 +527,9 @@ export interface AcaciaEmptyProps extends EmptyProps {}
 export interface AcaciaTreeProps extends TreeProps {}
 export interface AcaciaDirectoryTreeProps extends DirectoryTreeProps {}
 export interface AcaciaTreeNodeProps extends TreeNodeProps {}
+
+// TREE SELECT
+export interface AcaciaTreeSelectProps extends TreeSelectProps {}
 
 // TOUR
 export interface AcaciaTourProps extends TourProps {}

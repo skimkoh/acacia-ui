@@ -31,6 +31,7 @@ export {
 	default as Notification,
 	notification,
 } from "./components/ui/Notification/Notification";
+export { default as Message, message } from "./components/ui/Message/Message";
 export { default as FloatButton } from "./components/ui/FloatButton/FloatButton";
 export { default as Divider } from "./components/ui/Divider/Divider";
 export { default as Flex } from "./components/ui/Flex/Flex";
@@ -62,6 +63,8 @@ export { default as Tree } from "./components/ui/Tree/Tree";
 export { default as Transfer } from "./components/ui/Transfer/Transfer";
 export { default as Mentions } from "./components/ui/Mentions/Mentions";
 export { default as Tour } from "./components/ui/Tour/Tour";
+export { default as Upload } from "./components/ui/Upload/Upload";
+export { default as Progress } from "./components/ui/Progress/Progress";
 
 export { default as VerticalLayout } from "./components/layout/VerticalLayout/VerticalLayout";
 export { default as VerticalHeader } from "./components/layout/VerticalLayout/VerticalPageHeader";
@@ -107,4 +110,6 @@ export type {
 	AcaciaMentionsProps,
 	AcaciaTourProps,
 	AcaciaTourStepProps,
+	AcaciaUploadProps,
+	AcaciaProgressProps,
 } from "./components/ui/interfaces";

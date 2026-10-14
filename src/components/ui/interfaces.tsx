@@ -36,6 +36,9 @@ import type {
 	CalendarProps,
 	TimelineProps,
 	SplitterProps,
+	UploadProps,
+	ProgressProps,
+	TreeSelectProps,
 } from "antd";
 
 import type { TextProps } from "antd/es/typography/Text";
@@ -525,6 +528,9 @@ export interface AcaciaTreeProps extends TreeProps {}
 export interface AcaciaDirectoryTreeProps extends DirectoryTreeProps {}
 export interface AcaciaTreeNodeProps extends TreeNodeProps {}
 
+// TREE SELECT
+export interface AcaciaTreeSelectProps extends TreeSelectProps {}
+
 // TOUR
 export interface AcaciaTourProps extends TourProps {}
 export interface AcaciaTourStepProps extends TourStepProps {}
@@ -548,3 +554,9 @@ export interface AcaciaTimelineProps extends TimelineProps {}
 export interface AcaciaSplitterProps extends SplitterProps {
 	children?: React.ReactNode;
 }
+
+// UPLOAD
+export interface AcaciaUploadProps extends UploadProps {}
+
+// PROGRESS
+export interface AcaciaProgressProps extends ProgressProps {}

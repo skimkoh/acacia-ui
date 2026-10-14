@@ -93,11 +93,23 @@ export const Gradient: Story = {
 export const Sizes: Story = {
 	render: () => (
 		<Space orientation="vertical" style={{ width: 360 }}>
-			<Progress percent={50} size="small" />
-			<Progress percent={50} size="medium" />
+			<div>
+				<div>Small line</div>
+				<Progress percent={50} size="small" />
+			</div>
+			<div>
+				<div>Default line</div>
+				<Progress percent={50} size="default" />
+			</div>
 			<Space align="center" size="large">
-				<Progress type="circle" percent={50} size={80} />
-				<Progress type="circle" percent={50} size={120} />
+				<div style={{ textAlign: "center" }}>
+					<div>80px circle</div>
+					<Progress type="circle" percent={50} size={80} />
+				</div>
+				<div style={{ textAlign: "center" }}>
+					<div>120px circle</div>
+					<Progress type="circle" percent={50} size={120} />
+				</div>
 			</Space>
 		</Space>
 	),

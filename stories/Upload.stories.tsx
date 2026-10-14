@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Upload as AntdUpload, Button } from "antd";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInbox, faPlus, faUpload } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 // biome-ignore lint/correctness/noUnusedImports: <explanation>
 import React from "react";
+import Button from "../src/components/ui/Button/Button";
 import Upload from "../src/components/ui/Upload/Upload";
 
 const meta = {
@@ -43,7 +43,7 @@ export const BasicUsage: Story = {
 
 export const DragAndDrop: Story = {
 	render: () => (
-		<AntdUpload.Dragger beforeUpload={() => false} multiple>
+		<Upload.Dragger beforeUpload={() => false} multiple>
 			<p className="ant-upload-drag-icon">
 				<FontAwesomeIcon icon={faInbox} />
 			</p>
@@ -51,7 +51,7 @@ export const DragAndDrop: Story = {
 			<p className="ant-upload-hint">
 				Select one or more files to add them to the list.
 			</p>
-		</AntdUpload.Dragger>
+		</Upload.Dragger>
 	),
 };
 
@@ -84,7 +84,7 @@ export const PngOnly: Story = {
 	args: {
 		accept: ".png",
 		beforeUpload: (file) =>
-			file.type === "image/png" ? false : AntdUpload.LIST_IGNORE,
+			file.type === "image/png" ? false : Upload.LIST_IGNORE,
 	},
 	render: (args) => (
 		<Upload {...args}>

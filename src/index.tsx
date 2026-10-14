@@ -54,6 +54,8 @@ export { default as Tooltip } from "./components/ui/Tooltip/Tooltip";
 export { default as Alert } from "./components/ui/Alert/Alert";
 export { default as Drawer } from "./components/ui/Drawer/Drawer";
 export { default as Skeleton } from "./components/ui/Skeleton/Skeleton";
+export { default as Result } from "./components/ui/Result/Result";
+export { default as Spin } from "./components/ui/Spin/Spin";
 export { default as Affix } from "./components/ui/Affix/Affix";
 export { default as Rate } from "./components/ui/Rate/Rate";
 export { default as Statistic } from "./components/ui/Statistic/Statistic";
@@ -112,4 +114,8 @@ export type {
 	AcaciaTourStepProps,
 	AcaciaUploadProps,
 	AcaciaProgressProps,
+	AcaciaTreeSelectProps,
+	AcaciaSpinProps,
+	AcaciaDrawerProps,
+	AcaciaResultProps,
 } from "./components/ui/interfaces";

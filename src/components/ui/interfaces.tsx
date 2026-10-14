@@ -39,6 +39,7 @@ import type {
 	UploadProps,
 	ProgressProps,
 	TreeSelectProps,
+	DrawerProps,
 } from "antd";
 
 import type { TextProps } from "antd/es/typography/Text";
@@ -49,6 +50,8 @@ import type { PaginationProps } from "antd/es/pagination/Pagination";
 import type { TextAreaProps } from "antd/es/input";
 import type { RibbonProps } from "antd/es/badge/Ribbon";
 import type { NewToken } from "../../theme/customTheme";
+import type { Spin as AntdSpin } from "antd";
+import type { Result as AntdResult } from "antd";
 
 import type { Dayjs } from "dayjs";
 
@@ -64,7 +67,7 @@ import type {
 } from "antd/es/breadcrumb/Breadcrumb";
 import type { DropdownButtonProps, DropdownProps } from "antd/es/dropdown";
 import type { LinkProps } from "antd/es/typography/Link";
-import type { CSSProperties } from "react";
+import type { ComponentPropsWithoutRef, CSSProperties } from "react";
 import type { CheckboxGroupProps, CheckboxOptionType } from "antd/es/checkbox";
 import type { DirectoryTreeProps } from "antd/es/tree";
 
@@ -560,3 +563,17 @@ export interface AcaciaUploadProps extends UploadProps {}
 
 // PROGRESS
 export interface AcaciaProgressProps extends ProgressProps {}
+
+//SPIN
+export interface AcaciaSpinProps
+	extends ComponentPropsWithoutRef<typeof AntdSpin> {}
+
+// DRAWER
+export interface AcaciaDrawerProps extends DrawerProps {}
+
+// RESULT
+
+type BaseAcaciaResultProps = ComponentPropsWithoutRef<typeof AntdResult>;
+export type AcaciaResultProps = Omit<BaseAcaciaResultProps, "status"> & {
+	status?: BaseAcaciaResultProps["status"] | 401 | "401";
+};

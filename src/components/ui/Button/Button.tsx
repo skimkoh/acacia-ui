@@ -3,8 +3,16 @@
  */
 import { Button as AntdButton } from "antd";
 import type { AcaciaButtonProps } from "../interfaces";
+import { forwardRef } from "react";
 
-const Button = ({ children, ...props }: AcaciaButtonProps) => {
-	return <AntdButton {...props}>{children}</AntdButton>;
-};
+const Button = forwardRef<HTMLButtonElement, AcaciaButtonProps>(
+	({ children, ...props }, ref) => {
+		return (
+			<AntdButton ref={ref} {...props}>
+				{children}
+			</AntdButton>
+		);
+	},
+);
+
 export default Button;

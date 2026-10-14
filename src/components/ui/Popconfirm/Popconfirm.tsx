@@ -14,9 +14,9 @@ const Popconfirm = ({ ...props }: AcaciaPopconfirmProps) => {
 				token: { ...defaultTheme.token, ...globalToken.token },
 				components: {
 					Popconfirm: {
-						colorBgElevated:
-							token.overlayDarkMode.popconfirm &&
-							token.overlayDarkMode.overlayColor,
+						...(token.overlayDarkMode.popconfirm && {
+							colorBgElevated: token.overlayDarkMode.overlayColor,
+						}),
 					},
 				},
 			}}
@@ -26,9 +26,9 @@ const Popconfirm = ({ ...props }: AcaciaPopconfirmProps) => {
 					type: "text",
 					styles: {
 						content: {
-							color:
-								token.overlayDarkMode.popconfirm &&
-								useGetDefaultTheme("dark").token.colorText,
+							...(token.overlayDarkMode.popconfirm && {
+								color: useGetDefaultTheme("dark").token?.colorText,
+							}),
 						},
 					},
 				}}
@@ -36,20 +36,22 @@ const Popconfirm = ({ ...props }: AcaciaPopconfirmProps) => {
 				styles={{
 					container: {
 						backgroundColor:
-							token.overlayDarkMode.popconfirm &&
-							token.overlayDarkMode.overlayColor,
-						backdropFilter: token.overlayDarkMode.popconfirm && "blur(3px)",
+							(token.overlayDarkMode.popconfirm &&
+								token.overlayDarkMode.overlayColor) ||
+							undefined,
+						backdropFilter:
+							(token.overlayDarkMode.popconfirm && "blur(3px)") || undefined,
 					},
 
 					title: {
-						color:
-							token.overlayDarkMode.popconfirm &&
-							useGetDefaultTheme("dark").token.colorText,
+						...(token.overlayDarkMode.popconfirm && {
+							color: useGetDefaultTheme("dark").token?.colorText,
+						}),
 					},
 					content: {
-						color:
-							token.overlayDarkMode.popconfirm &&
-							useGetDefaultTheme("dark").token.colorText,
+						...(token.overlayDarkMode.popconfirm && {
+							color: useGetDefaultTheme("dark").token?.colorText,
+						}),
 					},
 				}}
 			/>

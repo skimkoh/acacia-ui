@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import DatePicker from "../src/components/ui/DatePicker/DatePicker";
 // biome-ignore lint/correctness/noUnusedImports: <explanation>
 import React from "react";

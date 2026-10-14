@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import Breadcrumb from "../src/components/ui/Breadcrumb/Breadcrumb";
 // biome-ignore lint/correctness/noUnusedImports: <explanation>
 import React from "react";

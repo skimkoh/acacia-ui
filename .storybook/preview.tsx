@@ -53,7 +53,7 @@ const preview: Preview = {
 			<ConfigProvider
 				theme={{
 					token: {
-						fontFamily: "Inter Variable, Inter, system-ui, sans-serif",
+						fontFamily: "Inter Variable, Inter, system-ui, sans-serif", // required for storybook
 					},
 				}}
 				customToken={{

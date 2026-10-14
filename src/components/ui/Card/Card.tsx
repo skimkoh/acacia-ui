@@ -1,25 +1,20 @@
 import { useMemo } from "react";
 import type { AcaciaCardProps } from "../interfaces";
-import { Card as AntdCard, Typography } from "antd";
+import { Card as AntdCard, theme, Typography } from "antd";
 import { useCardStyles } from "./useCardStyles";
-import HexagonBackground from "../../../assets/cardheader.png";
-import StripedBackground from "../../../assets/cardheader2.png";
-import MysticalBackground from "../../../assets/cardheader3.png";
 import { match } from "ts-pattern";
 import { useTheme } from "antd-style";
-import { generate } from "@ant-design/colors";
-import { tint } from "@mirawision/colorize";
-const Card = ({
-	headerBackgroundTheme = "classic",
-	...props
-}: AcaciaCardProps) => {
+import chroma from "chroma-js";
+import { getThemedTitleHeaderBackgroundPicture } from "../../../utils/theming.util";
+const Card = ({ headerBgTheme, ...props }: AcaciaCardProps) => {
 	const cardStyles = useCardStyles().styles;
 	const token = useTheme();
+	const { token: antdToken } = theme.useToken();
+	const defaultAppTheme = token.appTheme; // get the app theme
 
-	const levelOneColors = generate(token.colorPrimary);
-
-	const lightShadeColor = tint(token.colorPrimary, 0.7); // for the left side gradient
-
+	// Use the global app theme only when no header theme was provided.
+	const getHeaderBackgroundTheme = () =>
+		getThemedTitleHeaderBackgroundPicture(headerBgTheme ?? defaultAppTheme);
 	const titleStyles = useMemo(() => {
 		const styles: {
 			marginBlock: number;
@@ -52,12 +47,30 @@ const Card = ({
 		return styles;
 	}, [props.size]);
 
-	const getThemedBackground = () => {
-		return match(headerBackgroundTheme)
-			.with("classic", () => HexagonBackground)
-			.with("submarine", () => StripedBackground)
-			.with("mystical", () => MysticalBackground)
-			.with("custom", () => headerBackgroundTheme)
+	const getLinearGradient = (firstColor: string, secondColor: string) => {
+		return `linear-gradient(70deg, ${firstColor}CC 80%, ${secondColor}69 80%), url(${props.headerBackgroundPicture ?? getHeaderBackgroundTheme()})`;
+	};
+
+	// account for dark mode
+	const getHeaderBgGradient = () => {
+		const darkerColor = chroma
+			.scale([antdToken.colorPrimary, "black"])(0.2)
+			.hex();
+		return match(token.appThemeMode)
+			.with("light", () => {
+				const lighterColor = chroma
+					.scale([antdToken.colorPrimary, "white"])(0.7)
+					.hex();
+
+				return getLinearGradient(lighterColor, darkerColor);
+			})
+			.with("dark", () => {
+				const darkestColor = chroma
+					.scale([antdToken.colorPrimary, "black"])(0.7)
+					.hex();
+
+				return getLinearGradient(darkerColor, darkestColor);
+			})
 			.exhaustive();
 	};
 
@@ -66,7 +79,7 @@ const Card = ({
 			styles={{
 				header: {
 					padding: "20px",
-					background: `linear-gradient(70deg, ${lightShadeColor}CC 80%, ${levelOneColors[4]}69 80%), url(${props.headerBackgroundPicture ?? getThemedBackground()})`,
+					background: getHeaderBgGradient(),
 				},
 				title: {
 					whiteSpace: "normal",

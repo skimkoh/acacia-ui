@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import Button from "../src/components/ui/Button/Button";
 import { Space } from "antd";
 // biome-ignore lint/correctness/noUnusedImports: <explanation>

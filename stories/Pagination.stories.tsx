@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import Pagination from "../src/components/ui/Pagination/Pagination";
 import Space from "../src/components/ui/Space/Space";
 import { Typography } from "antd";

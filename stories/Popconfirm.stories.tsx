@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import Popconfirm from "../src/components/ui/Popconfirm/Popconfirm";
 import Button from "../src/components/ui/Button/Button";
 // biome-ignore lint/correctness/noUnusedImports: <explanation>

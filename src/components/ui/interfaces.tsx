@@ -37,6 +37,7 @@ import type {
 	TimelineProps,
 	SplitterProps,
 	UploadProps,
+	ProgressProps,
 } from "antd";
 
 import type { TextProps } from "antd/es/typography/Text";
@@ -552,3 +553,6 @@ export interface AcaciaSplitterProps extends SplitterProps {
 
 // UPLOAD
 export interface AcaciaUploadProps extends UploadProps {}
+
+// PROGRESS
+export interface AcaciaProgressProps extends ProgressProps {}

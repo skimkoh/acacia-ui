@@ -6,19 +6,15 @@ import { match } from "ts-pattern";
 import { useTheme } from "antd-style";
 import chroma from "chroma-js";
 import { getThemedTitleHeaderBackgroundPicture } from "../../../utils/theming.util";
-const Card = ({ headerBgTheme = "classic", ...props }: AcaciaCardProps) => {
+const Card = ({ headerBgTheme, ...props }: AcaciaCardProps) => {
 	const cardStyles = useCardStyles().styles;
 	const token = useTheme();
-	const { useToken } = theme;
+	const { token: antdToken } = theme.useToken();
 	const defaultAppTheme = token.appTheme; // get the app theme
 
-	// get the header background theme - check global config and scoped config
-	const getHeaderBackgroundTheme = () => {
-		if (headerBgTheme !== "classic") {
-			return getThemedTitleHeaderBackgroundPicture(headerBgTheme);
-		}
-		return getThemedTitleHeaderBackgroundPicture(defaultAppTheme);
-	};
+	// Use the global app theme only when no header theme was provided.
+	const getHeaderBackgroundTheme = () =>
+		getThemedTitleHeaderBackgroundPicture(headerBgTheme ?? defaultAppTheme);
 	const titleStyles = useMemo(() => {
 		const styles: {
 			marginBlock: number;
@@ -58,19 +54,19 @@ const Card = ({ headerBgTheme = "classic", ...props }: AcaciaCardProps) => {
 	// account for dark mode
 	const getHeaderBgGradient = () => {
 		const darkerColor = chroma
-			.scale([useToken().token.colorPrimary, "black"])(0.2)
+			.scale([antdToken.colorPrimary, "black"])(0.2)
 			.hex();
-		return match(useTheme().appThemeMode)
+		return match(token.appThemeMode)
 			.with("light", () => {
 				const lighterColor = chroma
-					.scale([useToken().token.colorPrimary, "white"])(0.7)
+					.scale([antdToken.colorPrimary, "white"])(0.7)
 					.hex();
 
 				return getLinearGradient(lighterColor, darkerColor);
 			})
 			.with("dark", () => {
 				const darkestColor = chroma
-					.scale([useToken().token.colorPrimary, "black"])(0.7)
+					.scale([antdToken.colorPrimary, "black"])(0.7)
 					.hex();
 
 				return getLinearGradient(darkerColor, darkestColor);

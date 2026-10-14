@@ -67,6 +67,9 @@ export { default as Mentions } from "./components/ui/Mentions/Mentions";
 export { default as Tour } from "./components/ui/Tour/Tour";
 export { default as Upload } from "./components/ui/Upload/Upload";
 export { default as Progress } from "./components/ui/Progress/Progress";
+export { default as Calendar } from "./components/ui/Calendar/Calendar";
+export { default as Timeline } from "./components/ui/Timeline/Timeline";
+export { default as TreeSelect } from "./components/ui/TreeSelect/TreeSelect";
 
 export { default as VerticalLayout } from "./components/layout/VerticalLayout/VerticalLayout";
 export { default as VerticalHeader } from "./components/layout/VerticalLayout/VerticalPageHeader";
@@ -118,4 +121,10 @@ export type {
 	AcaciaSpinProps,
 	AcaciaDrawerProps,
 	AcaciaResultProps,
+	AcaciaMessageType,
+	AcaciaSplitterProps,
+	AcaciaCalendarProps,
+	AcaciaTimelineProps,
+	MessageProps,
+	NotificationProps,
 } from "./components/ui/interfaces";

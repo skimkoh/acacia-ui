@@ -1,6 +1,9 @@
 import { ClockCircleOutlined, SmileOutlined } from "@ant-design/icons";
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Button, Space, TimePicker } from "antd";
+import Button from "../src/components/ui/Button/Button";
+import Space from "../src/components/ui/Space/Space";
+import TimePicker from "../src/components/ui/TimePicker/TimePicker";
+
 import dayjs from "dayjs";
 import { useState } from "react";
 

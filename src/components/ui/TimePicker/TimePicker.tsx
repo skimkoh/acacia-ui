@@ -1,9 +1,9 @@
-import { DatePicker as AntdDatePicker } from "antd";
+import { TimePicker as AntdTimePicker } from "antd";
 import type { AcaciaTimePickerProps } from "../interfaces";
 import TimeRangePicker from "./TimeRangePicker";
 
 const TimePicker = ({ ...props }: AcaciaTimePickerProps) => {
-	return <AntdDatePicker {...props} />;
+	return <AntdTimePicker {...props} />;
 };
 
 TimePicker.RangePicker = TimeRangePicker;

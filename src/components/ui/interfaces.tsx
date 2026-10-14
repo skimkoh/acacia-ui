@@ -50,8 +50,17 @@ import type { PaginationProps } from "antd/es/pagination/Pagination";
 import type { TextAreaProps } from "antd/es/input";
 import type { RibbonProps } from "antd/es/badge/Ribbon";
 import type { NewToken } from "../../theme/customTheme";
-import type { Spin as AntdSpin } from "antd";
-import type { Result as AntdResult } from "antd";
+import type {
+	Spin as AntdSpin,
+	Result as AntdResult,
+	message as AntdMessage,
+} from "antd";
+import type {
+	ArgsProps as AntdMessageProps,
+	ConfigOptions as MessageConfigOptions,
+	MessageInstance,
+} from "antd/es/message/interface";
+import type { ArgsProps as AntdNotificationProps } from "antd/es/notification/interface";
 
 import type { Dayjs } from "dayjs";
 
@@ -577,3 +586,13 @@ type BaseAcaciaResultProps = ComponentPropsWithoutRef<typeof AntdResult>;
 export type AcaciaResultProps = Omit<BaseAcaciaResultProps, "status"> & {
 	status?: BaseAcaciaResultProps["status"] | 401 | "401";
 };
+
+// MESSAGE
+export type MessageProps = AntdMessageProps;
+export type AcaciaMessageType = MessageInstance & {
+	config: (config: MessageConfigOptions) => void;
+	useMessage: typeof AntdMessage.useMessage;
+};
+
+// NOTIFICATION
+export type NotificationProps = AntdNotificationProps;

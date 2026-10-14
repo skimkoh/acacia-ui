@@ -36,6 +36,7 @@ import type {
 	CalendarProps,
 	TimelineProps,
 	SplitterProps,
+	UploadProps,
 } from "antd";
 
 import type { TextProps } from "antd/es/typography/Text";
@@ -548,3 +549,6 @@ export interface AcaciaTimelineProps extends TimelineProps {}
 export interface AcaciaSplitterProps extends SplitterProps {
 	children?: React.ReactNode;
 }
+
+// UPLOAD
+export interface AcaciaUploadProps extends UploadProps {}

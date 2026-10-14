@@ -48,7 +48,7 @@ const Card = ({ headerBgTheme, ...props }: AcaciaCardProps) => {
 	}, [props.size]);
 
 	const getLinearGradient = (firstColor: string, secondColor: string) => {
-		return `linear-gradient(70deg, ${firstColor}CC 80%, ${secondColor}69 80%), url(${getHeaderBackgroundTheme()})`;
+		return `linear-gradient(70deg, ${firstColor}CC 80%, ${secondColor}69 80%), url(${props.headerBackgroundPicture ?? getHeaderBackgroundTheme()})`;
 	};
 
 	// account for dark mode
@@ -80,7 +80,6 @@ const Card = ({ headerBgTheme, ...props }: AcaciaCardProps) => {
 				header: {
 					padding: "20px",
 					background: getHeaderBgGradient(),
-					// background: `linear-gradient(70deg, ${lightShadeColor}CC 80%, ${levelOneColors[4]}69 80%), url(${props.headerBackgroundPicture ?? getThemedBackground()})`,
 				},
 				title: {
 					whiteSpace: "normal",

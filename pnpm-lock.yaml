@@ -11,18 +11,9 @@ importers:
       '@ant-design/colors':
         specifier: ^7.0.2
         version: 7.2.1
-      '@fontsource-variable/inter':
-        specifier: ^5.0.17
-        version: 5.3.0
-      '@fontsource-variable/roboto-flex':
-        specifier: ^5.2.8
-        version: 5.3.0
       '@types/react':
         specifier: ^19.2.14
         version: 19.3.0
-      antd-style:
-        specifier: ^3.5.2
-        version: 3.7.1(@types/react@19.3.0)(antd@6.6.5(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       react:
         specifier: ^19.2.3
         version: 19.3.0
@@ -39,6 +30,12 @@ importers:
       '@biomejs/biome':
         specifier: 1.9.4
         version: 1.9.4
+      '@fontsource-variable/inter':
+        specifier: ^5.0.17
+        version: 5.3.0
+      '@fontsource-variable/roboto-flex':
+        specifier: ^5.2.8
+        version: 5.3.0
       '@fortawesome/fontawesome-svg-core':
         specifier: ^7.1.0
         version: 7.3.1
@@ -81,12 +78,18 @@ importers:
       antd:
         specifier: 6.6.5
         version: 6.6.5(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      antd-style:
+        specifier: ^3.5.2
+        version: 3.7.1(@types/react@19.3.0)(antd@6.6.5(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       chroma-js:
         specifier: ^3.2.0
         version: 3.2.0
       chromatic:
         specifier: ^18.8.1
         version: 18.10.1
+      conventional-changelog-conventionalcommits:
+        specifier: ^10.4.1
+        version: 10.4.1
       core-js:
         specifier: ^3.33.0
         version: 3.50.0
@@ -346,6 +349,10 @@ packages:
   '@colors/colors@1.5.0':
     resolution: {integrity: sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==}
     engines: {node: '>=0.1.90'}
+
+  '@conventional-changelog/template@1.4.0':
+    resolution: {integrity: sha512-aalGyl7dbB5PArRebDIX43ZvBlXrYm9uWzGJ26t+4SzJVPsOuvfILGGbw5X4yX7i50YEmJ8zvbiWnqH/AAnZqg==}
+    engines: {node: '>=22'}
 
   '@emnapi/core@1.11.0':
     resolution: {integrity: sha512-l9Oo58x0HOP5znGzVhYW9U3e5wVuA4LAZU2AGezTmkhO1CgQRFDhDg4nneHsu/t3WniXg9QrG2nIXL/ZS8ln8Q==}
@@ -2054,6 +2061,10 @@ packages:
   conventional-changelog-angular@8.3.1:
     resolution: {integrity: sha512-6gfI3otXK5Ph5DfCOI1dblr+kN3FAm5a97hYoQkqNZxOaYa5WKfXH+AnpsmS+iUH2mgVC2Cg2Qw9m5OKcmNrIg==}
     engines: {node: '>=18'}
+
+  conventional-changelog-conventionalcommits@10.4.1:
+    resolution: {integrity: sha512-jS1LRFSbRoAr6JbhhRy1JYfNNUj5LM3+v49hRE03CgccsiYqgdVj/RTmrw4J1rylrqijHwdOlJWiJa61JHOgHg==}
+    engines: {node: '>=22'}
 
   conventional-changelog-writer@8.4.0:
     resolution: {integrity: sha512-HHBFkk1EECxxmCi4CTu091iuDpQv5/OavuCUAuZmrkWpmYfyD816nom1CvtfXJ/uYfAAjavgHvXHX291tSLK8g==}
@@ -4239,6 +4250,8 @@ snapshots:
   '@colors/colors@1.5.0':
     optional: true
 
+  '@conventional-changelog/template@1.4.0': {}
+
   '@emnapi/core@1.11.0':
     dependencies:
       '@emnapi/wasi-threads': 1.2.2
@@ -5992,6 +6005,10 @@ snapshots:
   conventional-changelog-angular@8.3.1:
     dependencies:
       compare-func: 2.0.0
+
+  conventional-changelog-conventionalcommits@10.4.1:
+    dependencies:
+      '@conventional-changelog/template': 1.4.0
 
   conventional-changelog-writer@8.4.0:
     dependencies:

@@ -1,7 +1,10 @@
 import { Space as AntdSpace } from "antd";
+import type { ComponentProps } from "react";
 
-const SpaceAddon = ({ ...props }: { children: React.ReactNode }) => {
-	return <AntdSpace.Addon>{props.children}</AntdSpace.Addon>;
+type AcaciaSpaceAddonProps = ComponentProps<typeof AntdSpace.Addon>;
+
+const SpaceAddon = (props: AcaciaSpaceAddonProps) => {
+	return <AntdSpace.Addon {...props} />;
 };
 SpaceAddon.displayName = "Space.Addon";
 

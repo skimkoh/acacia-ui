@@ -20,7 +20,7 @@ const meta = {
 		delay: { control: { type: "number", min: 0 } },
 		description: { control: "text" },
 		percent: { control: "text" },
-		size: { control: "select", options: ["small", "medium", "large"] },
+		size: { control: "select", options: ["small", "default", "large"] },
 		spinning: { control: "boolean" },
 	},
 } satisfies Meta<typeof Spin>;
@@ -39,7 +39,7 @@ export const Sizes: Story = {
 	render: () => (
 		<Space align="center" size="large">
 			<Spin size="small" />
-			<Spin size="medium" />
+			<Spin size="default" />
 			<Spin size="large" />
 		</Space>
 	),

@@ -61,7 +61,7 @@
 		"antd-style": "^3.5.2",
 		"chroma-js": "^3.2.0",
 		"chromatic": "^18.8.1",
-		"conventional-changelog-conventionalcommits": "^10.4.1",
+		"conventional-changelog-conventionalcommits": "^8.0.0",
 		"core-js": "^3.33.0",
 		"dayjs": "^1.11.23",
 		"react-docgen-typescript": "^2.2.2",
@@ -73,8 +73,7 @@
 		"ts-pattern": "^5.7.1",
 		"typescript": "^5.9.3",
 		"vite": "^7.3.1",
-		"vite-plugin-dts": "^4.5.4",
-		"conventional-changelog-writer": "^9.3.0"
+		"vite-plugin-dts": "^4.5.4"
 	},
 	"browserslist": [">0.25%", "not ie 11", "not op_mini all"],
 	"files": ["/dist"],

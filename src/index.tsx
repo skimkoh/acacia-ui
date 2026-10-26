@@ -48,6 +48,7 @@ export { default as Slider } from "./components/ui/Slider/Slider";
 export { default as Collapse } from "./components/ui/Collapse/Collapse";
 export { default as Descriptions } from "./components/ui/Descriptions/Descriptions";
 export { default as List } from "./components/ui/List/List";
+export { default as Listy } from "./components/ui/Listy/Listy";
 export { default as Popover } from "./components/ui/Popover/Popover";
 export { default as Table } from "./components/ui/Table/Table";
 export { default as Tooltip } from "./components/ui/Tooltip/Tooltip";
@@ -128,3 +129,11 @@ export type {
 	MessageProps,
 	NotificationProps,
 } from "./components/ui/interfaces";
+
+export type {
+	ListyClassNames,
+	ListyProps,
+	ListyRef,
+	ListyScrollToConfig,
+	ListyStyles,
+} from "antd";

@@ -72,6 +72,7 @@ export { default as Progress } from "./components/ui/Progress/Progress";
 export { default as Calendar } from "./components/ui/Calendar/Calendar";
 export { default as Timeline } from "./components/ui/Timeline/Timeline";
 export { default as TreeSelect } from "./components/ui/TreeSelect/TreeSelect";
+export { default as Watermark } from "./components/ui/Watermark/Watermark";
 
 export { default as VerticalLayout } from "./components/layout/VerticalLayout/VerticalLayout";
 export { default as VerticalHeader } from "./components/layout/VerticalLayout/VerticalPageHeader";
@@ -140,3 +141,5 @@ export type {
 } from "antd";
 
 export type { QRCodeProps, QRCodeRef } from "antd";
+
+export type { WatermarkProps, WatermarkRef } from "antd";

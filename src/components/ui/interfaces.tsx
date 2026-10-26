@@ -381,7 +381,7 @@ export interface AcaciaPanelProps {
  *
  */
 export interface AcaciaFormProps extends FormProps {
-	children: React.ReactNode;
+	children?: React.ReactNode;
 }
 
 /**

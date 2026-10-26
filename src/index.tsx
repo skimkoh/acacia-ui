@@ -61,6 +61,7 @@ export { default as Affix } from "./components/ui/Affix/Affix";
 export { default as Rate } from "./components/ui/Rate/Rate";
 export { default as Statistic } from "./components/ui/Statistic/Statistic";
 export { default as ColorPicker } from "./components/ui/ColorPicker/ColorPicker";
+export { default as QRCode } from "./components/ui/QRCode/QRCode";
 export { default as Empty } from "./components/ui/Empty/Empty";
 export { default as Tree } from "./components/ui/Tree/Tree";
 export { default as Transfer } from "./components/ui/Transfer/Transfer";
@@ -137,3 +138,5 @@ export type {
 	ListyScrollToConfig,
 	ListyStyles,
 } from "antd";
+
+export type { QRCodeProps, QRCodeRef } from "antd";

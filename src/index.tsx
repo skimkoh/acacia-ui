@@ -87,6 +87,7 @@ export { useScreenSize } from "./hooks/useScreenSize";
 
 // interfaces
 export type {
+	AcaciaAffixProps,
 	AcaciaButtonProps,
 	AcaciaBreadcrumbProps,
 	AcaciaBadgeProps,
@@ -131,6 +132,8 @@ export type {
 	MessageProps,
 	NotificationProps,
 } from "./components/ui/interfaces";
+
+export type { AffixRef } from "antd";
 
 export type {
 	ListyClassNames,

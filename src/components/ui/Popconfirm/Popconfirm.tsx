@@ -34,13 +34,15 @@ const Popconfirm = ({ ...props }: AcaciaPopconfirmProps) => {
 				}}
 				{...props}
 				styles={{
+					root: {
+						backdropFilter:
+							(token.overlayDarkMode.popconfirm && "blur(3px)") || undefined,
+					},
 					container: {
 						backgroundColor:
 							(token.overlayDarkMode.popconfirm &&
 								token.overlayDarkMode.overlayColor) ||
 							undefined,
-						backdropFilter:
-							(token.overlayDarkMode.popconfirm && "blur(3px)") || undefined,
 					},
 
 					title: {

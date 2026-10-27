@@ -1,13 +1,5 @@
 import { Input as AntdInput } from "antd";
 import type { AcaciaInputProps } from "../interfaces";
-
-/**
- * Styles
- */
-
-/**
- * Components
- */
 import TextArea from "./TextArea";
 import Search from "./Search";
 import Password from "./Password";

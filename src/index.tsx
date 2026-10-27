@@ -48,6 +48,7 @@ export { default as Slider } from "./components/ui/Slider/Slider";
 export { default as Collapse } from "./components/ui/Collapse/Collapse";
 export { default as Descriptions } from "./components/ui/Descriptions/Descriptions";
 export { default as List } from "./components/ui/List/List";
+export { default as Listy } from "./components/ui/Listy/Listy";
 export { default as Popover } from "./components/ui/Popover/Popover";
 export { default as Table } from "./components/ui/Table/Table";
 export { default as Tooltip } from "./components/ui/Tooltip/Tooltip";
@@ -60,6 +61,7 @@ export { default as Affix } from "./components/ui/Affix/Affix";
 export { default as Rate } from "./components/ui/Rate/Rate";
 export { default as Statistic } from "./components/ui/Statistic/Statistic";
 export { default as ColorPicker } from "./components/ui/ColorPicker/ColorPicker";
+export { default as QRCode } from "./components/ui/QRCode/QRCode";
 export { default as Empty } from "./components/ui/Empty/Empty";
 export { default as Tree } from "./components/ui/Tree/Tree";
 export { default as Transfer } from "./components/ui/Transfer/Transfer";
@@ -70,6 +72,7 @@ export { default as Progress } from "./components/ui/Progress/Progress";
 export { default as Calendar } from "./components/ui/Calendar/Calendar";
 export { default as Timeline } from "./components/ui/Timeline/Timeline";
 export { default as TreeSelect } from "./components/ui/TreeSelect/TreeSelect";
+export { default as Watermark } from "./components/ui/Watermark/Watermark";
 
 export { default as VerticalLayout } from "./components/layout/VerticalLayout/VerticalLayout";
 export { default as VerticalHeader } from "./components/layout/VerticalLayout/VerticalPageHeader";
@@ -84,6 +87,7 @@ export { useScreenSize } from "./hooks/useScreenSize";
 
 // interfaces
 export type {
+	AcaciaAffixProps,
 	AcaciaButtonProps,
 	AcaciaBreadcrumbProps,
 	AcaciaBadgeProps,
@@ -128,3 +132,17 @@ export type {
 	MessageProps,
 	NotificationProps,
 } from "./components/ui/interfaces";
+
+export type { AffixRef } from "antd";
+
+export type {
+	ListyClassNames,
+	ListyProps,
+	ListyRef,
+	ListyScrollToConfig,
+	ListyStyles,
+} from "antd";
+
+export type { QRCodeProps, QRCodeRef } from "antd";
+
+export type { WatermarkProps, WatermarkRef } from "antd";

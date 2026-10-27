@@ -73,7 +73,7 @@ const preview: Preview = {
 					),
 					appThemeMode: "light",
 					overlayDarkMode: {
-						popconfirm: false,
+						popconfirm: true,
 						modal: true,
 					},
 				}}

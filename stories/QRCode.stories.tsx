@@ -104,18 +104,22 @@ export const WithIcon: Story = {
 export const StatusAndRefresh: Story = {
 	render: () => {
 		const [refreshCount, setRefreshCount] = useState(0);
+		const [status, setStatus] = useState<"active" | "expired">("expired");
+		const refreshCode = () => {
+			setRefreshCount((count) => count + 1);
+			setStatus("active");
+		};
 
 		return (
 			<div>
 				<QRCode
 					value={`https://ant.design/?refresh=${refreshCount}`}
-					status="expired"
-					onRefresh={() => setRefreshCount((count) => count + 1)}
+					status={status}
+					onRefresh={refreshCode}
 				/>
 				<p>Refreshes: {refreshCount}</p>
-				<Button onClick={() => setRefreshCount((count) => count + 1)}>
-					Generate a new code
-				</Button>
+				<Button onClick={refreshCode}>Generate a new code</Button>
+				<Button onClick={() => setStatus("expired")}>Show expired state</Button>
 			</div>
 		);
 	},
@@ -123,7 +127,7 @@ export const StatusAndRefresh: Story = {
 		docs: {
 			description: {
 				story:
-					"Display a non-active QR code status and provide a refresh action to generate a new value.",
+					"Display an expired QR code, refresh it to generate an active code, or show the expired state again.",
 			},
 		},
 	},

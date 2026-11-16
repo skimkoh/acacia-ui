@@ -1,3 +1,22 @@
+## [1.7.1](https://github.com/skimkoh/acacia-ui/compare/1.7.0...1.7.1) (2026-11-16)
+
+### Bug Fixes
+
+* added docs on autocomplete + minor fix for Input ([e330eba](https://github.com/skimkoh/acacia-ui/commit/e330ebaa70f70e2582356948f856c27a42413ebb))
+* added QR component ([92705c3](https://github.com/skimkoh/acacia-ui/commit/92705c38a9df76b7cfe7f94e478ef95b0568b553))
+* added watermark component + docs ([0b92509](https://github.com/skimkoh/acacia-ui/commit/0b92509c9d73fa0572d8d2c1dd59ac2fdb46003f))
+* bugs with listy ([aec4483](https://github.com/skimkoh/acacia-ui/commit/aec44832035cb88c86a2610f0b1b255822c4bf08))
+* bugs with listy, watermark and qrcode ([d336fe7](https://github.com/skimkoh/acacia-ui/commit/d336fe7d193cd827a0846aa8e0a938cb32b895c2))
+* **popconfirm:** edited styles for semantic DOM ([a86159b](https://github.com/skimkoh/acacia-ui/commit/a86159ba2cce6671180087866d1f4e3a9a082c86))
+* use native title instead of react helmet ([f8216ad](https://github.com/skimkoh/acacia-ui/commit/f8216ad8d9f26cfbf797196160e931cd6897c137))
+
+### Documentation
+
+* added anchor docs ([4bbfd2e](https://github.com/skimkoh/acacia-ui/commit/4bbfd2ea974b65616e478d3e29559c7aba0bd579))
+* added docs for popconfirm, affix and popover ([c0b9028](https://github.com/skimkoh/acacia-ui/commit/c0b90281e197a0945a4fe9f0776fe51ae5289770))
+* added form docs ([ddd4127](https://github.com/skimkoh/acacia-ui/commit/ddd412790d9abad1976d298f2a00a98af037a14f))
+* added listy ([9f5287d](https://github.com/skimkoh/acacia-ui/commit/9f5287d8bc887ac451a2e85da2a0fa04b8e927c0))
+
 ## [1.7.0](https://github.com/skimkoh/acacia-ui/compare/1.6.5...1.7.0) (2026-10-16)
 
 ### Features

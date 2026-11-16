@@ -1,7 +1,8 @@
-import { Input as AntdInput } from "antd";
-import type { AcaciaInputProps } from "../interfaces";
+import { Input as AntdInput, type GetProps } from "antd";
 
-const Search = ({ ...props }: AcaciaInputProps) => {
+type SearchProps = GetProps<typeof AntdInput.Search>;
+
+const Search = ({ ...props }: SearchProps) => {
 	return <AntdInput.Search {...props} />;
 };
 

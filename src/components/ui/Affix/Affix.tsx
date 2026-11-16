@@ -1,7 +1,9 @@
-import { type AffixProps, Affix as AntdAffix } from "antd";
+import { type AffixRef, Affix as AntdAffix } from "antd";
+import { forwardRef } from "react";
+import type { AcaciaAffixProps } from "../interfaces";
 
-const Affix = ({ ...props }: AffixProps) => {
-	return <AntdAffix {...props} />;
-};
+const Affix = forwardRef<AffixRef, AcaciaAffixProps>(({ ...props }, ref) => {
+	return <AntdAffix {...props} ref={ref} />;
+});
 
 export default Affix;

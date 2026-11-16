@@ -1,4 +1,5 @@
 import type {
+	AffixProps,
 	AvatarProps,
 	BreadcrumbProps,
 	ButtonProps,
@@ -381,7 +382,7 @@ export interface AcaciaPanelProps {
  *
  */
 export interface AcaciaFormProps extends FormProps {
-	children: React.ReactNode;
+	children?: React.ReactNode;
 }
 
 /**
@@ -401,6 +402,12 @@ export interface AcaciaFormItemProps extends FormItemProps {
  */
 export interface AcaciaDropdownProps extends DropdownProps {}
 export interface AcaciaDropdownButtonProps extends DropdownButtonProps {}
+
+/**
+ * Props for Acacia Affix component
+ * @see https://ant.design/components/affix
+ */
+export interface AcaciaAffixProps extends AffixProps {}
 
 /**
  * DATEPICKER

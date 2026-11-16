@@ -1,7 +1,8 @@
-import { Input as AntdInput } from "antd";
-import type { AcaciaInputProps } from "../interfaces";
+import { Input as AntdInput, type GetProps } from "antd";
 
-const Password = ({ ...props }: AcaciaInputProps) => {
+type PasswordProps = GetProps<typeof AntdInput.Password>;
+
+const Password = ({ ...props }: PasswordProps) => {
 	return <AntdInput.Password {...props} />;
 };
 export default Password;

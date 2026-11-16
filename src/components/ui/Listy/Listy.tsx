@@ -1,8 +1,11 @@
 import { Listy as AntdListy, type ListyProps, type ListyRef } from "antd";
-import { forwardRef } from "react";
+import type { Key, Ref } from "react";
 
-const Listy = forwardRef<ListyRef, ListyProps>(({ ...props }, ref) => {
-	return <AntdListy {...props} ref={ref} />;
-});
+function Listy<T, K extends Key = Key>({
+	ref,
+	...props
+}: ListyProps<T, K> & { ref?: Ref<ListyRef> }) {
+	return <AntdListy<T, K> {...props} ref={ref} />;
+}
 
 export default Listy;

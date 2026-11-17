@@ -1,5 +1,4 @@
-import "@fontsource-variable/inter";
-import "@fontsource-variable/roboto-flex";
+import "./theme/fontStyles";
 
 // components
 

@@ -1,5 +1,4 @@
 import { useTheme } from "antd-style";
-import "@fontsource-variable/roboto-flex";
 import Typography from "../components/ui/Typography/Typography";
 import { useContext } from "react";
 import { VerticalLayoutContext } from "../components/layout/VerticalLayout/VerticalLayout";

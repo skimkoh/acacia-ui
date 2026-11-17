@@ -4,8 +4,6 @@ import { useAcaciaConfig } from "../../../hooks/useAcaciaConfig";
 import { useMemo } from "react";
 import { grey } from "@ant-design/colors";
 import { typographyUtil } from "../../../theme/typographyUtil";
-import "@fontsource-variable/inter";
-import "@fontsource-variable/roboto-flex";
 
 // classic theme
 

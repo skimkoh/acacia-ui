@@ -13,6 +13,17 @@ It wraps around Ant Design, with further capabilities and complex components, us
 
 UI components are deployed [here](https://acacia-ui.vercel.app) in a Storybook.
 
+## Content Security Policy
+
+When your application uses a nonce-based `style-src` policy, pass the request's
+nonce to `ConfigProvider` so the bundled Fontsource styles can be applied:
+
+```tsx
+<ConfigProvider csp={{ nonce: cspNonce }}>
+	<App />
+</ConfigProvider>
+```
+
 ## Roadmap
 
 Features that will be worked on:

@@ -1,5 +1,3 @@
-import "./theme/fontStyles";
-
 // components
 
 export { default as Button } from "./components/ui/Button/Button";

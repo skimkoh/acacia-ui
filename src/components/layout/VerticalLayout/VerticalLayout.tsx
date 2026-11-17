@@ -1,31 +1,30 @@
-import type { AcaciaMenuProps, AcaciaThemes } from "../../ui/interfaces";
-import { match } from "ts-pattern";
+import { generateSteppedGradient } from "@mirawision/colorize";
+import { Layout } from "antd";
+import { useTheme } from "antd-style";
 import {
 	Children,
+	type PropsWithChildren,
 	createContext,
 	useCallback,
-	type PropsWithChildren,
 } from "react";
-import { Layout } from "antd";
-import { generateSteppedGradient } from "@mirawision/colorize";
-import { Helmet } from "react-helmet";
+import { match } from "ts-pattern";
+import DefaultLogo from "../../../theme/defaultLogo";
 import { renderBlackOrWhiteText } from "../../../utils/colors.util";
 import { parseBackgroundColors } from "../../../utils/parseBackgroundColors";
+import {
+	getThemedBackgroundPicture,
+	getThemedContentBackgroundPicture,
+} from "../../../utils/theming.util";
 import Menu from "../../ui/Menu/Menu";
-import DefaultLogo from "../../../theme/defaultLogo";
-import VerticalPageHeader from "./VerticalPageHeader";
-import VerticalContent from "./VerticalContent";
+import type { AcaciaMenuProps, AcaciaThemes } from "../../ui/interfaces";
 import {
 	getAccentColor,
 	getThemeGradients,
 	isVerticalContent,
 	isVerticalHeader,
 } from "../utils";
-import { useTheme } from "antd-style";
-import {
-	getThemedBackgroundPicture,
-	getThemedContentBackgroundPicture,
-} from "../../../utils/theming.util";
+import VerticalContent from "./VerticalContent";
+import VerticalPageHeader from "./VerticalPageHeader";
 
 interface LayoutProps {
 	headerBackgroundProps?: HeaderBackgroundProps;
@@ -249,9 +248,7 @@ const VerticalLayout = ({
 				gradients: stops,
 			}}
 		>
-			<Helmet>
-				<title>{props.documentHeadLabel}</title>
-			</Helmet>
+			{props.documentHeadLabel && <title>{props.documentHeadLabel}</title>}
 
 			<Layout style={{ minHeight: "100vh" }}>
 				<div

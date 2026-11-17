@@ -4,7 +4,7 @@ import { useState } from "react";
 import Button from "../src/components/ui/Button/Button";
 import Watermark from "../src/components/ui/Watermark/Watermark";
 
-const Panel = ({ children }: { children: React.ReactNode }) => (
+const Panel = () => (
 	<div
 		style={{
 			position: "relative",
@@ -15,7 +15,6 @@ const Panel = ({ children }: { children: React.ReactNode }) => (
 			background: "var(--ant-color-bg-container)",
 		}}
 	>
-		{children}
 		<h3>Confidential project information</h3>
 		<p>
 			This sample content demonstrates how a watermark appears behind content.

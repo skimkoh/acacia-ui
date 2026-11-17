@@ -4,12 +4,17 @@ import { ThemeProvider } from "antd-style";
 import { CustomTheme, type NewToken } from "../../../theme/customTheme";
 import type { AcaciaConfigProviderProps } from "../interfaces";
 import { useGetDefaultTheme } from "./defaultTheme";
-import type { FC } from "react";
+import { useInsertionEffect, type FC } from "react";
 import { ConfigContext } from "antd/es/config-provider";
+import { injectFontStyles } from "../../../theme/fontStyles";
 
 const ConfigProvider: FC<AcaciaConfigProviderProps> & {
 	ConfigContext: typeof ConfigContext;
 } = ({ ...props }) => {
+	useInsertionEffect(() => {
+		injectFontStyles(props.csp?.nonce);
+	}, [props.csp?.nonce]);
+
 	const mergedToken = {
 		...CustomTheme,
 		...props.customToken,

@@ -32,11 +32,12 @@
 		"@fortawesome/free-solid-svg-icons": "^7.1.0",
 		"@fortawesome/react-fontawesome": "^3.1.0",
 		"@types/react": "^19.2.14",
-		"antd": "^6.6.0",
-		"antd-style": "^3.5.2",
 		"react": "^19.2.3",
-		"react-dom": "^19.2.3",
-		"styled-components": "^6.1.6"
+		"react-dom": "^19.2.3"
+	},
+	"dependencies": {
+		"antd": "^6.6.0",
+		"antd-style": "^3.5.2"
 	},
 	"devDependencies": {
 		"@ant-design/icons": "^5.2.6",

@@ -1,3 +1,10 @@
+## [1.7.0-pre.2](https://github.com/skimkoh/acacia-ui/compare/1.7.0-pre.1...1.7.0-pre.2) (2026-11-19)
+
+### Dependencies Patch Upgrade
+
+* move antd to normal deps ([74f8212](https://github.com/skimkoh/acacia-ui/commit/74f82121e0e3cadb1a973059d3b8e5fe8785712b))
+* upgrade deps and remove antd from dev ([fb0be0b](https://github.com/skimkoh/acacia-ui/commit/fb0be0b8c3702326fc2b781444d7bb98de4221f1))
+
 ## [1.7.0-pre.1](https://github.com/skimkoh/acacia-ui/compare/1.6.5...1.7.0-pre.1) (2026-11-17)
 
 ### Features

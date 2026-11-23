@@ -1,6 +1,7 @@
 import { generateSteppedGradient } from "@mirawision/colorize";
 import { Layout } from "antd";
 import { useTheme } from "antd-style";
+import chroma from "chroma-js";
 import {
 	Children,
 	type PropsWithChildren,
@@ -15,8 +16,13 @@ import {
 	getThemedBackgroundPicture,
 	getThemedContentBackgroundPicture,
 } from "../../../utils/theming.util";
+import Masthead from "../../ui/Masthead/Masthead";
 import Menu from "../../ui/Menu/Menu";
-import type { AcaciaMenuProps, AcaciaThemes } from "../../ui/interfaces";
+import type {
+	AcaciaMastheadProps,
+	AcaciaMenuProps,
+	AcaciaThemes,
+} from "../../ui/interfaces";
 import {
 	getAccentColor,
 	getThemeGradients,
@@ -32,6 +38,7 @@ interface LayoutProps {
 	documentHeadLabel?: string;
 	mainTextColor?: string; // main color of the layout
 	contentBackgroundProps?: ContentBackgroundProps;
+	masthead?: boolean | AcaciaMastheadProps; // if true, then show the masthead with default text. If false, then do not show the masthead. If object, then show the masthead with the given props
 }
 
 // theme background image props for the header
@@ -234,10 +241,20 @@ const VerticalLayout = ({
 	// if there is content children, then increase the padding
 	const getLayoutPadding = () => {
 		if (contentChildren.length > 0) {
-			return "1rem 2rem 3rem 2rem";
+			return "0.5rem 2rem 3rem 2rem";
 		}
-		return "1rem 2rem 0rem 2rem";
+		return "0.5rem 2rem 0rem 2rem";
 	};
+
+	const [backgroundLightness, backgroundChroma, backgroundHue] =
+		chroma(firstBackgroundColor).oklch();
+	const mastheadBackground = chroma
+		.oklch(
+			Math.max(0.85, backgroundLightness),
+			backgroundChroma * 0.75,
+			Number.isFinite(backgroundHue) ? backgroundHue : 0,
+		)
+		.hex();
 
 	return (
 		<VerticalLayoutContext.Provider
@@ -251,6 +268,18 @@ const VerticalLayout = ({
 			{props.documentHeadLabel && <title>{props.documentHeadLabel}</title>}
 
 			<Layout style={{ minHeight: "100vh" }}>
+				{props.masthead &&
+					(props.masthead === true ? (
+						<Masthead style={{ background: mastheadBackground }} />
+					) : (
+						<Masthead
+							{...props.masthead}
+							style={{
+								background: mastheadBackground,
+								...props.masthead.style,
+							}}
+						/>
+					))}
 				<div
 					style={{
 						backgroundImage: `${css}, url(${getBackgroundImage()})`,

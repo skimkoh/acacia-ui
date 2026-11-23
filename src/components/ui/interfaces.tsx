@@ -77,7 +77,12 @@ import type {
 } from "antd/es/breadcrumb/Breadcrumb";
 import type { DropdownButtonProps, DropdownProps } from "antd/es/dropdown";
 import type { LinkProps } from "antd/es/typography/Link";
-import type { ComponentPropsWithoutRef, CSSProperties } from "react";
+import type {
+	ComponentPropsWithoutRef,
+	ComponentPropsWithRef,
+	CSSProperties,
+	ReactNode,
+} from "react";
 import type { CheckboxGroupProps, CheckboxOptionType } from "antd/es/checkbox";
 import type { DirectoryTreeProps } from "antd/es/tree";
 
@@ -603,3 +608,10 @@ export type AcaciaMessageType = MessageInstance & {
 
 // NOTIFICATION
 export type NotificationProps = AntdNotificationProps;
+
+// CUSTOM MASTHEAD
+export interface AcaciaMastheadProps extends ComponentPropsWithRef<"div"> {
+	text?: ReactNode;
+	children?: ReactNode;
+	sticky?: boolean;
+}

@@ -70,6 +70,7 @@ export { default as Calendar } from "./components/ui/Calendar/Calendar";
 export { default as Timeline } from "./components/ui/Timeline/Timeline";
 export { default as TreeSelect } from "./components/ui/TreeSelect/TreeSelect";
 export { default as Watermark } from "./components/ui/Watermark/Watermark";
+export { default as Masthead } from "./components/ui/Masthead/Masthead";
 
 export { default as VerticalLayout } from "./components/layout/VerticalLayout/VerticalLayout";
 export { default as VerticalHeader } from "./components/layout/VerticalLayout/VerticalPageHeader";
@@ -127,6 +128,7 @@ export type {
 	AcaciaCalendarProps,
 	AcaciaTimelineProps,
 	MessageProps,
+	AcaciaMastheadProps,
 	NotificationProps,
 } from "./components/ui/interfaces";
 

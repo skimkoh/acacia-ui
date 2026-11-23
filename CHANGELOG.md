@@ -1,3 +1,14 @@
+## [1.7.0-pre.3](https://github.com/skimkoh/acacia-ui/compare/1.7.0-pre.2...1.7.0-pre.3) (2026-11-23)
+
+### Features
+
+* added masthead, upgraded vite to 7.3.8 ([72c02d0](https://github.com/skimkoh/acacia-ui/commit/72c02d0f74373fc7801e2fc69fc5ac524f5983e2))
+
+### Bug Fixes
+
+* code smells and lockfile issues ([4958a3a](https://github.com/skimkoh/acacia-ui/commit/4958a3a47fcabd600852a4b2d1c04ab186504ee4))
+* merge conflict ([3d7a916](https://github.com/skimkoh/acacia-ui/commit/3d7a9164af35d6b757f24b441d089adf1ecbe0e5))
+
 ## [1.7.0-pre.2](https://github.com/skimkoh/acacia-ui/compare/1.7.0-pre.1...1.7.0-pre.2) (2026-11-19)
 
 ### Dependencies Patch Upgrade

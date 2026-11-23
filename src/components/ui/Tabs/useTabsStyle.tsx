@@ -1,4 +1,4 @@
-import { createStyles, useTheme } from "antd-style";
+import { createStyles } from "antd-style";
 import { useAcaciaColors } from "../../../hooks/useAcaciaColors";
 import { useAcaciaConfig } from "../../../hooks/useAcaciaConfig";
 import { typographyUtil } from "../../../theme/typographyUtil";
@@ -6,8 +6,7 @@ import { typographyUtil } from "../../../theme/typographyUtil";
 const wrapPaddingBottom = 10;
 
 export const useTabsStyles = (inkBarColor: string) => {
-	const token = useTheme();
-	const { colors, generate } = useAcaciaColors();
+	const { colors } = useAcaciaColors();
 	const { borderRadius } = useAcaciaConfig();
 
 	return createStyles(({ css, prefixCls }) => ({

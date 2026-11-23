@@ -22,7 +22,6 @@ import type {
 } from "antd/es/menu/interface";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import "@fontsource-variable/roboto-flex";
 
 const useStyle = createStyles(({ css, prefixCls }) => ({
 	item: css`

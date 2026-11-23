@@ -41,6 +41,9 @@ import type {
 	ProgressProps,
 	TreeSelectProps,
 	DrawerProps,
+	Spin as AntdSpin,
+	Result as AntdResult,
+	message as AntdMessage,
 } from "antd";
 
 import type { TextProps } from "antd/es/typography/Text";
@@ -51,11 +54,6 @@ import type { PaginationProps } from "antd/es/pagination/Pagination";
 import type { TextAreaProps } from "antd/es/input";
 import type { RibbonProps } from "antd/es/badge/Ribbon";
 import type { NewToken } from "../../theme/customTheme";
-import type {
-	Spin as AntdSpin,
-	Result as AntdResult,
-	message as AntdMessage,
-} from "antd";
 import type {
 	ArgsProps as AntdMessageProps,
 	ConfigOptions as MessageConfigOptions,

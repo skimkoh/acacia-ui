@@ -1,5 +1,6 @@
-import type {} from "react";
-import { Typography } from "../../..";
+import chroma from "chroma-js";
+import { renderBlackOrWhiteText } from "../../../utils/colors.util";
+import Typography from "../Typography/Typography";
 import type { AcaciaMastheadProps } from "../interfaces";
 
 const Masthead = ({
@@ -10,6 +11,12 @@ const Masthead = ({
 	sticky = false,
 	...props
 }: AcaciaMastheadProps) => {
+	const background = style?.background ?? style?.backgroundColor ?? "#ebecec";
+	const backgroundColor =
+		typeof background === "string" && chroma.valid(background)
+			? renderBlackOrWhiteText(background)
+			: "#1f1f1f";
+
 	return (
 		<div
 			{...props}
@@ -23,10 +30,12 @@ const Masthead = ({
 				position: sticky ? "sticky" : "relative",
 				top: sticky ? 0 : undefined,
 				zIndex: sticky ? 1000 : undefined,
+				color: backgroundColor,
 				...style,
 			}}
 		>
 			<Typography.Text
+				color={backgroundColor}
 				style={{
 					fontSize: "0.8rem",
 				}}

@@ -38,7 +38,7 @@ interface LayoutProps {
 	documentHeadLabel?: string;
 	mainTextColor?: string; // main color of the layout
 	contentBackgroundProps?: ContentBackgroundProps;
-	masthead?: boolean | AcaciaMastheadProps; // if true, then show the masthead with default text. If false, then do not show the masthead. If object, then show the masthead with the given props
+	masthead?: boolean | AcaciaMastheadProps; // true shows "Welcome to Acacia UI"; an object supplies custom masthead props
 }
 
 // theme background image props for the header
@@ -270,7 +270,10 @@ const VerticalLayout = ({
 			<Layout style={{ minHeight: "100vh" }}>
 				{props.masthead &&
 					(props.masthead === true ? (
-						<Masthead style={{ background: mastheadBackground }} />
+						<Masthead
+							text="Welcome to Acacia UI"
+							style={{ background: mastheadBackground }}
+						/>
 					) : (
 						<Masthead
 							{...props.masthead}

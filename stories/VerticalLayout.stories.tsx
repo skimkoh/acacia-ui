@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import VerticalLayout from "../src/components/layout/VerticalLayout/VerticalLayout";
 import { Panel } from "../src";
+import VerticalLayout from "../src/components/layout/VerticalLayout/VerticalLayout";
 const meta = {
 	title: "Vertical Layout/Vertical Layout",
 	component: VerticalLayout,
@@ -17,6 +17,94 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
+export const WithStickyMasthead = () => (
+	<VerticalLayout
+		masthead={{
+			text: "A sentence displayed at the top of the layout.",
+			sticky: true,
+		}}
+	>
+		<VerticalLayout.VerticalHeader
+			pageTitle="Title"
+			pageSubtitle="testing 123"
+			breadcrumbs={{
+				items: [
+					{
+						title: "Home",
+					},
+					{
+						title: "An Application",
+					},
+				],
+			}}
+			tabs={{
+				items: [
+					{
+						key: "1",
+						label: "Tab 1",
+					},
+					{
+						key: "2",
+						label: "Tab 2",
+					},
+					{
+						key: "3",
+						label: "Tab 3",
+					},
+				],
+			}}
+		/>
+	</VerticalLayout>
+);
+
+export const WithStaticMasthead = () => (
+	<VerticalLayout
+		menuProps={{
+			items: [
+				{ key: "1", label: "Page One" },
+				{ key: "2", label: "Page Two" },
+				{ key: "3", label: "Page Three" },
+			],
+			defaultSelectedKeys: ["1"],
+		}}
+		masthead={{
+			text: "A static sentence displayed at the top of the layout.",
+			sticky: false,
+		}}
+	>
+		<VerticalLayout.VerticalHeader
+			pageTitle="Title"
+			pageSubtitle="testing 123"
+			breadcrumbs={{
+				items: [
+					{
+						title: "Home",
+					},
+					{
+						title: "An Application",
+					},
+				],
+			}}
+			tabs={{
+				items: [
+					{
+						key: "1",
+						label: "Tab 1",
+					},
+					{
+						key: "2",
+						label: "Tab 2",
+					},
+					{
+						key: "3",
+						label: "Tab 3",
+					},
+				],
+			}}
+		/>
+	</VerticalLayout>
+);
 
 export const BasicVerticalLayout = () => (
 	<VerticalLayout
@@ -133,6 +221,10 @@ export const BasicVerticalLayoutWithCustomHeaderGradient = () => (
 				colors: ["#7d1b1b", "#e37b7b", "#e0a4a4"],
 			},
 		}}
+		masthead={{
+			text: "A sentence displayed at the top of the layout.",
+			sticky: true,
+		}}
 		menuProps={{
 			items: [
 				{ key: 1, label: "Page One" },
@@ -195,6 +287,10 @@ export const BasicVerticalLayoutWithCustomHeaderGradientLight = () => (
 				colors: ["#cebce0", "#966dbf", "#572985"],
 			},
 		}}
+		masthead={{
+			text: "A sentence displayed at the top of the layout.",
+			sticky: true,
+		}}
 		menuProps={{
 			items: [
 				{ key: 1, label: "Page One" },
@@ -247,6 +343,10 @@ export const BasicVerticalLayoutWithCustomHeaderAutoGradient = () => (
 				type: "gradient",
 				colors: ["#d1bb9d", "#73470b"],
 			},
+		}}
+		masthead={{
+			text: "A sentence displayed at the top of the layout.",
+			sticky: true,
 		}}
 		menuProps={{
 			items: [
@@ -301,6 +401,10 @@ export const BasicVerticalLayoutWithCustomHeaderGradientCSS = () => (
 				css: "linear-gradient(0deg, rgba(167, 182, 151, 0.96)14%,rgba(120, 154, 86, 0.96) 51%,rgba(114, 143, 98, 0.95) 81%)",
 			},
 		}}
+		masthead={{
+			text: "A sentence displayed at the top of the layout.",
+			sticky: true,
+		}}
 		menuProps={{
 			items: [
 				{ key: 1, label: "Page One" },
@@ -350,6 +454,10 @@ export const VerticalLayoutWithComplexMenu = () => (
 	<VerticalLayout
 		headerBackgroundProps={{
 			headerBackgroundImage: { type: "theme", theme: "classic" },
+		}}
+		masthead={{
+			text: "A sentence displayed at the top of the layout.",
+			sticky: true,
 		}}
 		menuProps={{
 			items: [
@@ -401,6 +509,10 @@ export const VerticalLayoutWithContent = () => (
 	<VerticalLayout
 		headerBackgroundProps={{
 			headerBackgroundImage: { type: "theme", theme: "classic" },
+		}}
+		masthead={{
+			text: "A sentence displayed at the top of the layout.",
+			sticky: true,
 		}}
 		menuProps={{
 			items: [

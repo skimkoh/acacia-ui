@@ -41,6 +41,9 @@ import type {
 	ProgressProps,
 	TreeSelectProps,
 	DrawerProps,
+	Spin as AntdSpin,
+	Result as AntdResult,
+	message as AntdMessage,
 } from "antd";
 
 import type { TextProps } from "antd/es/typography/Text";
@@ -51,11 +54,6 @@ import type { PaginationProps } from "antd/es/pagination/Pagination";
 import type { TextAreaProps } from "antd/es/input";
 import type { RibbonProps } from "antd/es/badge/Ribbon";
 import type { NewToken } from "../../theme/customTheme";
-import type {
-	Spin as AntdSpin,
-	Result as AntdResult,
-	message as AntdMessage,
-} from "antd";
 import type {
 	ArgsProps as AntdMessageProps,
 	ConfigOptions as MessageConfigOptions,
@@ -77,7 +75,12 @@ import type {
 } from "antd/es/breadcrumb/Breadcrumb";
 import type { DropdownButtonProps, DropdownProps } from "antd/es/dropdown";
 import type { LinkProps } from "antd/es/typography/Link";
-import type { ComponentPropsWithoutRef, CSSProperties } from "react";
+import type {
+	ComponentPropsWithoutRef,
+	ComponentPropsWithRef,
+	CSSProperties,
+	ReactNode,
+} from "react";
 import type { CheckboxGroupProps, CheckboxOptionType } from "antd/es/checkbox";
 import type { DirectoryTreeProps } from "antd/es/tree";
 
@@ -603,3 +606,10 @@ export type AcaciaMessageType = MessageInstance & {
 
 // NOTIFICATION
 export type NotificationProps = AntdNotificationProps;
+
+// CUSTOM MASTHEAD
+export interface AcaciaMastheadProps extends ComponentPropsWithRef<"div"> {
+	text?: ReactNode;
+	children?: ReactNode;
+	sticky?: boolean;
+}

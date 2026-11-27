@@ -1,4 +1,3 @@
-import "@fontsource-variable/roboto-flex";
 import type { AcaciaThemes } from "../components/ui/interfaces";
 import type { HeaderBackgroundProps } from "../components/layout/VerticalLayout/VerticalLayout";
 

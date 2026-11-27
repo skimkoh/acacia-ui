@@ -1,22 +1,23 @@
-## [1.7.0-pre.3](https://github.com/skimkoh/acacia-ui/compare/1.7.0-pre.2...1.7.0-pre.3) (2026-11-23)
-
-### Features
-
-* added masthead, upgraded vite to 7.3.8 ([72c02d0](https://github.com/skimkoh/acacia-ui/commit/72c02d0f74373fc7801e2fc69fc5ac524f5983e2))
+## [1.7.1](https://github.com/skimkoh/acacia-ui/compare/1.7.0...1.7.1) (2026-11-16)
 
 ### Bug Fixes
 
-* code smells and lockfile issues ([4958a3a](https://github.com/skimkoh/acacia-ui/commit/4958a3a47fcabd600852a4b2d1c04ab186504ee4))
-* merge conflict ([3d7a916](https://github.com/skimkoh/acacia-ui/commit/3d7a9164af35d6b757f24b441d089adf1ecbe0e5))
+* added docs on autocomplete + minor fix for Input ([e330eba](https://github.com/skimkoh/acacia-ui/commit/e330ebaa70f70e2582356948f856c27a42413ebb))
+* added QR component ([92705c3](https://github.com/skimkoh/acacia-ui/commit/92705c38a9df76b7cfe7f94e478ef95b0568b553))
+* added watermark component + docs ([0b92509](https://github.com/skimkoh/acacia-ui/commit/0b92509c9d73fa0572d8d2c1dd59ac2fdb46003f))
+* bugs with listy ([aec4483](https://github.com/skimkoh/acacia-ui/commit/aec44832035cb88c86a2610f0b1b255822c4bf08))
+* bugs with listy, watermark and qrcode ([d336fe7](https://github.com/skimkoh/acacia-ui/commit/d336fe7d193cd827a0846aa8e0a938cb32b895c2))
+* **popconfirm:** edited styles for semantic DOM ([a86159b](https://github.com/skimkoh/acacia-ui/commit/a86159ba2cce6671180087866d1f4e3a9a082c86))
+* use native title instead of react helmet ([f8216ad](https://github.com/skimkoh/acacia-ui/commit/f8216ad8d9f26cfbf797196160e931cd6897c137))
 
-## [1.7.0-pre.2](https://github.com/skimkoh/acacia-ui/compare/1.7.0-pre.1...1.7.0-pre.2) (2026-11-19)
+### Documentation
 
-### Dependencies Patch Upgrade
+* added anchor docs ([4bbfd2e](https://github.com/skimkoh/acacia-ui/commit/4bbfd2ea974b65616e478d3e29559c7aba0bd579))
+* added docs for popconfirm, affix and popover ([c0b9028](https://github.com/skimkoh/acacia-ui/commit/c0b90281e197a0945a4fe9f0776fe51ae5289770))
+* added form docs ([ddd4127](https://github.com/skimkoh/acacia-ui/commit/ddd412790d9abad1976d298f2a00a98af037a14f))
+* added listy ([9f5287d](https://github.com/skimkoh/acacia-ui/commit/9f5287d8bc887ac451a2e85da2a0fa04b8e927c0))
 
-* move antd to normal deps ([74f8212](https://github.com/skimkoh/acacia-ui/commit/74f82121e0e3cadb1a973059d3b8e5fe8785712b))
-* upgrade deps and remove antd from dev ([fb0be0b](https://github.com/skimkoh/acacia-ui/commit/fb0be0b8c3702326fc2b781444d7bb98de4221f1))
-
-## [1.7.0-pre.1](https://github.com/skimkoh/acacia-ui/compare/1.6.5...1.7.0-pre.1) (2026-11-17)
+## [1.7.0](https://github.com/skimkoh/acacia-ui/compare/1.6.5...1.7.0) (2026-10-16)
 
 ### Features
 
@@ -27,25 +28,16 @@
 ### Bug Fixes
 
 * added displayName ([dfd86be](https://github.com/skimkoh/acacia-ui/commit/dfd86be69170d00de920960ef26c0af6172bed74))
-* added docs on autocomplete + minor fix for Input ([e330eba](https://github.com/skimkoh/acacia-ui/commit/e330ebaa70f70e2582356948f856c27a42413ebb))
 * added mcp + edited ci ([f8c6298](https://github.com/skimkoh/acacia-ui/commit/f8c629845df7cafe324e804cc216fe6f15f4d272))
-* added QR component ([92705c3](https://github.com/skimkoh/acacia-ui/commit/92705c38a9df76b7cfe7f94e478ef95b0568b553))
 * added space compounded components, flex props and inputnumber, mentions docs ([56b9921](https://github.com/skimkoh/acacia-ui/commit/56b9921a1316f7a187d2a15ecee457761a37a113))
 * added timeline and calendar ([c89d907](https://github.com/skimkoh/acacia-ui/commit/c89d9077e735e996e1c7ec46375c8add9a182661))
-* added watermark component + docs ([0b92509](https://github.com/skimkoh/acacia-ui/commit/0b92509c9d73fa0572d8d2c1dd59ac2fdb46003f))
-* bugs with listy ([aec4483](https://github.com/skimkoh/acacia-ui/commit/aec44832035cb88c86a2610f0b1b255822c4bf08))
-* bugs with listy, watermark and qrcode ([d336fe7](https://github.com/skimkoh/acacia-ui/commit/d336fe7d193cd827a0846aa8e0a938cb32b895c2))
-* code review bugs for table and CSP rules ([1b59572](https://github.com/skimkoh/acacia-ui/commit/1b59572ab20cae13960d57d5205a70813f6f7865))
 * code smells ([38ef02a](https://github.com/skimkoh/acacia-ui/commit/38ef02ad9dcab7fa8542802833451f3897790b44))
 * code smells ([4b7495d](https://github.com/skimkoh/acacia-ui/commit/4b7495db53b4aa2bc4f160b4d6205806464af4e6))
-* **popconfirm:** edited styles for semantic DOM ([a86159b](https://github.com/skimkoh/acacia-ui/commit/a86159ba2cce6671180087866d1f4e3a9a082c86))
 * export interfaces and added FC types ([feb563a](https://github.com/skimkoh/acacia-ui/commit/feb563a63c56ca47c87d57cd646e1da663cf51c7))
 * fixed code smells ([24ba8fc](https://github.com/skimkoh/acacia-ui/commit/24ba8fc7b8dedc2f4422eb5581546e124ca80b93))
 * fixed code smells ([c2af732](https://github.com/skimkoh/acacia-ui/commit/c2af7320746b77b9054930f02c013acadb6a40f7))
-* font files issues + added docs for table ([e86246d](https://github.com/skimkoh/acacia-ui/commit/e86246df205eb493c17c00cab169ee14f356ee4c))
 * libraries version ([f8bb48e](https://github.com/skimkoh/acacia-ui/commit/f8bb48e6399c6751adb64829568e9f59009cc4f4))
 * splitter story issue ([1db5651](https://github.com/skimkoh/acacia-ui/commit/1db56512e05c9dd244a58fb0f56b6a818b04afa1))
-* use native title instead of react helmet ([f8216ad](https://github.com/skimkoh/acacia-ui/commit/f8216ad8d9f26cfbf797196160e931cd6897c137))
 
 ### Performance Improvements
 
@@ -53,12 +45,8 @@
 
 ### Documentation
 
-* added anchor docs ([4bbfd2e](https://github.com/skimkoh/acacia-ui/commit/4bbfd2ea974b65616e478d3e29559c7aba0bd579))
-* added docs for popconfirm, affix and popover ([c0b9028](https://github.com/skimkoh/acacia-ui/commit/c0b90281e197a0945a4fe9f0776fe51ae5289770))
 * added docs on card and segmented ([d798617](https://github.com/skimkoh/acacia-ui/commit/d7986177ee6c8ab902aaf4600d4be9586355f2ba))
 * added drawer docs + edited form component ([6d97d62](https://github.com/skimkoh/acacia-ui/commit/6d97d625fef016a62c35619538a0869441ca2b64))
-* added form docs ([ddd4127](https://github.com/skimkoh/acacia-ui/commit/ddd412790d9abad1976d298f2a00a98af037a14f))
-* added listy ([9f5287d](https://github.com/skimkoh/acacia-ui/commit/9f5287d8bc887ac451a2e85da2a0fa04b8e927c0))
 * added message docs + component ([f9b9d14](https://github.com/skimkoh/acacia-ui/commit/f9b9d1419b5657cd1fd20765db1fea1e6fa3b0af))
 * added more docs for alert, card, flex and space ([84ad88b](https://github.com/skimkoh/acacia-ui/commit/84ad88b45e43e27223f3f4df094ade22142f1d81))
 * added result component and docs ([bde9e38](https://github.com/skimkoh/acacia-ui/commit/bde9e38f29a9b175f5879a4ef813433996ccb73a))

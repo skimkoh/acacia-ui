@@ -1,3 +1,21 @@
+## [1.8.0](https://github.com/skimkoh/acacia-ui/compare/1.7.1...1.8.0) (2026-11-27)
+
+### Features
+
+* added masthead, upgraded vite to 7.3.8 ([72c02d0](https://github.com/skimkoh/acacia-ui/commit/72c02d0f74373fc7801e2fc69fc5ac524f5983e2))
+
+### Bug Fixes
+
+* code review bugs for table and CSP rules ([1b59572](https://github.com/skimkoh/acacia-ui/commit/1b59572ab20cae13960d57d5205a70813f6f7865))
+* code smells and lockfile issues ([4958a3a](https://github.com/skimkoh/acacia-ui/commit/4958a3a47fcabd600852a4b2d1c04ab186504ee4))
+* font files issues + added docs for table ([e86246d](https://github.com/skimkoh/acacia-ui/commit/e86246df205eb493c17c00cab169ee14f356ee4c))
+* merge conflict ([3d7a916](https://github.com/skimkoh/acacia-ui/commit/3d7a9164af35d6b757f24b441d089adf1ecbe0e5))
+
+### Dependencies Patch Upgrade
+
+* move antd to normal deps ([74f8212](https://github.com/skimkoh/acacia-ui/commit/74f82121e0e3cadb1a973059d3b8e5fe8785712b))
+* upgrade deps and remove antd from dev ([fb0be0b](https://github.com/skimkoh/acacia-ui/commit/fb0be0b8c3702326fc2b781444d7bb98de4221f1))
+
 ## [1.7.1](https://github.com/skimkoh/acacia-ui/compare/1.7.0...1.7.1) (2026-11-16)
 
 ### Bug Fixes
